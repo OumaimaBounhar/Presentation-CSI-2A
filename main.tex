@@ -985,15 +985,257 @@ minimum height=3em, minimum width=6em]
     
     \begin{frame}
         \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Comparison to Rayleigh fading}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.95\textwidth]{Figures/sionna_validated_simple_case.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
+        \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
+        \begin{columns}[T]
+            \begin{column}{0.52\textwidth}
+                \centering
+                \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
+            \end{column}
+            \begin{column}{0.46\textwidth}
+                \small
+                \begin{itemize}
+                    \item Cells are spaced by half a wavelength, $d=\lambda/2$.
+                    \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
+                    \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
 
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Ray tracing: one candidate path per unit cell}
+        \begin{columns}[T]
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.92\textwidth]{Tikz/ris_geometry.pdf}
+            \end{column}
+            \begin{column}{0.37\textwidth}
+                \small
+                Every RIS unit cell $c_n$, $n=1,\ldots,N$, is treated as an
+                \textbf{independent} candidate path:
+                \[
+                    \text{TX} \to c_n \to \text{RX}.
+                \]
+                \vspace{0.2cm}
+                Using the angles from the previous slide, a candidate survives only if:
+                \begin{itemize}
+                    \item both legs are unobstructed;
+                    \item $\cos\theta_i>0$ and $\cos\theta_m>0$.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{From scene geometry to channel taps}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{Tikz/compute_paths_pipeline.pdf}
+        \end{center}
+        \small The channel impulse response is reconstructed from the $N_{\text{valid}}$ \textbf{geometric and deterministic} per-cell taps, either kept individually resolved or coherently combined into a single tap at the mean delay:
+        \vspace{0.1cm}
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<1-2>{
+                \begin{block}{\footnotesize Individually resolved (multipath)}
+                    \footnotesize
+                    \[
+                        h_{\text{RIS}}(t) = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, \delta(t-\tau_n)
+                    \]
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{alertblock}{\footnotesize Coherently combined (single tap)}
+                    \footnotesize
+                    \[
+                        \bar\tau = \frac{1}{N_{\text{valid}}}\sum_{n} \tau_n
+                    \]
+                    \[
+                        h_{\text{RIS}}(t) = a_{\text{RIS}}\,\delta(t-\bar\tau)
+                    \]
+                    \[
+                        a_{\text{RIS}} = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, e^{-j2\pi f(\tau_n-\bar\tau)}
+                    \]
+                \end{alertblock}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Key takeaways}
+        \begin{itemize}[<+->]
+            \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
+            \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
+        \end{itemize}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{BER validation: Sionna vs.\ theoretical Rayleigh}
+        \begin{center}
+            \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
+        \end{center}
+        \footnotesize The theoretical i.i.d.\ Rayleigh BER (\emph{Without Sionna}) and the BER measured on Sionna's flat-fading channel realizations (\emph{With Sionna}) overlap exactly, for every modulation order, $N_t=1$, $N_r=64$ -- confirming Sionna's channel generation matches theory, before introducing the RIS.
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{BER validation: RIS multipath is correctly captured}
+        \begin{columns}[T]
+            \begin{column}{0.55\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png}
+            \end{column}
+            \begin{column}{0.43\textwidth}
+                \footnotesize
+                \begin{itemize}
+                    \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap, as before.
+                    \item \emph{Sionna + RIS} departs from both, requiring higher $E_s/N_0$ for the same BER, across every QAM order.
+                    \item Confirms the RIS's multipath is correctly captured, rather than collapsing back to the flat-fading case.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    %------------------------------------------------
+    % Bibliography
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Scientific contributions}
+        \bibliographystyle{IEEEtran} 
+        \bibliography{bibtex}  
+        \end{frame}
+
+    %------------------------------------------------
+
+    \section{Future Perspectives}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Future Perspectives}
+            \begin{itemize}
+            \item \textit{Mobile user scenario:} \begin{itemize}
+                \item Validate the performance of our proposed approach on the generated channels with the Sionna framework.
+                \item Handle user mobility and time-varying channels.
+                \item Do a a real-world experiment with RIS prototypes
+            \end{itemize}
+            \pause
+            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios.
+            \end{itemize}
+    \end{frame}
+
+    %------------------------------------------------
+    % End page
+    %------------------------------------------------
+
+    \title{\textcolor{purple}{Thank you! Questions?}}
+    \begin{frame}{}
+        \maketitle
+    \end{frame}
+
+    %------------------------------------------------
+    % Appendix
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Euclidean distance}
+        \begin{equation}
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
+            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
+            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
+        \end{equation}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Q-Learning algorithm}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
+    \end{frame}
+
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach : Reinforcement Learning}
+        \framesubtitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Scene view}
+        \framesubtitle{The area around the Arc de Triomphe in Paris}
+        \centering
+        \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Scene view}
+        \framesubtitle{Simple floor-wall scenario}
+
+        \centering
+        \begin{tikzpicture}
+            \node[anchor=south west, inner sep=0] (img) at (0,0)
+            {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
+
+            % Labels
+            \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
+            \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
+            \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
+
+            % Optional arrows
+            \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
+            \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
+            \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
+        \end{tikzpicture}
+
+        \vspace{0.25cm}
+        {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
+        \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
+    \end{frame}
+    
     %------------------------------------------------
     
     \begin{frame}
@@ -1124,437 +1366,7 @@ minimum height=3em, minimum width=6em]
         \end{alertblock}
 
     \end{frame}
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Configuring scene geometry and RIS activation}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.8\textwidth]{Figures/RIS_geomtery_0.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
 
     %------------------------------------------------
     
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Configuring scene geometry and RIS activation}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.8\textwidth]{Figures/RIS_geomtery_1.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Configuring scene geometry and RIS activation}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.8\textwidth]{Figures/RIS_geomtery_2.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Configuring scene geometry and RIS activation}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.8\textwidth]{Figures/RIS_geomtery_3.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Channel computation workflow}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.9\textwidth]{Figures/Channel_Compuation_Flow.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
-
-    %------------------------------------------------
-    
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Toy example : 1D-DFT Codebook (3 codewords)}
-
-        \begin{block}{DFT codebook construction}
-            For $K$ codewords, the $k$-th 1D-DFT codeword is:
-            \begin{equation*}
-                \boldsymbol{\Phi}_k
-                =
-                \begin{bmatrix}
-                1 &
-                e^{j\theta_k} &
-                e^{j2\theta_k} &
-                \cdots &
-                e^{j(N-1)\theta_k}
-                \end{bmatrix}^{T},
-                \qquad
-                \theta_k
-                =
-                \frac{2\pi \text{k}}{\text{K}}.
-            \end{equation*}
-        \end{block}
-
-        \vspace{0.2cm}
-
-        \begin{alertblock}{Toy example}
-            We use a 1D-DFT codebook with $K=3$ codewords:
-            \begin{equation*}
-                \boldsymbol{\Phi}^1_3
-                =
-                \left[
-                \boldsymbol{\Phi}_1,
-                \boldsymbol{\Phi}_2,
-                \boldsymbol{\Phi}_3
-                \right]
-                =
-                \begin{bmatrix}
-                0 & 0 & 0 \\
-                0 & -\frac{2\pi}{3} & \frac{2\pi}{3} \\
-                0 & \frac{2\pi}{3} & -\frac{2\pi}{3}
-                \end{bmatrix}.
-            \end{equation*}
-        \end{alertblock}
-
-    \end{frame} 
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Toy example : 1D-DFT Codebook (3 codewords)}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.7\textwidth]{Figures/Channel_magnitude_simple_test.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-    \end{frame}
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Generated channel}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = 0.65\textwidth]{Figures/BER_normalized_channels_sionna.png}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        
-    \end{frame}    
-
-
-    %------------------------------------------------
-    % Bibliography
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Scientific contributions}
-        \bibliographystyle{IEEEtran} 
-        \bibliography{bibtex}  
-        \end{frame}
-
-    %------------------------------------------------
-
-    \section{Future Perspectives}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Future Perspectives}
-            \begin{itemize}
-            \item \textit{Mobile user scenario:} \begin{itemize}
-                \item Validate the performance of our proposed approach on the generated channels with the Sionna framework.
-                \item Handle user mobility and time-varying channels.
-                \item Do a a real-world experiment with RIS prototypes
-            \end{itemize}
-            \pause
-            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios.
-            \end{itemize}
-    \end{frame}
-
-    %------------------------------------------------
-    % End page
-    %------------------------------------------------
-
-    \title{\textcolor{purple}{Thank you! Questions?}}
-    \begin{frame}{}
-        \maketitle
-    \end{frame}
-
-    %------------------------------------------------
-    % Appendix
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Euclidean distance}
-        \begin{equation}
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
-            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
-            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
-        \end{equation}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
-    \end{frame}
-    
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Q-Learning algorithm}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
-    \end{frame}
-
-    
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach : Reinforcement Learning}
-        \framesubtitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
-    \end{frame}
-    
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Scene view}
-        \framesubtitle{The area around the Arc de Triomphe in Paris}
-        \centering
-        \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Scene view}
-        \framesubtitle{Simple floor-wall scenario}
-
-        \centering
-        \begin{tikzpicture}
-            \node[anchor=south west, inner sep=0] (img) at (0,0)
-            {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
-
-            % Labels
-            \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
-            \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
-            \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
-
-            % Optional arrows
-            \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
-            \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
-            \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
-        \end{tikzpicture}
-
-        \vspace{0.25cm}
-        {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
-        \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
-    \end{frame}
-
-    \begin{frame}
-        \begin{align*}
-            \text{a}_{\text{i}}^{\text{b}} &= \text{a}_{\text{i}} e^{-\text{j} 2\pi \text{f} \tau_{\text{i}}} \\
-            \text{H}(f) &= \sum_{\text{i}}^{}\text{a}_{\text{i}} e^{-\text{j} 2\pi \text{f} \tau_{\text{i}}} \\
-            g_{\text{i},\text{j}} &= \frac{1}{|C|} \int_{C_{\text{i},\text{j}}}{} |h(s)|^2 ds \\ 
-            \text{RSS}_{\text{i},\text{j}} &= \text{P}_\text{tx} . \text{g}_{\text{i},\text{j}} \\
-            \text{N}_{0} &= \text{k} . \text{T} . \text{B} \,[\text{W/Hz}] \\
-            \sigma^2 &= 10 \log_{10} (\text{N}_{0}) \,[\text{W}] \\
-            \text{SNR} &= 10 \log_{10} (\frac{\text{P}_\text{tx} \|h\|^2}{\sigma^{2}}) \\ 
-            \tau_{\text{i}} &= \text{a}_{\text{i}} \\
-            \sigma^2 &= -174 + 10 \log_{10} \text{B} \,[\text{dBm}] = -94\,[\text{dBm}]\\
-            \text{P}_\text{dBm} &= 30 + 10 \log_{10} \text{P}_{\text{W}}
-        \end{align*}
-    \end{frame}
-
-    \begin{frame}
-        \begin{align*}
-        \mathrm{SINR}_{i,j}^{k}
-        &=
-        \frac{\mathrm{RSS}_{i,j}^{k}}
-        {N_{0} + \sum_{k' \ne k} \mathrm{RSS}_{i,j}^{k'}} \\
-        \mathrm{R} &= (\mathrm{H}^{\text{H}}\mathrm{H})^{-1}\mathrm{H}^{\text{H}} \\
-        \mathrm{y} &=\mathrm{H}\mathrm{x} + \mathrm{W} \\
-        \mathrm{R}\mathrm{y} &= \mathrm{x} + \mathrm{R}\mathrm{W} \\ 
-        \mathrm{E}_{\mathrm{x}_\text{tx}} &= \sum \left|\mathrm{x}_{\text{tx}}\right|^{2}\\
-        \mathrm{E}_{\hat{\mathrm{x}}} &= \sum \left|\hat{\mathrm{x}}\right|^{2}\\
-        \mathrm{E}_{\mathrm{y}_{\text{mrc}}} &= \sum \left|\mathrm{y}_{\text{mrc}}\right|^{2}\\
-        &= {\left\lVert \mathrm{H} \right\rVert}^{2} \mathrm{E_s} + \sigma_w^2\\
-        \mathrm{y}_{\text{mrc}} &= \frac{\mathrm{H}^{\mathrm{H}}\mathrm{y}}{\left\lVert \mathrm{H} \right\rVert}\\
-        &= \left\lVert \mathrm{H} \right\rVert \mathrm{x}_\text{tx} + \frac{\mathrm{H}^{\mathrm{H}}\mathrm{W}}{\left\lVert \mathrm{H} \right\rVert}
-        \end{align*}
-    \end{frame}
-
-    \begin{frame}
-        \begin{align*}
-            \frac{\mathrm{E}_{\hat{\mathrm{x}}}}{\mathrm{E}_{\mathrm{x}_\text{tx}}} \\
-            \left\lVert \mathrm{H} \right\rVert \mathrm{E}_{s} \ll \sigma_w^2\\
-            \left\lVert \mathrm{H} \right\rVert \mathrm{E}_{s} \gg \sigma_w^2\\
-            \sigma_w^2 &= \frac{{\left\lVert \mathrm{H} \right\rVert}^{2} \mathrm{E}_{s}}{\text{SNR}_{\text{linear}}} \\
-            \sigma_w^2 &= \frac{\mathrm{E}_{s}}{\text{SNR}_{\text{linear}}} \\
-            \text{SNR}_{\text{real}} &= \frac{{\left\lVert \mathrm{H} \right\rVert}^{2} \mathrm{E}_{s}}{\sigma_w^2} \\
-            &= \frac{{\left\lVert \mathrm{H} \right\rVert}^{2} \mathrm{E}_{s}}{\frac{\mathrm{E}_{s}}{\text{SNR}_{\text{linear}}}} \\
-            &= {\left\lVert \mathrm{H} \right\rVert}^{2} \text{SNR}_{\text{linear}}
-        \end{align*}
-    \end{frame}
-
-    \begin{frame}
-        \begin{align*}
-            \mathrm{SNR}_{\text{real}} &= \frac{P_{\mathrm{tx}} \left\|H\right\|^2}{\sigma_{W}^2} \\
-            \Longrightarrow \quad
-            P_{\mathrm{tx}} &= \frac{\mathrm{SNR}_{\text{real}}\,\sigma_{W}^2}{\left\|H\right\|^2} \\
-            x &= 7 \pi sin(\Phi) \\
-            y_j &= r_j + \gamma Q(\Phi_{j+1}, \arg\max_{a'} Q(\Phi_{j+1},a';\theta);\theta^-) \\
-            \delta_t &= r_t + \gamma (1 - d_t) V_{t+1} - V_{t} \\
-            A_t &= \delta_t + \gamma \lambda(1 - e_t) A_{t+1} \\
-            R_t &= A_t + V_t \\
-            r_t(\theta) &= \frac{\pi_\theta(a_t \mid s_t)}{\pi_{\theta_{\mathrm{old}}}(a_t \mid s_t)} 
-        \end{align*}
-    \end{frame}
-
-    \begin{frame}
-        \begin{align*}
-            L_t^{\mathrm{CLIP}}(\theta) &= \min\left(r_t(\theta)A_t,\operatorname{clip}\left(r_t(\theta),1-\epsilon,1+\epsilon\right)A_t\right) \\
-            L_{\mathrm{actor}} &= -\mathbb{E}_t\left[\min\left(r_t(\theta)A_t,\operatorname{clip}\left(r_t(\theta),1-\epsilon,1+\epsilon\right)A_t\right)\right] \\
-            L_{\mathrm{critic}} &= \frac{1}{2}\mathbb{E}_t\left[\left(V_t-R_t\right)^2\right] \\
-            L_{\mathrm{critic}} &= \frac{1}{2}\mathbb{E}_t\left[\left(V_\Phi(s_t)-R_t\right)^2\right] \\
-            H(\pi_\theta) &= -\mathbb{E}_t\left[\sum_a\pi_\theta(a\mid s_t)\log\pi_\theta(a\mid s_t)\right] \\
-            L_{\mathrm{total}} &= L_{\mathrm{actor}} + c_v L_{\mathrm{critic}} + c_e L_{\mathrm{entropy}}
-        \end{align*}
-    \end{frame}
-
-    \begin{frame}{Proximal Policy Optimization: Approximate KL Divergence}
-
-        \textbf{True KL divergence:}
-        \begin{align*}
-        D_{KL}\left(\pi_{\text{old}} \,\|\, \pi_\theta\right) &= \mathbb{E}_t\left[\log \frac{\pi_{\text{old}}(a_t \mid s_t)}{\pi_\theta(a_t \mid s_t)}\right]
-        \end{align*}
-
-        \textbf{Estimators} (with $r_t(\theta) = \dfrac{\pi_\theta(a_t\mid s_t)}{\pi_{\text{old}}(a_t\mid s_t)}$, $\log r_t = \log\pi_\theta - \log\pi_{\text{old}}$):
-
-        \begin{align*}
-        k_1 &= -\log r_t \\[4pt]
-        k_2 &= \tfrac{1}{2}\left(\log r_t\right)^2 \\[4pt]
-        k_3 &= \left(r_t - 1\right) - \log r_t
-        \end{align*}
-        \vspace{-3mm}
-        \textbf{Early stopping rule:}
-        \begin{align*}
-        \text{if } \; \hat{D}_{KL} &= \frac{1}{N}\sum_{t=1}^{N} k_3^{(t)} \;>\; \delta_{\text{target}} \quad \Rightarrow \quad \text{stop epoch updates}
-        \end{align*}
-
-    \end{frame}
-
-    \begin{frame}
-        $$p(Y_{1:S}\mid c);=;\int p(Y_{1:S}\mid h,\varphi_{1:S});p(h\mid c);dh .$$
-        $$\text{posterior}(c);\propto;\text{prior}(c);\cdot;\mathcal{L}(c)\qquad(\text{then}+10^{-8}\text{ and normalise to sum }1)$$
-    \end{frame}
-%     %---------------------Poster---------------------------
-%     \begin{frame}
-%         \begin{itemize}
-%             \item 5G \& 6G rely on Milimiter waves (mmWaves) for a higher coverage;
-%             \item mmWaves suffer from fading environments;
-%             \item RIS is a promising solution with low power consumption;
-%             \item Channel estimation is challenging. Focus on blind methods where the channel $\mathbf H$ is unkown.
-%             \item Number of users ($\mathrm N_{\text{UE}}$): 1;
-%             \item Number of antennas ($\mathrm N_{\text{BS}}$): 64;
-%             \item Number of RIS elements ($\mathrm N_{\text{RIS}}$): 100;
-%             \item The direct link $\mathbf{h}_{D}$ is blocked.
-%             \end{itemize}
-%     \end{frame}
-
-%     %------------------------------------------------
-
-%     \begin{frame}
-%         \onslide We consider half-wave spaced uniform linear arrays :
-%         \vspace{3mm} \\
-%         \begin{equation*}
-%             \begin{split}   
-%                 \bold{H}_{BS} &=  \mathbf{a}_{\mathrm N_{\text{RIS}}}(\Phi_{1}) \mathbf{a}_{\mathrm N_{\text{BS}}}^H(\Phi_{2}) \\
-%                 \bold{h}_{UE} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N_{\text{RIS}}}^H(\Phi_{4}) 
-%             \end{split}
-%         \end{equation*}
-%         \onslide where the steering vector is : 
-%         \vspace{3mm}
-%         \begin{equation*}
-%             \mathbf{a}_{\mathrm N_{\text{RIS}}}(\Phi) = [1,e^{j\pi \sin (\Phi)},\ldots, e^{j\pi (\mathrm N_{\text{RIS}}-1) \sin (\Phi)}]^T
-%         \end{equation*}
-%         \vspace{3mm}
-%         The signal received at the BS is:
-%         \begin{equation*}
-%             \mathbf y = \sqrt{P}\mathbf{H}_{BS} \boldsymbol{\Theta} \mathbf{h}_{UE} s + w
-%         \end{equation*}
-%         \vspace{3mm}
-%         The full channel between the UE and the BS is:\\
-%         Achievable rate between the UE and the BS:
-%     \end{frame}
-
-%     %------------------------------------------------
-
-%     \begin{frame}
-%         \begin{equation*}
-%             \mathrm{R} 
-%             = 
-%             \max_{i \in \llbracket N_c \rrbracket} 
-%             \left [
-%                 \log_2 \left ( 1+\frac{P \|\bold{H}_{BS} \text{diag}({\Phi_{i}}) \mathbf{h}_{UE}\|_2^2 }{\sigma_w^2} \right )
-%             \right ]
-%         \end{equation*}
-%     \end{frame}
-
-%     \begin{frame}
-%         \begin{equation*}
-%             \mathbf h(\boldsymbol{\Phi}) = \bold{H}_{BS} \boldsymbol{\Theta} \mathbf{h}_{UE} \\
-%             \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
-%         \end{equation*}  \\
-%         Let $\boldsymbol{\Phi}$ be the codebook for communication and $\boldsymbol{\Psi}$ the codebook used for pilots. \\
-%         We define the class $\boldsymbol{\Phi}(\mathbf H)$ : 
-%         \begin{equation*}
-%             \boldsymbol{\Phi}(\mathbf H) = \{i \in \llbracket N_c \rrbracket : \Phi_{i} = \argmax_{i \in \llbracket N_c \rrbracket} \!\ (||\bold{h}(\boldsymbol{\Phi_{i}})||_2^2)\}.
-%         \end{equation*}
-%     \end{frame}
-%     \begin{frame}
-%         \begin{block}{Objective}
-%             For $\delta \in [0;1]$, we want to find the optimal configuration $\Phi_{opt} \in \boldsymbol{\Phi}$ while minimizing the number of required pilots $\Psi \in \boldsymbol{\Psi}$. Thus, we need to find $\mathrm L_{min}$ st. the probability of correct classification respects a fixed degree of precision $\delta$ :
-%             \begin{equation*}
-%                 \mathrm L_{\min} = \min \{\mathrm L_p : \| p(\boldsymbol{\Phi}(\mathbf H) | Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}
-%             \end{equation*}
-%         \end{block}
-%         \raggedright $\mathbf S_{T_{Real}} = [\mathbf S_{T}(\mathbf H_1),\ldots,\mathbf S_{T}(\mathbf H_{N_{Dataset}})]$, where $\mathbf{S}_T(\mathbf H_k) = [0 \cdots 0 \underset{\substack{\downarrow \\ \text{\it $c^{*}$}}}{1} 0  \cdots 0 ] $,
-%         $c^{*} = \argmax_{c \in [1;N_c]} ||\bold{h}(\Phi_c)||_2^2)$.
-%     \end{frame}
 \end{document} 
