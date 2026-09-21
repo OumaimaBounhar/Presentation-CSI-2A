@@ -42,6 +42,7 @@ minimum height=3em, minimum width=6em]
 
 \usepackage{pifont} % For symbols, icônes...
 \usepackage{xcolor}
+\usepackage{fontawesome5} % For doctor/book/vial icons in the analogy slides
 \newcommand{\fancybullet}{\ding{51}}
 \newcommand{\boxqmark}{\fbox{\textbf{?}}}
 
@@ -330,6 +331,257 @@ minimum height=3em, minimum width=6em]
 
     %------------------------------------------------
 
+    \section{Motivating Analogy}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{A Motivating Analogy}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.82, transform shape, every node/.style={align=center, font=\small}]
+
+            % --- Reference book with 8 diseases ---
+            \node<1-> (book) [draw, thick, rounded corners, fill=blue!5,
+                minimum width=4.4cm, minimum height=2.8cm] at (-3.6,1.9) {};
+            \node<1-> [above=0.05cm of book, font=\bfseries] {Reference Book (Dataset)};
+            \foreach \i/\x/\y in {1/-0.9/0.55,2/-0.3/0.55,3/0.3/0.55,4/0.9/0.55,%
+                                  5/-0.6/-0.15,6/0/-0.15,7/0.6/-0.15,8/0/-0.75}{
+                \node<1-> [font=\Large, red!60!black] at ($(book.center)+(\x,\y)$) {\faVirus};
+            }
+            \node<1-> [below=0.05cm of book, font=\itshape\footnotesize] {8 known diseases};
+
+            % --- Doctor ---
+            \node<2-> (doctor) [font=\Large, orange!80!black] at (-3.6,-2.2) {\faUserMd};
+            \node<2-> [below=0.1cm of doctor, font=\bfseries\footnotesize] {Clinician};
+
+            % --- 14 cheap tests, single row, box sized to hold exactly that row ---
+            \node<3-> (tests) [draw, thick, rounded corners, fill=green!5,
+                minimum width=5.8cm, minimum height=0.9cm] at (3.2,-0.65) {};
+            \node<3-> [above=0.05cm of tests, font=\bfseries] {14 Cheap Lab Tests};
+            \foreach \i in {1,...,14}{
+                \pgfmathsetmacro{\vx}{3.2-2.6+(\i-1)*0.4}
+                \node<3-> [font=\normalsize, green!50!black] at (\vx,-0.65) {\faVial};
+            }
+
+            % --- doctor administers tests ---
+            \draw<4-> [->, thick] (doctor) to[bend left=15] (tests.south west);
+            \node<4-> [below=0.05cm of tests, font=\footnotesize] {sequentially run, one at a time};
+
+            % --- doctor consults the reference book with accumulated results ---
+            \draw<5-> [->, thick, red!70!black] (tests.north west) to[bend left=25] (book.south east);
+            \node<5-> [font=\footnotesize, red!70!black] at (0.0,0.7) {compare results};
+
+            % --- diagnosis found: highlight one disease (exactly on top of the icon) ---
+            \node<6-> [draw, circle, thick, red!70!black, minimum size=0.7cm] at ($(book.center)+(0.3,0.55)$) {};
+            \node<6-> [right=0.2cm of book, xshift=1.9cm, text width=5.2cm, font=\bfseries\footnotesize, red!70!black]
+                {Diagnosis found \mbox{after} only a \underline{few} tests!};
+
+        \end{tikzpicture}
+        \end{center}
+
+        \onslide<7->{
+        \begin{center}
+            \textbf{Goal:} find the right diagnosis using as \underline{\textbf{few cheap tests as possible}}.
+        \end{center}
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{From Analogy to Our Problem}
+        \begin{itemize}[<+-|alert@+>]
+            \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
+            \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
+            \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
+            \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
+            \item Test result $\longrightarrow$ Received Signal Energy (RSE);
+            \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
+        \end{itemize}
+        \vspace{0.4cm}
+        \onslide<7->{
+        \begin{center}
+            \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
+        \end{center}
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Building the Dataset}
+        \framesubtitle{How is a sample constructed?}
+        \begin{columns}[T]
+            \begin{column}{0.56\textwidth}
+                \vspace{0.3cm}
+                \resizebox{\linewidth}{!}{%
+                \begin{tikzpicture}[every node/.style={font=\small}]
+
+                    % --- Big dataset ellipse, sized to hug the classes tightly (no wasted margin) ---
+                    \draw<1-> [thick] (0,0) ellipse (4.6 and 2.9);
+                    \node<1-> [above] at (0,3.05) {\textbf{Dataset $\mathcal{D}$}};
+
+                    % --- One class circle per communication codeword, filled with Monte Carlo samples ---
+                    % Spread across the ellipse (corners + sides), not on a single circle, leaving
+                    % only a small central gap. Each class is a NAMED node (c1..c8) so an arrow can
+                    % later target it, e.g. \draw[->] (something) -- (c3);
+                    \foreach \i/\col/\x/\y in {0/red/-2.3/1.4,1/orange/0/2.0,2/yellow/2.3/1.4,%
+                                               3/green/-3.6/0,4/teal/3.6/0,%
+                                               5/violet/-2.3/-1.4,6/blue/0/-2.0,7/magenta/2.3/-1.4}{
+                        \pgfmathtruncatemacro{\ov}{\i+1}
+                        \node<2-> [draw, thick, circle, minimum size=1.6cm,
+                            fill=\col!60, fill opacity=0.15] (c\ov) at (\x,\y) {};
+
+                        \pgfmathsetseed{\ov*17+5}
+                        \foreach \k in {1,...,55}{
+                            \pgfmathsetmacro{\rr}{0.62*sqrt(rnd)}
+                            \pgfmathsetmacro{\aa}{360*rnd}
+                            \node<3-> [circle, fill=\col!80!black, inner sep=0.4pt] at ($(c\ov)+(\aa:\rr)$) {};
+                        }
+
+                        % Label drawn last so it stays on top of the scattered samples
+                        \node<2-> [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
+                            text opacity=1, inner sep=1.5pt] at (c\ov) {$\boldsymbol{\Phi}_{\ov}$};
+                    }
+                \end{tikzpicture}}
+            \end{column}
+            \begin{column}{0.43\textwidth}
+                \small
+                \onslide<1->{\textbf{1.} Draw a random channel $\mathbf{H}$.\\[0.3cm]}
+                \onslide<2->{\textbf{2.} Run all $\mathrm{N}_c{=}8$ communication codewords on $\mathbf{H}$ \emph{without noise} (forbidden tests) $\rightarrow$ best RSE $\rightarrow$ assign $c^*$.\\[0.3cm]}
+                \onslide<3->{\textbf{3.} Run all $\mathrm{N}_p{=}14$ pilot codewords on $\mathbf{H}$ \emph{with noise} (cheap tests) $\rightarrow$ a 14-number ``fingerprint'' stored as a sample of class $c^*$.}
+                \onslide<4->{\vspace{0.3cm}\\ \footnotesize Each class $\boldsymbol{\Phi}_i$ $\geq$ \textbf{200} such samples.}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{The Likelihood Model}
+        \begin{columns}[c]
+            \begin{column}{0.58\textwidth}
+                \onslide<1->{
+                \begin{center}
+                    \large This collection \emph{is} the likelihood model.
+                \end{center}
+                }
+                \vspace{0.5cm}
+                \onslide<2->{
+                \begin{center}
+                    \alert{\Large ``What do the 14 pilot readings\\ tend to look like\\ when the answer is $c$?''}
+                \end{center}
+                }
+                \vspace{0.5cm}
+                \onslide<3->{
+                \begin{center}
+                    $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
+                \end{center}
+                }
+                \onslide<4->{
+                \begin{center}
+                    \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
+                \end{center}
+                }
+            \end{column}
+            \begin{column}{0.4\textwidth}
+                \onslide<1->{
+                \begin{center}
+                \begin{tikzpicture}[every node/.style={font=\small}]
+                    \node [draw, thick, circle, minimum size=3cm,
+                        fill=blue!60, fill opacity=0.15] (cq) at (0,0) {};
+                    \pgfmathsetseed{42}
+                    \foreach \k in {1,...,55}{
+                        \pgfmathsetmacro{\rr}{1.15*sqrt(rnd)}
+                        \pgfmathsetmacro{\aa}{360*rnd}
+                        \node [circle, fill=blue!80!black, inner sep=0.4pt] at ($(cq)+(\aa:\rr)$) {};
+                    }
+                    \node [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
+                        text opacity=1, inner sep=1.5pt] at (cq) {$\boldsymbol{\Phi}_{c}$};
+                \end{tikzpicture}
+                \end{center}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{What Does Each Class Represent?}
+        \framesubtitle{Hierarchical codebook: recursive splitting down to $\mathrm N_c = 8$ classes}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.88]
+
+            % Row baselines (bottom to top): level 3 (8 blue), level 2 (4 red), level 1 (2 red)
+            \def\ymid{1.8}
+            \def\ytop{3.6}
+            \def\hgt{0.9}
+
+            % --- Level 1: 2 wide, smooth lobes splitting the whole angular range in two ---
+            \foreach \k in {0,1}{
+                \pgfmathsetmacro{\xl}{\k*4}
+                \pgfmathsetmacro{\xr}{\xl+4}
+                \pgfmathsetmacro{\xc}{\xl+2}
+                \fill<1-> [red!70!black, opacity=0.35]
+                    plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\ytop+\hgt*(cos(90*(\x-\xc)/2))^2}) -- (\xr,\ytop) -- (\xl,\ytop) -- cycle;
+                \draw<1-> [thick] plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\ytop+\hgt*(cos(90*(\x-\xc)/2))^2});
+            }
+
+            % --- Level 2: each level-1 lobe splits into two smooth lobes (4 total) ---
+            \foreach \k in {0,...,3}{
+                \pgfmathsetmacro{\xl}{\k*2}
+                \pgfmathsetmacro{\xr}{\xl+2}
+                \pgfmathsetmacro{\xc}{\xl+1}
+                \fill<2-> [red!70!black, opacity=0.35]
+                    plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\ymid+\hgt*(cos(90*(\x-\xc)/1))^2}) -- (\xr,\ymid) -- (\xl,\ymid) -- cycle;
+                \draw<2-> [thick] plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\ymid+\hgt*(cos(90*(\x-\xc)/1))^2});
+            }
+
+            % --- Level 3: each level-2 lobe splits into two = the N_c = 8 final classes (blue) ---
+            \foreach \j in {0,...,7}{
+                \pgfmathtruncatemacro{\cidx}{\j+1}
+                \pgfmathsetmacro{\xl}{\j*1}
+                \pgfmathsetmacro{\xr}{\xl+1}
+                \pgfmathsetmacro{\xc}{\xl+0.5}
+                \fill<3-> [blue!70!black, opacity=0.55]
+                    plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\hgt*(cos(90*(\x-\xc)/0.5))^2}) -- (\xr,0) -- (\xl,0) -- cycle;
+                \draw<3-> [thick] plot[domain=\xl:\xr, samples=30, smooth, variable=\x]
+                    (\x,{\hgt*(cos(90*(\x-\xc)/0.5))^2});
+                \node<3-> [font=\scriptsize, below] at (\xc,-0.15) {$C_{\cidx}$};
+            }
+
+            % --- Dashed guides showing how each parent splits into its two children ---
+            \foreach \x in {0,1,...,8}{
+                \draw<2-> [dashed, gray, opacity=0.5] (\x,\ymid) -- (\x,\ytop);
+            }
+            \foreach \x in {0,1,...,8}{
+                \draw<3-> [dashed, gray, opacity=0.5] (\x,0) -- (\x,\ymid);
+            }
+
+            % --- Axes (angle / gain) ---
+            \draw<1-> [->, thick] (-0.5,0) -- (8.8,0) node[right, font=\footnotesize] {angle $\theta$};
+            \draw<1-> [->, thick] (-0.5,0) -- (-0.5,{\ytop+\hgt+0.4}) node[above, font=\footnotesize] {gain};
+
+            \node<3-> [font=\footnotesize, left] at (-0.6,{0.5*\hgt}) {Level 3};
+            \node<2-> [font=\footnotesize, left] at (-0.6,{\ymid+0.5*\hgt}) {Level 2};
+            \node<1-> [font=\footnotesize, left] at (-0.6,{\ytop+0.5*\hgt}) {Level 1};
+        \end{tikzpicture}
+        \end{center}
+        \onslide<4->{
+        \footnotesize
+        {\color{red!70!black}Red}: successive pilot search levels, each splitting the angular range in two. \\
+        {\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\boldsymbol{\Phi}_i$.
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
     \section{State-of-the-art}
 
     %------------------------------------------------    
@@ -384,13 +636,9 @@ minimum height=3em, minimum width=6em]
 
     %------------------------------------------------
 
-    \section{Bayesian Classifier}
-
-    %------------------------------------------------
-
     \begin{frame}
-        \frametitle{Bayesian Classifier}
-        \framesubtitle{Protocol}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Bayesian Classifier: Protocol}
         \onslide <1-6> For a channel realization $\mathbf H$, we define $\boldsymbol\Phi(\mathbf H)$ as the class that assigns for this channel the best communication codeword $\boldsymbol\Phi \in \boldsymbol\Phi_{1}^{N_c}$:
         \begin{equation*}
             \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \!\ (||\bold{h}(\boldsymbol{\Phi})||_2^2)\}.
@@ -415,8 +663,9 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Bayesian Classifier}
+        \frametitle{State-of-the-art}
         \framesubtitle{Naive Bayes Classifier}        
+        \onslide<1-2>{
         \begin{block}{Classification}
             Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
             \begin{equation*}
@@ -424,12 +673,17 @@ minimum height=3em, minimum width=6em]
                 \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
             \end{equation*}
         \end{block}
+        }
+        \onslide<2->{
+        \vspace{1cm}
+        \footnotesize Class $c_i$ is the class assigned to a UE direction for which communication codeword $\boldsymbol{\Phi}_i$ maximizes the received signal strength $\|\mathbf h(\boldsymbol{\Phi}_i)\|_2^2$.
+        }
     \end{frame}
 
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Bayesian Classifier}
+        \frametitle{State-of-the-art}
         \framesubtitle{Naive Bayes Classifier}  
         \begin{block}{Objective}
             \onslide<1-2>{
