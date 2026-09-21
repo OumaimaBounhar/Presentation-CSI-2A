@@ -1,0 +1,57 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+
+\usepackage[utf8]{inputenc} % Modifier selon l'encodage (latin1, utf8...)
+%% Ajouter tous \usepackage{}s utiles, par exemple :
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{calligra}
+\usepackage{bera}
+
+
+\usepackage{amsmath}			% Permet de taper des formules mathématiques
+\usepackage{amssymb}			% Permet d'utiliser des symboles mathématiques
+\usepackage{amsfonts}			% Permet d'utiliser des polices mathématiques
+\usepackage{amsthm}				% Permet d'écrire des théorèmes
+\usepackage{nicefrac}			% Fractions 'inline'
+\usepackage{stmaryrd}			% Pour les brackets
+\usepackage{mathtools}			% Pour la KL div
+\usepackage{bm}                 % Pour les vecteurs en gras
+\usepackage{bbm}
+
+
+\begin{document}
+
+\begin{tikzpicture}[
+    node distance=2cm and 3.5cm, 
+    every node/.style={draw, minimum width=3.8cm, minimum height=1.4cm, align=center, font=\small}, 
+    every path/.style={thick, ->, >=stealth}
+]
+
+    % Define Nodes
+    \node (init) [rectangle, rounded corners, fill=blue!15] {Initial State\\ $S_{init} = \mathbf{p}(\boldsymbol{\phi}(\mathbf{h})) = [\frac{1}{N_c},\cdots,\frac{1}{N_c}]$};
+    
+    \node (action) [trapezium, trapezium angle=75, below=1.5cm of init, fill=green!20] {Choose Codeword \\ from Pilot Codebook $\Psi$};
+
+    \node (state_new) [rectangle, rounded corners, below=1.5cm of action, fill=blue!15] {New State \\ $(0, ..., 1-q, 0, ..., q, ..., 0)$ \\ where $q \in \{0.1, ..., 0.9\}$};
+
+    \node (reward) [rectangle, below=1.5cm of state_new, fill=red!20] {Reward: -1 if not Terminal};
+
+    \node (terminal) [rectangle, rounded corners, right=5cm of state_new, fill=red!20] {Terminal State \\ (Correct Codeword Found) \\ Reward = 0};
+
+    % Draw Arrows
+    \draw[arrow] (init.south) -| (action.north);  % Initial state to action
+    \path [thick, ->] (action.south) -- (state_new.north);  % Action to new state
+    \path [thick, ->] (state_new.south) -- (reward.north);  % New state to reward
+
+    % Loop back to action if not terminal
+    \draw[arrow] (reward.west) edge[bend left=50] (action.west); 
+
+    % Transition to terminal state if condition met
+    \draw[arrow] (state_new.east) edge[bend left=20] 
+        node[midway, above] {If $ \text{max} \left [ p(\Phi_{opt}=\boldsymbol{\Phi}(\mathbf H)) ]\right >1-\delta$} 
+        (terminal.west);
+
+\end{tikzpicture}
+
+\end{document}

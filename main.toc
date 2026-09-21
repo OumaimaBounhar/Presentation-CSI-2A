@@ -1,0 +1,9 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Context}{4}{0}{1}
+\beamer@sectionintoc {2}{System Model}{8}{0}{2}
+\beamer@sectionintoc {3}{State-of-the-art}{20}{0}{3}
+\beamer@sectionintoc {4}{Bayesian Classifier}{25}{0}{4}
+\beamer@sectionintoc {5}{Proposed approach: Reinforcement Learning}{34}{0}{5}
+\beamer@sectionintoc {6}{Simulation results}{53}{0}{6}
+\beamer@sectionintoc {7}{Sionna - Realistic channel generation and validation}{57}{0}{7}
+\beamer@sectionintoc {8}{Future Perspectives}{69}{0}{8}

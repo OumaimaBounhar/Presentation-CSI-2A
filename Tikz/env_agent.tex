@@ -1,0 +1,45 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+
+\usepackage[utf8]{inputenc} % Modifier selon l'encodage (latin1, utf8...)
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{calligra}
+\usepackage{bera}
+
+\usepackage{amsmath}          % Permet de taper des formules mathématiques
+\usepackage{amssymb}          % Permet d'utiliser des symboles mathématiques
+\usepackage{amsfonts}         % Permet d'utiliser des polices mathématiques
+\usepackage{amsthm}           % Permet d'écrire des théorèmes
+\usepackage{nicefrac}         % Fractions 'inline'
+\usepackage{stmaryrd}         % Pour les brackets
+\usepackage{mathtools}        % Pour la KL div
+\usepackage{bm}               % Pour les vecteurs en gras
+\usepackage{bbm}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    node distance=2cm and 3cm,
+    every node/.style={font=\small},
+    block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
+    arrow/.style={draw, thick, ->, >=stealth}
+]
+
+% Nodes
+\node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
+\node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
+\node (state_t) at (3,0.5) {State $S_t$};
+\node (reward_t) at (3,-0.5) {Reward $R_t$};
+\node (state_t1) at (-3,0.5) {State $S_{t+1}$};
+\node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
+
+% Arrows
+\draw[arrow] (state_t) |- (agent);
+\draw[arrow] (agent) -| (state_t1);
+\draw[arrow] (reward_t1) |- (env);
+\draw[arrow] (env) -| (reward_t);
+
+\end{tikzpicture}
+
+\end{document}
