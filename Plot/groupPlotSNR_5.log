@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  20 SEP 2026 23:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  22 SEP 2026 14:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**groupPlotSNR
-(./groupPlotSNR.tex
+**groupPlotSNR_5
+(./groupPlotSNR_5.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
 (c:/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -371,8 +371,9 @@ Package translations Info: No language package found. I am going to use `english
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
 \l__pdf_internal_box=\box75
-) (./groupPlotSNR.aux)
-\openout1 = `groupPlotSNR.aux'.
+)
+No file groupPlotSNR_5.aux.
+\openout1 = `groupPlotSNR_5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -388,7 +389,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
- (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count320
 \scratchdimen=\dimen272
@@ -419,11 +420,11 @@ PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_0.dat}
 PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_0.dat}
 PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_0.dat}
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 78.
+(Font)              <8> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 78.
+(Font)              <6> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 78.
+(Font)              <5> on input line 79.
 PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_10.dat}
 PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_10.dat}
 PGFPlots: reading {../Data/ex_39_probability_epoch_4500_snr_10.dat}
@@ -443,22 +444,22 @@ PGFPlots: reading {../Data/ex_40_probability_epoch_5500_snr_10.dat}
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./groupPlotSNR.aux)
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./groupPlotSNR_5.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 27469 strings out of 473206
- 746301 string characters out of 5720440
- 1272306 words of memory out of 5000000
- 50328 multiletter control sequences out of 15000+600000
+ 27464 strings out of 473206
+ 746203 string characters out of 5720440
+ 1275478 words of memory out of 5000000
+ 50325 multiletter control sequences out of 15000+600000
  561590 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,18n,107p,731b,2486s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,18n,107p,733b,2501s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on groupPlotSNR.pdf (1 page, 99536 bytes).
+Output written on groupPlotSNR_5.pdf (1 page, 99372 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream

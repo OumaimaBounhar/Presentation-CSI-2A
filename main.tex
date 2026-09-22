@@ -45,7 +45,7 @@ minimum height=3em, minimum width=6em]
 \usepackage{fontawesome5} % For doctor/book/vial icons in the analogy slides
 \newcommand{\fancybullet}{\ding{51}}
 \newcommand{\boxqmark}{\fbox{\textbf{?}}}
-
+ \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \usepackage[utf8]{inputenc}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -317,23 +317,9 @@ minimum height=3em, minimum width=6em]
 
     %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{System Model}
-        \framesubtitle{Codebook design}
-        We use a DFT codebook, and we separate the codebook into two parts: 
-        \begin{itemize}
-            \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
-            \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
-        \end{itemize}
-        \vspace{5mm}
-        \onslide <4> What is the configuration of the RIS that maximises the rate?
-    \end{frame}
+    \section{State-of-the-art}
 
-    %------------------------------------------------
-
-    \section{Motivating Analogy}
-
-    %------------------------------------------------
+    %------------------------------------------------    
 
     \begin{frame}
         \frametitle{A Motivating Analogy}
@@ -389,26 +375,6 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{From Analogy to Our Problem}
-        \begin{itemize}[<+-|alert@+>]
-            \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
-            \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
-            \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
-            \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
-            \item Test result $\longrightarrow$ Received Signal Energy (RSE);
-            \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
-        \end{itemize}
-        \vspace{0.4cm}
-        \onslide<7->{
-        \begin{center}
-            \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
-        \end{center}
-        }
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
         \frametitle{Building the Dataset}
         \framesubtitle{How is a sample constructed?}
         \begin{columns}[T]
@@ -450,7 +416,7 @@ minimum height=3em, minimum width=6em]
                 \onslide<1->{\textbf{1.} Draw a random channel $\mathbf{H}$.\\[0.3cm]}
                 \onslide<2->{\textbf{2.} Run all $\mathrm{N}_c{=}8$ communication codewords on $\mathbf{H}$ \emph{without noise} (forbidden tests) $\rightarrow$ best RSE $\rightarrow$ assign $c^*$.\\[0.3cm]}
                 \onslide<3->{\textbf{3.} Run all $\mathrm{N}_p{=}14$ pilot codewords on $\mathbf{H}$ \emph{with noise} (cheap tests) $\rightarrow$ a 14-number ``fingerprint'' stored as a sample of class $c^*$.}
-                \onslide<4->{\vspace{0.3cm}\\ \footnotesize Each class $\boldsymbol{\Phi}_i$ $\geq$ \textbf{200} such samples.}
+                \onslide<4->{\vspace{0.3cm}\\ \footnotesize Each class $\boldsymbol{\Phi}_c$ $\geq$ \textbf{200} such samples.}
             \end{column}
         \end{columns}
     \end{frame}
@@ -472,17 +438,17 @@ minimum height=3em, minimum width=6em]
                     \alert{\Large ``What do the 14 pilot readings\\ tend to look like\\ when the answer is $c$?''}
                 \end{center}
                 }
-                \vspace{0.5cm}
-                \onslide<3->{
-                \begin{center}
-                    $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
-                \end{center}
-                }
-                \onslide<4->{
-                \begin{center}
-                    \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
-                \end{center}
-                }
+                % \vspace{0.5cm}
+                % \onslide<3->{
+                % \begin{center}
+                %     $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
+                % \end{center}
+                % }
+                % \onslide<4->{
+                % \begin{center}
+                %     \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
+                % \end{center}
+                % }
             \end{column}
             \begin{column}{0.4\textwidth}
                 \onslide<1->{
@@ -573,16 +539,10 @@ minimum height=3em, minimum width=6em]
             \node<1-> [font=\footnotesize, left] at (-0.6,{\ytop+0.5*\hgt}) {Level 1};
         \end{tikzpicture}
         \end{center}
-        \onslide<4->{
         \footnotesize
-        {\color{red!70!black}Red}: successive pilot search levels, each splitting the angular range in two. \\
-        {\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\boldsymbol{\Phi}_i$.
-        }
+        \onslide<1-3>{{\color{red!70!black}Red}: successive pilot search levels, each splitting the angular range in two.} \\
+        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\boldsymbol{\Phi}_c$.}
     \end{frame}
-
-    %------------------------------------------------
-
-    \section{State-of-the-art}
 
     %------------------------------------------------    
 
@@ -618,22 +578,437 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{State-of-the-art}
-        \framesubtitle{Blind Beamforming}
-        Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
-        \vspace{3mm}
-        \begin{itemize}
-            \item <1-> Exhaustive search over the codebook.
+        \framesubtitle{Bayesian Classifier: Protocol}
+        \begin{center}
+        % Fixed scale (matching the full 6-node diagram scaled to \textwidth)
+        % instead of \resizebox, so early overlays with fewer nodes aren't
+        % blown up to fill \textwidth on their own.
+        \scalebox{0.72}{
+        \begin{tikzpicture}[
+            node distance=2.2cm and 2.4cm,
+            every node/.style={font=\normalsize},
+            block/.style={rectangle, rounded corners, draw, thick, minimum width=5cm, minimum height=2cm, align=center},
+            arrow/.style={draw, thick, ->, >=stealth},
+            lbl/.style={font=\small, align=center, fill=white, inner sep=2pt}
+        ]
+            % Row 1: left to right
+            \node<1->[block, fill=blue!15, minimum width=1.8cm, minimum height=1.4cm]   (prior)   {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$};
+            \node<2->[block, fill=green!20, minimum width=1.6cm, minimum height=1.4cm, right=of prior]  (send)    {$s_k\in \mathbb{C}$, $\norm{s}^2 = 1)$};
+            \node<3->[block, fill=green!20, right=of send]   (ris)     {$\pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$};
+
+            % Row 2: right to left
+            \node<4->[block, fill=yellow!25, below=of ris]    (measure) {$\mathrm Y_k = \mathbf y_k \mathbf y_k^{H}$};
+            \node<5->[block, fill=blue!15,   left=of measure] (update)  {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})$};
+            \node<6->[block, fill=red!20,    left=of update]  (final)   {$\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t}) \|\infty >1-\delta$ \\ $\Rightarrow \boldsymbol{\Phi}_{\text{opt}} = \argmax_{\boldsymbol{\Phi}} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$};
+            \draw<2->[arrow] (prior) -- node[lbl, above] {send pilot} (send);
+            \draw<3->[arrow] (send) -- node[lbl, above] {RIS applies} (ris);
+            \draw<4->[arrow] (ris) -- node[lbl, right] {BS receives} (measure);
+            \draw<5->[arrow] (measure) -- node[lbl, above] {update belief} (update);
+            \draw<6->[arrow] (update) -- node[lbl, above] {check $\delta$} (final);
+            \draw<6->[arrow] (final.north) -- ++(0,0.9) -| node[lbl, pos=0.25, above] {not confident} (send.south);
+        \end{tikzpicture}
+        }
+        \end{center}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Reinforcement Learning: State, Action, and Reward Flow}
+        \begin{columns}
+    
+            % First Column (First Diagram)
+            \column{0.6\textwidth}
+            \only<1->{ % First diagram appears first
             \begin{itemize}
-                \item Huge overhead 
+                \item<1-|alert@1> Initial state $\mathbf{S}_{\text{init}} = \rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$
+                \item<2-|alert@2> Intermediate State $\mathbf{S}_{\text{t}}\rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t})$
+                \item<3-|alert@3> Action $\mathbf{a}_{t} \rightarrow \pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$
+                \item<4-|alert@4> Reward $\mathbf{R}_{\text{t}} \rightarrow  -1$ until reaching $\mathbf{S}_{\text{terminal}}$ where confidence level is $1 - \delta$
             \end{itemize}
-             \item <2-> Hierarchical : Need to create a specific codebook.
-             \begin{itemize}
-                \item Low overhead. 
-                \item Might not reach the optimal configuration because of its shape (binary tree). 
-            \end{itemize}
+            }
+            \vspace{1cm}
+            \only<5->{
+            \begin{block}{Objective}
+                $\boldsymbol{\Phi}_{\text{opt}} = \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$
+                \\
+                $\mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}$
+            \end{block}
+            }
+            
+            % Second Column (Second Diagram)
+            \column{0.3\textwidth}
+            \only<1->{ % Second diagram appears on next step
+            \scalebox{0.65}{ % Scale down the diagram
+            \begin{tikzpicture}[
+                node distance=2cm and 3cm,
+                every node/.style={font=\small},
+                block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
+                arrow/.style={draw, thick, ->, >=stealth}
+            ]
+            
+            % Nodes
+            \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
+            \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
+            \node (state_t) at (3,0.5) {State $S_t$};
+            \node (reward_t) at (3,-0.5) {Reward $R_t$};
+            \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
+            \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
+            
+            % Arrows
+            \draw[arrow] (state_t) |- (agent);
+            \draw[arrow] (agent) -| (state_t1);
+            \draw[arrow] (reward_t1) |- (env);
+            \draw[arrow] (env) -| (reward_t);
+            
+            \end{tikzpicture}
+            }
+            }
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+    
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Stochastic shortest path problem: Policy, Objective \& Q-Learning}
+        \begin{columns}[t]
+            \begin{column}{0.48\textwidth}
+                \onslide <1-3>\begin{block}{Policy}
+                    \footnotesize
+                    A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
+                    \begin{equation*}
+                        \pi(S) = A
+                    \end{equation*}
+                \end{block}
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide <2-3>\begin{block}{Rewritten objective:}
+                    \footnotesize
+                    \begin{equation*}
+                        \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
+                    \end{equation*}
+                \end{block}
+            \end{column}
+        \end{columns}
+        \onslide <3->\begin{alertblock}{Q-Learning}
+            \footnotesize
+            Learn $Q$-function $Q(S,A)$ from experienced transitions $(S,A,R,S')$, then act greedily:
+            \begin{equation*}
+                \underbrace{Q(S,A) \leftarrow Q(S,A) + \alpha\big[R + \gamma \max_{A'} Q(S',A') - Q(S,A)\big]}_{\text{update}}
+                \quad
+                \underbrace{\pi^*(S) = \arg\max_{A} Q^*(S,A)}_{\text{greedy policy}}
+            \end{equation*}
+        \end{alertblock}
+    \end{frame}
+
+    %------------------------------------------------
+    
+    \section{Proposed approach: Deep Reinforcement Learning}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Deep Q-Neural Netwok}
+        \begin{itemize}[<+->]
+            \item Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
+        \end{itemize}
+        \begin{figure}
+            \includegraphics[width = 0.65\textwidth]{Tikz/dqn.pdf}
+        \end{figure}
+    \end{frame}
+
+    %------------------------------------------------
+
+    % \section{Simulation results}
+
+    %------------------------------------------------
+    
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Simulation results: Comparison to other benchmarks}
+        \begin{figure}
+            \centering
+            \includegraphics[width = 0.5\textwidth]{Plot/groupPlotSNR_5.pdf}
+        \end{figure}
+        \vspace{-0.5cm}
+        {\tiny{[2]: O. Bounhar, T. Chene, G. R.-B. Othman, and O. Damen, “Deep q-learning for passive beamforming in ris-assisted mimo systems,” 2026.}}
+    \end{frame}    
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Limitations of Deep Q-Learning}
+        \begin{itemize}
+            \item Good for scaling siwe of codebook and SNR combared to QL
+            \item Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
+            \item cite formula of SV multipath (add details to appendix)
         \end{itemize}
     \end{frame}
 
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Double Deep Q-Neural Netwok}
+        
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization}
+        
+    \end{frame}
+
+    %------------------------------------------------
+
+    \section{Sionna: Realistic channel generation and validation}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Ray tracing: one candidate path per unit cell}
+        \begin{columns}[T]
+            \begin{column}{0.62\textwidth}
+                \centering
+                \includegraphics[width=0.92\textwidth]{Tikz/ris_geometry.pdf}
+            \end{column}
+            \begin{column}{0.37\textwidth}
+                \small
+                Every RIS unit cell $c_n$, $n=1,\ldots,N$, is treated as an
+                \textbf{independent} candidate path:
+                \[
+                    \text{TX} \to c_n \to \text{RX}.
+                \]
+                \vspace{0.2cm}
+                Using the angles from the previous slide, a candidate survives only if:
+                \begin{itemize}
+                    \item both legs are unobstructed;
+                    \item $\cos\theta_i>0$ and $\cos\theta_m>0$.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{From scene geometry to channel taps}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{Tikz/compute_paths_pipeline.pdf}
+        \end{center}
+        \small The channel impulse response is reconstructed from the $N_{\text{valid}}$ \textbf{geometric and deterministic} per-cell taps, either kept individually resolved or coherently combined into a single tap at the mean delay:
+        \vspace{0.1cm}
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<1-2>{
+                \begin{block}{\footnotesize Individually resolved (multipath)}
+                    \footnotesize
+                    \[
+                        h_{\text{RIS}}(t) = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, \delta(t-\tau_n)
+                    \]
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{alertblock}{\footnotesize Coherently combined (single tap)}
+                    \footnotesize
+                    \[
+                        \bar\tau = \frac{1}{N_{\text{valid}}}\sum_{n} \tau_n
+                    \]
+                    \[
+                        h_{\text{RIS}}(t) = a_{\text{RIS}}\,\delta(t-\bar\tau)
+                    \]
+                    \[
+                        a_{\text{RIS}} = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, e^{-j2\pi f(\tau_n-\bar\tau)}
+                    \]
+                \end{alertblock}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{BER validation: Sionna vs.\ theoretical Rayleigh}
+        \begin{center}
+            \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
+        \end{center}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Single-bounce per cell: RIS multipath}
+        \begin{columns}[T]
+            \begin{column}{0.52\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/ris_scene_rt_multipath.PNG}
+            \end{column}
+            \begin{column}{0.45\textwidth}
+                \small Each traced path is a single-bounce candidate TX $\to c_n \to$ RX through one RIS unit cell $c_n$, obtained by ray tracing (Sionna RT) over the scene. A path is kept only if it satisfies:
+                \begin{itemize}
+                    \item \textbf{line-of-sight} on both legs (TX--$c_n$ and $c_n$--RX unobstructed);
+                    \item \textbf{positive illumination/re-radiation}: $\cos\theta_i>0$ and $\cos\theta_m>0$.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{BER validation: RIS multipath is correctly captured}
+        \begin{columns}[T]
+            \begin{column}{0.55\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png}
+            \end{column}
+            \begin{column}{0.43\textwidth}
+                \footnotesize
+                \begin{itemize}
+                    \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap, as before.
+                    \item \emph{Sionna + RIS} departs from both, requiring higher $E_s/N_0$ for the same BER, across every QAM order.
+                    \item Confirms the RIS's multipath is correctly captured, rather than collapsing back to the flat-fading case.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \section{Thesis Vision Board (3 Years)}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Thesis Vision Board (3 Years)}
+        \begin{tikzpicture}[>=stealth, thick, node distance=0.5cm]
+            % Nodes
+            \node<1-> (y1) [rectangle, rounded corners, draw, fill=blue!10, text width=4.5cm, align=left, minimum height=2.5cm] 
+                {\textbf{Year 1} \\[-2pt] 
+                - State-of-the-art review \\
+                - Problem formulation \\
+                - Q-Learning for RIS beamforming, 1st publication (WCNC 2025)\\
+                - Deep Q-Learning extension, 2nd publication (ICC 2026 ?)};
+            \node<2-> (y2) [rectangle, rounded corners, draw, fill=green!10, right=of y1, text width=4.5cm, align=left, minimum height=2.5cm] 
+                {\textbf{Year 2} \\[-2pt]
+                - Mobile user scenario \\
+                - Real-time Data generation (Sionna) \\
+                - Real-world validation with prototypes \\
+                - Paper submission (GLOBECOM 2027 ?)};
+            \node<3-> (y3) [rectangle, rounded corners, draw, fill=orange!10, right=of y2, text width=4.5cm, align=left, minimum height=2.5cm] 
+                {\textbf{Year 3} \\[-2pt]
+                - Multi-user scenario \\
+                - Security aspects of RIS \\
+                - Journal submission \\
+                - Thesis writing and defense};
+
+            % Arrows
+            \draw<2-> [->] (y1.east) -- (y2.west);
+            \draw<3-> [->] (y2.east) -- (y3.west);
+        \end{tikzpicture}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \section{Future Perspectives}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Future Perspectives}
+            \begin{itemize}
+            \item \textit{Mobile user scenario:} \begin{itemize}
+                \item Validate the performance of our proposed approach on the generated channels with the Sionna framework.
+                \item Handle user mobility and time-varying channels.
+                \item Do a a real-world experiment with RIS prototypes
+            \end{itemize}
+            \pause
+            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios.
+            \end{itemize}
+    \end{frame}
+
+    %------------------------------------------------
+    % Bibliography
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Scientific contributions}
+        \bibliographystyle{IEEEtran} 
+        \bibliography{bibtex}  
+        \end{frame}
+
+    %------------------------------------------------
+    % End page
+    %------------------------------------------------
+
+    \title{\textcolor{purple}{Thank you! Questions?}}
+    \begin{frame}{}
+        \maketitle
+    \end{frame}
+
+    %------------------------------------------------
+    % Appendix
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Doctoral school training requirements}
+        \begin{block}{Transversal skills}
+            Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
+        \end{block}
+        \pause
+        \begin{block}{Scientific skills}
+            Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
+        \end{block}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{From Analogy to Our Problem}
+        \begin{itemize}[<+-|alert@+>]
+            \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
+            \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
+            \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
+            \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
+            \item Test result $\longrightarrow$ Received Signal Energy (RSE);
+            \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
+        \end{itemize}
+        \vspace{0.4cm}
+        \onslide<7->{
+        \begin{center}
+            \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
+        \end{center}
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{System Model}
+        \framesubtitle{Codebook design}
+        We use a DFT codebook, and we separate the codebook into two parts: 
+        \begin{itemize}
+            \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
+            \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
+        \end{itemize}
+        \vspace{5mm}
+        \onslide <4> What is the configuration of the RIS that maximises the rate?
+    \end{frame}
+    
     %------------------------------------------------
 
     \begin{frame}
@@ -659,6 +1034,71 @@ minimum height=3em, minimum width=6em]
             \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})\triangleq [\mathbf{p}(\boldsymbol{\Phi}_1| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t}), \cdots, \mathbf{p}(\boldsymbol{\Phi}_{\mathrm N_c}| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})]
         \end{equation*}
     \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach : Reinforcement Learning}
+        \framesubtitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Euclidean distance}
+        \begin{equation}
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
+            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
+            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
+        \end{equation}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Q-Learning algorithm}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Blind Beamforming}
+        Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
+        \vspace{3mm}
+        \begin{itemize}
+            \item <1-> Exhaustive search over the codebook.
+            \begin{itemize}
+                \item Huge overhead 
+            \end{itemize}
+             \item <2-> Hierarchical : Need to create a specific codebook.
+             \begin{itemize}
+                \item Low overhead. 
+                \item Might not reach the optimal configuration because of its shape (binary tree). 
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
 
     %------------------------------------------------
 
@@ -669,7 +1109,6 @@ minimum height=3em, minimum width=6em]
         \begin{block}{Classification}
             Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
             \begin{equation*}
-                % \arg\!\!\max_{c \in [1;N_c]} p(\boldsymbol{\Phi}(\mathbf H)| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
                 \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
             \end{equation*}
         \end{block}
@@ -700,9 +1139,6 @@ minimum height=3em, minimum width=6em]
             }
         \end{block}
     \end{frame}
-    %------------------------------------------------
-    
-    \section{Proposed approach: Reinforcement Learning}
 
     %------------------------------------------------
 
@@ -782,7 +1218,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
     
     \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
+        \frametitle{State-of-the-art}
         \framesubtitle{Stochastic shortest path problem}
         \begin{block}{Policy}
             A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
@@ -802,7 +1238,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
+        \frametitle{State-of-the-art}
         \framesubtitle{Q-Learning: Value Function and Policy}
         \begin{block}{Q-function} 
             The Q-value function represents the expected cumulative reward when taking action $A_t$ in state $S_t$:
@@ -823,7 +1259,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
+        \frametitle{State-of-the-art}
         \framesubtitle{Q-Learning: Optimal policy}
         \begin{block}{Optimal Policy}
             The optimal policy is obtained by selecting the action that maximizes the expected reward :
@@ -864,20 +1300,6 @@ minimum height=3em, minimum width=6em]
         Milan, Italy : IEEE, 2025, pp.
         1–6.}}  
     \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{Deep Q-Neural Netwok}
-        \begin{itemize}[<+->]
-            \item Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
-        \end{itemize}
-        \begin{figure}
-            \includegraphics[width = 0.65\textwidth]{Tikz/dqn.pdf}
-        \end{figure}
-    \end{frame}
-
     %------------------------------------------------
 
     \begin{frame}
@@ -923,281 +1345,6 @@ minimum height=3em, minimum width=6em]
                 Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)}).
             \end{equation}
         \end{block}
-    \end{frame}
-    
-    %------------------------------------------------
-
-    \section{Simulation results}
-
-    %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Simulation results}
-    %     \framesubtitle{Comparison to other benchmarks}
-    %     % \begin{figure}
-    %         \centering
-    %         \includegraphics[width = 0.9\textwidth]{Figures/Soutenance MICAS - Oumaïma Bounhar.png}
-    %         % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-    %     % \end{figure}
-    % \end{frame}
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Simulation results}
-        \framesubtitle{Comparison to other benchmarks}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = \textwidth]{Figures/8_codewords_plot.pdf}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        \pause
-        % \justifying
-        \raggedright
-        These results demonstrate that our proposed approach using Deep Q-Learning successfully minimizes pilot overhead, requiring at most $L^* = 4$ pilots in low-SNR conditions and only $L^* = 3$ pilots at moderate-to-high SNRs \cite{DQN}.
-
-        {\tiny{[2]: O. Bounhar, T. Chene, G. R.-B. Othman, and O. Damen, “Deep q-learning for passive beamforming in ris-assisted mimo systems,” 2026.}}
-    \end{frame}    
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Simulation results}
-        \framesubtitle{Comparison to other benchmarks}
-        % \begin{figure}
-            \centering
-            \includegraphics[width = \textwidth]{Figures/16_codewords_plot.pdf}
-            % \caption{\centering \parbox{0.6\textwidth}{Comparison of benchmarks for selecting the optimal configuration for the RIS.}}
-        % \end{figure}
-        \pause
-        % \justifying
-        \raggedright
-        These results were extended to a larger codebook size of $N_c = 16$, where our proposed approach continues to outperform benchmarks, requiring at most $L^* = 5$ pilots in low-SNR conditions and only $L^* = 4$ pilots at moderate-to-high SNRs \cite{DQN}.
-
-        {\tiny{[2]: O. Bounhar, T. Chene, G. R.-B. Othman, and O. Damen, “Deep q-learning for passive beamforming in ris-assisted mimo systems,” 2026.}}
-    \end{frame}    
-
-    %------------------------------------------------
-
-    \section{Sionna - Realistic channel generation and validation}
-
-    %------------------------------------------------
-    
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
-        \begin{columns}[T]
-            \begin{column}{0.52\textwidth}
-                \centering
-                \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
-            \end{column}
-            \begin{column}{0.46\textwidth}
-                \small
-                \begin{itemize}
-                    \item Cells are spaced by half a wavelength, $d=\lambda/2$.
-                    \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
-                    \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
-                \end{itemize}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Ray tracing: one candidate path per unit cell}
-        \begin{columns}[T]
-            \begin{column}{0.62\textwidth}
-                \centering
-                \includegraphics[width=0.92\textwidth]{Tikz/ris_geometry.pdf}
-            \end{column}
-            \begin{column}{0.37\textwidth}
-                \small
-                Every RIS unit cell $c_n$, $n=1,\ldots,N$, is treated as an
-                \textbf{independent} candidate path:
-                \[
-                    \text{TX} \to c_n \to \text{RX}.
-                \]
-                \vspace{0.2cm}
-                Using the angles from the previous slide, a candidate survives only if:
-                \begin{itemize}
-                    \item both legs are unobstructed;
-                    \item $\cos\theta_i>0$ and $\cos\theta_m>0$.
-                \end{itemize}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{From scene geometry to channel taps}
-        \begin{center}
-            \includegraphics[width=0.7\textwidth]{Tikz/compute_paths_pipeline.pdf}
-        \end{center}
-        \small The channel impulse response is reconstructed from the $N_{\text{valid}}$ \textbf{geometric and deterministic} per-cell taps, either kept individually resolved or coherently combined into a single tap at the mean delay:
-        \vspace{0.1cm}
-        \begin{columns}[T]
-            \begin{column}{0.48\textwidth}
-                \onslide<1-2>{
-                \begin{block}{\footnotesize Individually resolved (multipath)}
-                    \footnotesize
-                    \[
-                        h_{\text{RIS}}(t) = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, \delta(t-\tau_n)
-                    \]
-                \end{block}
-                }
-            \end{column}
-            \begin{column}{0.48\textwidth}
-                \onslide<2->{
-                \begin{alertblock}{\footnotesize Coherently combined (single tap)}
-                    \footnotesize
-                    \[
-                        \bar\tau = \frac{1}{N_{\text{valid}}}\sum_{n} \tau_n
-                    \]
-                    \[
-                        h_{\text{RIS}}(t) = a_{\text{RIS}}\,\delta(t-\bar\tau)
-                    \]
-                    \[
-                        a_{\text{RIS}} = \sum_{n=1}^{N_{\text{valid}}} \text{coef}_n\, e^{-j2\pi f(\tau_n-\bar\tau)}
-                    \]
-                \end{alertblock}
-                }
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Key takeaways}
-        \begin{itemize}[<+->]
-            \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
-            \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
-        \end{itemize}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{BER validation: Sionna vs.\ theoretical Rayleigh}
-        \begin{center}
-            \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
-        \end{center}
-        \footnotesize The theoretical i.i.d.\ Rayleigh BER (\emph{Without Sionna}) and the BER measured on Sionna's flat-fading channel realizations (\emph{With Sionna}) overlap exactly, for every modulation order, $N_t=1$, $N_r=64$ -- confirming Sionna's channel generation matches theory, before introducing the RIS.
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{BER validation: RIS multipath is correctly captured}
-        \begin{columns}[T]
-            \begin{column}{0.55\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png}
-            \end{column}
-            \begin{column}{0.43\textwidth}
-                \footnotesize
-                \begin{itemize}
-                    \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap, as before.
-                    \item \emph{Sionna + RIS} departs from both, requiring higher $E_s/N_0$ for the same BER, across every QAM order.
-                    \item Confirms the RIS's multipath is correctly captured, rather than collapsing back to the flat-fading case.
-                \end{itemize}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    %------------------------------------------------
-    % Bibliography
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Scientific contributions}
-        \bibliographystyle{IEEEtran} 
-        \bibliography{bibtex}  
-        \end{frame}
-
-    %------------------------------------------------
-
-    \section{Future Perspectives}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Future Perspectives}
-            \begin{itemize}
-            \item \textit{Mobile user scenario:} \begin{itemize}
-                \item Validate the performance of our proposed approach on the generated channels with the Sionna framework.
-                \item Handle user mobility and time-varying channels.
-                \item Do a a real-world experiment with RIS prototypes
-            \end{itemize}
-            \pause
-            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios.
-            \end{itemize}
-    \end{frame}
-
-    %------------------------------------------------
-    % End page
-    %------------------------------------------------
-
-    \title{\textcolor{purple}{Thank you! Questions?}}
-    \begin{frame}{}
-        \maketitle
-    \end{frame}
-
-    %------------------------------------------------
-    % Appendix
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Euclidean distance}
-        \begin{equation}
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
-            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
-            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
-        \end{equation}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
-    \end{frame}
-    
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Q-Learning algorithm}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
-    \end{frame}
-
-    
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach : Reinforcement Learning}
-        \framesubtitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
     \end{frame}
     
     %------------------------------------------------
@@ -1341,6 +1488,27 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
+        \begin{columns}[T]
+            \begin{column}{0.52\textwidth}
+                \centering
+                \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
+            \end{column}
+            \begin{column}{0.46\textwidth}
+                \small
+                \begin{itemize}
+                    \item Cells are spaced by half a wavelength, $d=\lambda/2$.
+                    \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
+                    \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
         \framesubtitle{Why geometry strongly affects the RIS channel}
 
         \begin{center}
@@ -1368,5 +1536,16 @@ minimum height=3em, minimum width=6em]
     \end{frame}
 
     %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Key takeaways}
+        \begin{itemize}[<+->]
+            \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
+            \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
+        \end{itemize}
+    \end{frame}
     
+    %------------------------------------------------
+
 \end{document} 

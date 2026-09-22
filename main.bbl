@@ -23,7 +23,4 @@
 \bibitem{chene-}
 T.~Ch{\^e}ne, O.~Bounhar, G.~R.-B. Othman, and O.~Damen, ``Adaptive {{Passive Beamforming}} in {{RIS-Aided Communications}} with {{Q-Learning}},'' in \emph{2025 {{IEEE Wireless Communications}} and {{Networking Conference}} ({{WCNC}})}.\hskip 1em plus 0.5em minus 0.4em\relax Milan, Italy: IEEE, 2025, pp. 1--6.
 
-\bibitem{DQN}
-O.~Bounhar, T.~Ch{\^e}ne, G.~R.-B. Othman, and O.~Damen, ``Deep q-learning for passive beamforming in ris-assisted mimo systems,'' 2026.
-
 \end{thebibliography}

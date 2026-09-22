@@ -12,14 +12,15 @@
 			[
 			group style={
 			group name=main_plot,
-            group size= 4 by 1,
+			group size=2 by 2,
+            % group size=1 by 4,
 			horizontal sep=0.3cm,
 			xlabels at = edge bottom,
 			xticklabels at = edge bottom,
             ylabels at = edge left,
 			yticklabels at = edge left,
 			},
-			width = 6.5cm,
+			width = 7.5cm,
 			ymin=0, ymax=1.05,
             xmin=1, xmax=10,
             xtick distance = 1,
@@ -27,7 +28,7 @@
 			axis on top,
 			label style={font=\footnotesize},
 			tick label style = {font=\footnotesize},
-            legend style={at={(2,-0.25)},anchor=north, legend columns=5},
+            legend style={at={(1,-1.5)},anchor=north, legend columns=5},
 			xlabel = {Number of Pilots},
             ylabel style={align=center},
             ylabel={Channel strength\\$\displaystyle\frac{\bigl|\bigl|\mathbf{h}(\mathbf\Phi_{\text{dec}})\bigr|\bigr|_{2}^{2}}{\max_{\mathbf{\Phi} \in \mathbf{\Phi}_{1}^{N_c}} \left(\bigl|\bigl|\mathbf{h}(\mathbf\Phi)\bigr|\bigr|_{2}^{2} \right)}$},
@@ -186,7 +187,7 @@
         
         \node[above] at (main_plot c1r1.north west) {(a)};
         \node[above] at (main_plot c2r1.north west) {(b)};
-        \node[above] at (main_plot c3r1.north west) {(c)};
-        \node[above] at (main_plot c4r1.north west) {(d)};
+        \node[above] at (main_plot c1r2.north west) {(c)};
+        \node[above] at (main_plot c2r2.north west) {(d)};
 	\end{tikzpicture}
 \end{document}
