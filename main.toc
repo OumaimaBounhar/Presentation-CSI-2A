@@ -2,7 +2,7 @@
 \beamer@sectionintoc {1}{Context}{4}{0}{1}
 \beamer@sectionintoc {2}{System Model}{8}{0}{2}
 \beamer@sectionintoc {3}{State-of-the-art}{16}{0}{3}
-\beamer@sectionintoc {4}{Proposed approach: Deep Reinforcement Learning}{49}{0}{4}
-\beamer@sectionintoc {5}{Sionna: Realistic channel generation and validation}{54}{0}{5}
-\beamer@sectionintoc {6}{Thesis Vision Board (3 Years)}{60}{0}{6}
-\beamer@sectionintoc {7}{Future Perspectives}{63}{0}{7}
+\beamer@sectionintoc {4}{Proposed approach: Deep Reinforcement Learning}{50}{0}{4}
+\beamer@sectionintoc {5}{Sionna: Realistic channel generation and validation}{55}{0}{5}
+\beamer@sectionintoc {6}{Thesis Vision Board (3 Years)}{61}{0}{6}
+\beamer@sectionintoc {7}{Future Perspectives}{64}{0}{7}

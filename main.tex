@@ -43,6 +43,8 @@ minimum height=3em, minimum width=6em]
 \usepackage{pifont} % For symbols, icônes...
 \usepackage{xcolor}
 \usepackage{fontawesome5} % For doctor/book/vial icons in the analogy slides
+\usepackage[normalem]{ulem} % For strikethrough text
+\newcommand{\redsout}{\bgroup\markoverwith{\textcolor{red}{\rule[0.5ex]{2pt}{0.6pt}}}\ULon}
 \newcommand{\fancybullet}{\ding{51}}
 \newcommand{\boxqmark}{\fbox{\textbf{?}}}
  \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -238,8 +240,8 @@ minimum height=3em, minimum width=6em]
             % Right column
             \begin{column}{0.49\textwidth}
                 \begin{itemize}
-                    \item<2-|alert@2> mmWaves suffer from fading environments; 
-                    \item<3-|alert@3> 5G \& 6G rely on millimeter waves (mmWaves) for higher coverage;
+                    \item<2-|alert@2> 5G \& 6G rely on millimeter waves (mmWaves) for higher coverage;
+                    \item<3-|alert@3> mmWaves suffer from fading environments;
                     \item<4-|alert@4> RIS is a promising solution with low power consumption.
                 \end{itemize}
             \end{column}
@@ -319,104 +321,33 @@ minimum height=3em, minimum width=6em]
 
     \section{State-of-the-art}
 
-    %------------------------------------------------    
-
+    %------------------------------------------------  
+    
     \begin{frame}
-        \frametitle{A Motivating Analogy}
-        \begin{center}
-        \begin{tikzpicture}[scale=0.82, transform shape, every node/.style={align=center, font=\small}]
-
-            % --- Reference book with 8 diseases ---
-            \node<1-> (book) [draw, thick, rounded corners, fill=blue!5,
-                minimum width=4.4cm, minimum height=2.8cm] at (-3.6,1.9) {};
-            \node<1-> [above=0.05cm of book, font=\bfseries] {Reference Book (Dataset)};
-            \foreach \i/\x/\y in {1/-0.9/0.55,2/-0.3/0.55,3/0.3/0.55,4/0.9/0.55,%
-                                  5/-0.6/-0.15,6/0/-0.15,7/0.6/-0.15,8/0/-0.75}{
-                \node<1-> [font=\Large, red!60!black] at ($(book.center)+(\x,\y)$) {\faVirus};
-            }
-            \node<1-> [below=0.05cm of book, font=\itshape\footnotesize] {8 known diseases};
-
-            % --- Doctor ---
-            \node<2-> (doctor) [font=\Large, orange!80!black] at (-3.6,-2.2) {\faUserMd};
-            \node<2-> [below=0.1cm of doctor, font=\bfseries\footnotesize] {Clinician};
-
-            % --- 14 cheap tests, single row, box sized to hold exactly that row ---
-            \node<3-> (tests) [draw, thick, rounded corners, fill=green!5,
-                minimum width=5.8cm, minimum height=0.9cm] at (3.2,-0.65) {};
-            \node<3-> [above=0.05cm of tests, font=\bfseries] {14 Cheap Lab Tests};
-            \foreach \i in {1,...,14}{
-                \pgfmathsetmacro{\vx}{3.2-2.6+(\i-1)*0.4}
-                \node<3-> [font=\normalsize, green!50!black] at (\vx,-0.65) {\faVial};
-            }
-
-            % --- doctor administers tests ---
-            \draw<4-> [->, thick] (doctor) to[bend left=15] (tests.south west);
-            \node<4-> [below=0.05cm of tests, font=\footnotesize] {sequentially run, one at a time};
-
-            % --- doctor consults the reference book with accumulated results ---
-            \draw<5-> [->, thick, red!70!black] (tests.north west) to[bend left=25] (book.south east);
-            \node<5-> [font=\footnotesize, red!70!black] at (0.0,0.7) {compare results};
-
-            % --- diagnosis found: highlight one disease (exactly on top of the icon) ---
-            \node<6-> [draw, circle, thick, red!70!black, minimum size=0.7cm] at ($(book.center)+(0.3,0.55)$) {};
-            \node<6-> [right=0.2cm of book, xshift=1.9cm, text width=5.2cm, font=\bfseries\footnotesize, red!70!black]
-                {Diagnosis found \mbox{after} only a \underline{few} tests!};
-
-        \end{tikzpicture}
-        \end{center}
-
-        \onslide<7->{
-        \begin{center}
-            \textbf{Goal:} find the right diagnosis using as \underline{\textbf{few cheap tests as possible}}.
-        \end{center}
-        }
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Building the Dataset}
-        \framesubtitle{How is a sample constructed?}
-        \begin{columns}[T]
-            \begin{column}{0.56\textwidth}
-                \vspace{0.3cm}
-                \resizebox{\linewidth}{!}{%
-                \begin{tikzpicture}[every node/.style={font=\small}]
-
-                    % --- Big dataset ellipse, sized to hug the classes tightly (no wasted margin) ---
-                    \draw<1-> [thick] (0,0) ellipse (4.6 and 2.9);
-                    \node<1-> [above] at (0,3.05) {\textbf{Dataset $\mathcal{D}$}};
-
-                    % --- One class circle per communication codeword, filled with Monte Carlo samples ---
-                    % Spread across the ellipse (corners + sides), not on a single circle, leaving
-                    % only a small central gap. Each class is a NAMED node (c1..c8) so an arrow can
-                    % later target it, e.g. \draw[->] (something) -- (c3);
-                    \foreach \i/\col/\x/\y in {0/red/-2.3/1.4,1/orange/0/2.0,2/yellow/2.3/1.4,%
-                                               3/green/-3.6/0,4/teal/3.6/0,%
-                                               5/violet/-2.3/-1.4,6/blue/0/-2.0,7/magenta/2.3/-1.4}{
-                        \pgfmathtruncatemacro{\ov}{\i+1}
-                        \node<2-> [draw, thick, circle, minimum size=1.6cm,
-                            fill=\col!60, fill opacity=0.15] (c\ov) at (\x,\y) {};
-
-                        \pgfmathsetseed{\ov*17+5}
-                        \foreach \k in {1,...,55}{
-                            \pgfmathsetmacro{\rr}{0.62*sqrt(rnd)}
-                            \pgfmathsetmacro{\aa}{360*rnd}
-                            \node<3-> [circle, fill=\col!80!black, inner sep=0.4pt] at ($(c\ov)+(\aa:\rr)$) {};
-                        }
-
-                        % Label drawn last so it stays on top of the scattered samples
-                        \node<2-> [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
-                            text opacity=1, inner sep=1.5pt] at (c\ov) {$\boldsymbol{\Phi}_{\ov}$};
-                    }
-                \end{tikzpicture}}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Channel State Information (CSI) \& Blind Beamforming}
+        \begin{definition}[Rate]
+            \onslide <1-3> We want to get a higher coverage, which leads to maximizing the rate:
+            \begin{equation*}
+                \mathrm{R} 
+                = 
+                \max_{i \in \llbracket \mathrm N_c \rrbracket} 
+                \left [
+                    \log_2 \left ( 1+\frac{P \|\mathbf{H}_{\text{BS}} \text{diag}({\boldsymbol{\Phi}_{i}}) \mathbf{h}_{\text{UE}}\|_2^2 }{\sigma_{\mathrm w}^2} \right )
+                \right ]
+            \end{equation*}
+            % where $\bold{h}$ the full channel.
+        \end{definition}
+        \begin{columns}
+            \onslide <2-3> \begin{column}{0.45\textwidth}
+                \begin{block}{CSI}
+                    Channel estimation is challenging.
+                \end{block}
             \end{column}
-            \begin{column}{0.43\textwidth}
-                \small
-                \onslide<1->{\textbf{1.} Draw a random channel $\mathbf{H}$.\\[0.3cm]}
-                \onslide<2->{\textbf{2.} Run all $\mathrm{N}_c{=}8$ communication codewords on $\mathbf{H}$ \emph{without noise} (forbidden tests) $\rightarrow$ best RSE $\rightarrow$ assign $c^*$.\\[0.3cm]}
-                \onslide<3->{\textbf{3.} Run all $\mathrm{N}_p{=}14$ pilot codewords on $\mathbf{H}$ \emph{with noise} (cheap tests) $\rightarrow$ a 14-number ``fingerprint'' stored as a sample of class $c^*$.}
-                \onslide<4->{\vspace{0.3cm}\\ \footnotesize Each class $\boldsymbol{\Phi}_c$ $\geq$ \textbf{200} such samples.}
+            \begin{column}{0.45\textwidth}
+                \onslide <3> \begin{block}{No CSI}
+                    "Blind" method.
+                \end{block}
             \end{column}
         \end{columns}
     \end{frame}
@@ -424,58 +355,8 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{The Likelihood Model}
-        \begin{columns}[c]
-            \begin{column}{0.58\textwidth}
-                \onslide<1->{
-                \begin{center}
-                    \large This collection \emph{is} the likelihood model.
-                \end{center}
-                }
-                \vspace{0.5cm}
-                \onslide<2->{
-                \begin{center}
-                    \alert{\Large ``What do the 14 pilot readings\\ tend to look like\\ when the answer is $c$?''}
-                \end{center}
-                }
-                % \vspace{0.5cm}
-                % \onslide<3->{
-                % \begin{center}
-                %     $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
-                % \end{center}
-                % }
-                % \onslide<4->{
-                % \begin{center}
-                %     \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
-                % \end{center}
-                % }
-            \end{column}
-            \begin{column}{0.4\textwidth}
-                \onslide<1->{
-                \begin{center}
-                \begin{tikzpicture}[every node/.style={font=\small}]
-                    \node [draw, thick, circle, minimum size=3cm,
-                        fill=blue!60, fill opacity=0.15] (cq) at (0,0) {};
-                    \pgfmathsetseed{42}
-                    \foreach \k in {1,...,55}{
-                        \pgfmathsetmacro{\rr}{1.15*sqrt(rnd)}
-                        \pgfmathsetmacro{\aa}{360*rnd}
-                        \node [circle, fill=blue!80!black, inner sep=0.4pt] at ($(cq)+(\aa:\rr)$) {};
-                    }
-                    \node [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
-                        text opacity=1, inner sep=1.5pt] at (cq) {$\boldsymbol{\Phi}_{c}$};
-                \end{tikzpicture}
-                \end{center}
-                }
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{What Does Each Class Represent?}
-        \framesubtitle{Hierarchical codebook: recursive splitting down to $\mathrm N_c = 8$ classes}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Hierarchical codebook: What Does Each Class Represent?}
         \begin{center}
         \begin{tikzpicture}[scale=0.88]
 
@@ -540,38 +421,8 @@ minimum height=3em, minimum width=6em]
         \end{tikzpicture}
         \end{center}
         \footnotesize
-        \onslide<1-3>{{\color{red!70!black}Red}: successive pilot search levels, each splitting the angular range in two.} \\
-        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\boldsymbol{\Phi}_c$.}
-    \end{frame}
-
-    %------------------------------------------------    
-
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \begin{definition}[Rate]
-            \onslide <1-3> We want to get a higher coverage, which leads to maximizing the rate:
-            \begin{equation*}
-                \mathrm{R} 
-                = 
-                \max_{i \in \llbracket \mathrm N_c \rrbracket} 
-                \left [
-                    \log_2 \left ( 1+\frac{P \|\mathbf{H}_{\text{BS}} \text{diag}({\boldsymbol{\Phi}_{i}}) \mathbf{h}_{\text{UE}}\|_2^2 }{\sigma_{\mathrm w}^2} \right )
-                \right ]
-            \end{equation*}
-            % where $\bold{h}$ the full channel.
-        \end{definition}
-        \begin{columns}
-            \onslide <2-3> \begin{column}{0.45\textwidth}
-                \begin{block}{CSI}
-                    Channel estimation is challenging.
-                \end{block}
-            \end{column}
-            \begin{column}{0.45\textwidth}
-                \onslide <3> \begin{block}{No CSI}
-                    "Blind" method.
-                \end{block}
-            \end{column}
-        \end{columns}
+        \onslide<1-3>{{\color{red!70!black}Red}: successive pilot search levels over the pilot codebook $\boldsymbol{\Psi}_{1}^{N_p}$.} \\
+        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\rightarrow$ communication codebook $\boldsymbol{\Phi}_{1}^{N_c} \subset  \boldsymbol{\Psi}_{1}^{N_p}$.}
     \end{frame}
 
     %------------------------------------------------
@@ -622,14 +473,14 @@ minimum height=3em, minimum width=6em]
             \column{0.6\textwidth}
             \only<1->{ % First diagram appears first
             \begin{itemize}
-                \item<1-|alert@1> Initial state $\mathbf{S}_{\text{init}} = \rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$
-                \item<2-|alert@2> Intermediate State $\mathbf{S}_{\text{t}}\rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t})$
+                \item<2-|alert@2> Initial state $\mathbf{S}_{\text{init}} = \rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$
                 \item<3-|alert@3> Action $\mathbf{a}_{t} \rightarrow \pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$
-                \item<4-|alert@4> Reward $\mathbf{R}_{\text{t}} \rightarrow  -1$ until reaching $\mathbf{S}_{\text{terminal}}$ where confidence level is $1 - \delta$
+                \item<4-|alert@4> Intermediate State $\mathbf{S}_{\text{t}}\rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t})$
+                \item<5-|alert@5> Reward $\mathbf{R}_{\text{t}} \rightarrow  -1$ until reaching $\mathbf{S}_{\text{terminal}}$ where confidence level is $1 - \delta$
             \end{itemize}
             }
             \vspace{1cm}
-            \only<5->{
+            \only<6->{
             \begin{block}{Objective}
                 $\boldsymbol{\Phi}_{\text{opt}} = \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$
                 \\
@@ -668,6 +519,160 @@ minimum height=3em, minimum width=6em]
         \end{columns}
     \end{frame}
 
+    %------------------------------------------------    
+
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{A Motivating Analogy}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.82, transform shape, every node/.style={align=center, font=\small}]
+
+            % --- Reference book with 8 diseases ---
+            \node<1-> (book) [draw, thick, rounded corners, fill=blue!5,
+                minimum width=4.4cm, minimum height=2.8cm] at (-3.6,1.9) {};
+            \node<1-> [above=0.05cm of book, font=\bfseries] {Reference Book (Dataset)};
+            \foreach \i/\x/\y in {1/-0.9/0.55,2/-0.3/0.55,3/0.3/0.55,4/0.9/0.55,%
+                                  5/-0.6/-0.15,6/0/-0.15,7/0.6/-0.15,8/0/-0.75}{
+                \node<1-> [font=\Large, red!60!black] at ($(book.center)+(\x,\y)$) {\faVirus};
+            }
+            \node<1-> [below=0.05cm of book, font=\itshape\footnotesize] {8 known diseases};
+
+            % --- Doctor ---
+            \node<2-> (doctor) [font=\Large, orange!80!black] at (-3.6,-2.2) {\faUserMd};
+            \node<2-> [below=0.1cm of doctor, font=\bfseries\footnotesize] {Clinician};
+
+            % --- 14 cheap tests, single row, box sized to hold exactly that row ---
+            \node<3-> (tests) [draw, thick, rounded corners, fill=green!5,
+                minimum width=5.8cm, minimum height=0.9cm] at (3.2,-0.65) {};
+            \node<3-> [above=0.05cm of tests, font=\bfseries] {14 Cheap Lab Tests};
+            \foreach \i in {1,...,14}{
+                \pgfmathsetmacro{\vx}{3.2-2.6+(\i-1)*0.4}
+                \node<3-> [font=\normalsize, green!50!black] at (\vx,-0.65) {\faVial};
+            }
+
+            % --- doctor administers tests ---
+            \draw<4-> [->, thick] (doctor) to[bend left=15] (tests.south west);
+            \node<4-> [below=0.05cm of tests, font=\footnotesize] {sequentially run, one at a time};
+
+            % --- doctor consults the reference book with accumulated results ---
+            \draw<5-> [->, thick, red!70!black] (tests.north west) to[bend left=25] (book.south east);
+            \node<5-> [font=\footnotesize, red!70!black] at (0.0,0.7) {compare results};
+
+            % --- diagnosis found: highlight one disease (exactly on top of the icon) ---
+            \node<6-> [draw, circle, thick, red!70!black, minimum size=0.7cm] at ($(book.center)+(0.3,0.55)$) {};
+            \node<6-> [right=0.2cm of book, xshift=1.9cm, text width=5.2cm, font=\bfseries\footnotesize, red!70!black]
+                {Diagnosis found \mbox{after} only a \underline{few} tests!};
+
+        \end{tikzpicture}
+        \end{center}
+
+        \onslide<7->{
+        \begin{center}
+            \textbf{Goal:} find the right diagnosis using as \underline{\textbf{few cheap tests as possible}}.
+        \end{center}
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Building the Dataset: How is a sample constructed?}
+        \begin{columns}[T]
+            \begin{column}{0.56\textwidth}
+                \vspace{0.3cm}
+                \resizebox{\linewidth}{!}{%
+                \begin{tikzpicture}[every node/.style={font=\small}]
+
+                    % --- Big dataset ellipse, sized to hug the classes tightly (no wasted margin) ---
+                    \draw<1-> [thick] (0,0) ellipse (4.6 and 2.9);
+                    \node<1-> [above] at (0,3.05) {\textbf{Dataset $\mathcal{D}$}};
+
+                    % --- One class circle per communication codeword, filled with Monte Carlo samples ---
+                    % Spread across the ellipse (corners + sides), not on a single circle, leaving
+                    % only a small central gap. Each class is a NAMED node (c1..c8) so an arrow can
+                    % later target it, e.g. \draw[->] (something) -- (c3);
+                    \foreach \i/\col/\x/\y in {0/red/-2.3/1.4,1/orange/0/2.0,2/yellow/2.3/1.4,%
+                                               3/green/-3.6/0,4/teal/3.6/0,%
+                                               5/violet/-2.3/-1.4,6/blue/0/-2.0,7/magenta/2.3/-1.4}{
+                        \pgfmathtruncatemacro{\ov}{\i+1}
+                        \node<2-> [draw, thick, circle, minimum size=1.6cm,
+                            fill=\col!60, fill opacity=0.15] (c\ov) at (\x,\y) {};
+
+                        \pgfmathsetseed{\ov*17+5}
+                        \foreach \k in {1,...,55}{
+                            \pgfmathsetmacro{\rr}{0.62*sqrt(rnd)}
+                            \pgfmathsetmacro{\aa}{360*rnd}
+                            \node<3-> [circle, fill=\col!80!black, inner sep=0.4pt] at ($(c\ov)+(\aa:\rr)$) {};
+                        }
+
+                        % Label drawn last so it stays on top of the scattered samples
+                        \node<2-> [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
+                            text opacity=1, inner sep=1.5pt] at (c\ov) {$\boldsymbol{\Phi}_{\ov}$};
+                    }
+                \end{tikzpicture}}
+            \end{column}
+            \begin{column}{0.43\textwidth}
+                \small
+                \onslide<1->{\textbf{1.} Draw a random channel $\mathbf{H}$.\\[0.3cm]}
+                \onslide<2->{\textbf{2.} Run all $\mathrm{N}_c{=}8$ communication codewords on $\mathbf{H}$ \emph{without noise} (forbidden tests) $\rightarrow$ best RSE $\rightarrow$ assign $c^*$.\\[0.3cm]}
+                \onslide<3->{\textbf{3.} Run all $\mathrm{N}_p{=}14$ pilot codewords on $\mathbf{H}$ \emph{with noise} (cheap tests) $\rightarrow$ a 14-number ``fingerprint'' stored as a sample of class $c^*$.}
+                \onslide<4->{\vspace{0.3cm}\\ \footnotesize Each class $\boldsymbol{\Phi}_c$ $\geq$ \textbf{200} such samples.}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{The Likelihood Model}
+        \begin{columns}[c]
+            \begin{column}{0.58\textwidth}
+                \onslide<1->{
+                \begin{center}
+                    \large This collection \emph{is} the likelihood model.
+                \end{center}
+                }
+                \vspace{0.5cm}
+                \onslide<2->{
+                \begin{center}
+                    \alert{\Large ``What do the 14 pilot readings\\ tend to look like\\ when the answer is $c$?''}
+                \end{center}
+                }
+                % \vspace{0.5cm}
+                % \onslide<3->{
+                % \begin{center}
+                %     $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
+                % \end{center}
+                % }
+                % \onslide<4->{
+                % \begin{center}
+                %     \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
+                % \end{center}
+                % }
+            \end{column}
+            \begin{column}{0.4\textwidth}
+                \onslide<1->{
+                \begin{center}
+                \begin{tikzpicture}[every node/.style={font=\small}]
+                    \node [draw, thick, circle, minimum size=3cm,
+                        fill=blue!60, fill opacity=0.15] (cq) at (0,0) {};
+                    \pgfmathsetseed{42}
+                    \foreach \k in {1,...,55}{
+                        \pgfmathsetmacro{\rr}{1.15*sqrt(rnd)}
+                        \pgfmathsetmacro{\aa}{360*rnd}
+                        \node [circle, fill=blue!80!black, inner sep=0.4pt] at ($(cq)+(\aa:\rr)$) {};
+                    }
+                    \node [font=\normalsize\bfseries, fill=white, fill opacity=0.8,
+                        text opacity=1, inner sep=1.5pt] at (cq) {$\boldsymbol{\Phi}_{c}$};
+                \end{tikzpicture}
+                \end{center}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
     %------------------------------------------------
     
     \begin{frame}
@@ -701,6 +706,8 @@ minimum height=3em, minimum width=6em]
                 \underbrace{\pi^*(S) = \arg\max_{A} Q^*(S,A)}_{\text{greedy policy}}
             \end{equation*}
         \end{alertblock}
+        \vspace{-0.1cm}
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” 2025.}}
     \end{frame}
 
     %------------------------------------------------
@@ -729,12 +736,13 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Simulation results: Comparison to other benchmarks}
+        \vspace{-0.4cm}
         \begin{figure}
             \centering
             \includegraphics[width = 0.5\textwidth]{Plot/groupPlotSNR_5.pdf}
         \end{figure}
-        \vspace{-0.5cm}
-        {\tiny{[2]: O. Bounhar, T. Chene, G. R.-B. Othman, and O. Damen, “Deep q-learning for passive beamforming in ris-assisted mimo systems,” 2026.}}
+        \vspace{-0.3cm}
+        {\fontsize{5.5}{5.5}\selectfont{\cite{DRL}: O. Bounhar, T. Chene, G. Rekaya, and O. Damen, “Deep Reinforcement Learning for Blind Passive Beamforming in RIS-Assisted MIMO Systems,” 2026.}}
     \end{frame}    
 
     %------------------------------------------------
@@ -772,7 +780,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
+        \frametitle{Sionna: Realistic channel generation and validation}
         \framesubtitle{Ray tracing: one candidate path per unit cell}
         \begin{columns}[T]
             \begin{column}{0.62\textwidth}
@@ -799,7 +807,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
+        \frametitle{Sionna: Realistic channel generation and validation}
         \framesubtitle{From scene geometry to channel taps}
         \begin{center}
             \includegraphics[width=0.7\textwidth]{Tikz/compute_paths_pipeline.pdf}
@@ -839,8 +847,8 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{BER validation: Sionna vs.\ theoretical Rayleigh}
+        \frametitle{Sionna: Realistic channel generation and validation}
+        \framesubtitle{BER validation: Sionna's Flat Fading vs.\ theoretical Rayleigh without Sionna}
         \begin{center}
             \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
         \end{center}
@@ -849,7 +857,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
+        \frametitle{Sionna: Realistic channel generation and validation}
         \framesubtitle{Single-bounce per cell: RIS multipath}
         \begin{columns}[T]
             \begin{column}{0.52\textwidth}
@@ -869,7 +877,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
+        \frametitle{Sionna: Realistic channel generation and validation}
         \framesubtitle{BER validation: RIS multipath is correctly captured}
         \begin{columns}[T]
             \begin{column}{0.55\textwidth}
@@ -880,8 +888,7 @@ minimum height=3em, minimum width=6em]
                 \footnotesize
                 \begin{itemize}
                     \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap, as before.
-                    \item \emph{Sionna + RIS} departs from both, requiring higher $E_s/N_0$ for the same BER, across every QAM order.
-                    \item Confirms the RIS's multipath is correctly captured, rather than collapsing back to the flat-fading case.
+                    \item \emph{Sionna + RIS} confirms the RIS's multipath is correctly captured, requiring higher SNR for the same BER, across every QAM order.
                 \end{itemize}
             \end{column}
         \end{columns}
@@ -895,26 +902,41 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Thesis Vision Board (3 Years)}
-        \begin{tikzpicture}[>=stealth, thick, node distance=0.5cm]
+        \begin{tikzpicture}[>=stealth, thick, node distance=0.5cm, remember picture]
             % Nodes
             \node<1-> (y1) [rectangle, rounded corners, draw, fill=blue!10, text width=4.5cm, align=left, minimum height=2.5cm] 
                 {\textbf{Year 1} \\[-2pt] 
                 - State-of-the-art review \\
                 - Problem formulation \\
                 - Q-Learning for RIS beamforming, 1st publication (WCNC 2025)\\
-                - Deep Q-Learning extension, 2nd publication (ICC 2026 ?)};
+                \tikz[remember picture, overlay] \coordinate (dqnstart) at (0,0.5ex);\redsout{- Deep Q-Learning extension, 2nd publication (ICC 2026 ?)}};
             \node<2-> (y2) [rectangle, rounded corners, draw, fill=green!10, right=of y1, text width=4.5cm, align=left, minimum height=2.5cm] 
                 {\textbf{Year 2} \\[-2pt]
                 - Mobile user scenario \\
-                - Real-time Data generation (Sionna) \\
+                {\setlength{\fboxsep}{1pt}\setlength{\fboxrule}{0.8pt}\fcolorbox{red}{green!10}{\parbox{\dimexpr4.5cm-2\fboxsep-2\fboxrule}{- Real-time Data generation (Sionna)}}} \\
                 - Real-world validation with prototypes \\
-                - Paper submission (GLOBECOM 2027 ?)};
+                \tikz[remember picture, overlay] \coordinate (globecomstart) at (0,0.5ex);\redsout{- Paper submission (GLOBECOM 2027 ?)}};
             \node<3-> (y3) [rectangle, rounded corners, draw, fill=orange!10, right=of y2, text width=4.5cm, align=left, minimum height=2.5cm] 
                 {\textbf{Year 3} \\[-2pt]
                 - Multi-user scenario \\
-                - Security aspects of RIS \\
+                \redsout{- Security aspects of RIS}~\textcolor{red}{\faHourglassHalf} \\
                 - Journal submission \\
                 - Thesis writing and defense};
+
+            % DQN paper rejected
+            \draw<1-> [->, red, thick] ([xshift=-1pt]dqnstart) -- ([xshift=-0.25cm]y1.west |- dqnstart)
+                |- ([xshift=0.6cm, yshift=-0.5cm]y1.south west)
+                node[right, font=\bfseries] {3 rejections};
+
+            % GLOBECOM submission replaced
+            \draw<2-> [->, red, thick] ([xshift=-1pt]globecomstart) -- ([xshift=-0.25cm]y2.west |- globecomstart)
+                |- ([xshift=0.6cm, yshift=-0.5cm]y2.west |- y1.south)
+                node[right, font=\bfseries, text width=4cm, align=left] {Final acceptance at AIxNET \cite{DRL}};
+
+            % Year 3 new focus
+            \node<3-> [right, red, font=\small\bfseries, text width=4.2cm, align=left]
+                at ([xshift=0.15cm, yshift=-0.5cm]y3.west |- y1.south)
+                {\faExclamationTriangle~Focus on the choice of \mbox{network} that allows the \mbox{protocol} to scale};
 
             % Arrows
             \draw<2-> [->] (y1.east) -- (y2.west);
@@ -964,588 +986,588 @@ minimum height=3em, minimum width=6em]
     % Appendix
     %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Doctoral school training requirements}
-        \begin{block}{Transversal skills}
-            Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
-        \end{block}
-        \pause
-        \begin{block}{Scientific skills}
-            Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Doctoral school training requirements}
+    %     \begin{block}{Transversal skills}
+    %         Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
+    %     \end{block}
+    %     \pause
+    %     \begin{block}{Scientific skills}
+    %         Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{From Analogy to Our Problem}
-        \begin{itemize}[<+-|alert@+>]
-            \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
-            \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
-            \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
-            \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
-            \item Test result $\longrightarrow$ Received Signal Energy (RSE);
-            \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
-        \end{itemize}
-        \vspace{0.4cm}
-        \onslide<7->{
-        \begin{center}
-            \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
-        \end{center}
-        }
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{From Analogy to Our Problem}
+    %     \begin{itemize}[<+-|alert@+>]
+    %         \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
+    %         \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
+    %         \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
+    %         \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
+    %         \item Test result $\longrightarrow$ Received Signal Energy (RSE);
+    %         \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
+    %     \end{itemize}
+    %     \vspace{0.4cm}
+    %     \onslide<7->{
+    %     \begin{center}
+    %         \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
+    %     \end{center}
+    %     }
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{System Model}
-        \framesubtitle{Codebook design}
-        We use a DFT codebook, and we separate the codebook into two parts: 
-        \begin{itemize}
-            \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
-            \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
-        \end{itemize}
-        \vspace{5mm}
-        \onslide <4> What is the configuration of the RIS that maximises the rate?
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{System Model}
+    %     \framesubtitle{Codebook design}
+    %     We use a DFT codebook, and we separate the codebook into two parts: 
+    %     \begin{itemize}
+    %         \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
+    %         \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
+    %     \end{itemize}
+    %     \vspace{5mm}
+    %     \onslide <4> What is the configuration of the RIS that maximises the rate?
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Bayesian Classifier: Protocol}
-        \onslide <1-6> For a channel realization $\mathbf H$, we define $\boldsymbol\Phi(\mathbf H)$ as the class that assigns for this channel the best communication codeword $\boldsymbol\Phi \in \boldsymbol\Phi_{1}^{N_c}$:
-        \begin{equation*}
-            \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \!\ (||\bold{h}(\boldsymbol{\Phi})||_2^2)\}.
-            % \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \bigl(\lVert\bold{h}(\boldsymbol{\Phi}) \rVert_2^2\bigr)\}.
-        \end{equation*}
-        \onslide <2-6> We introduce a probability vector associated with the communication codebook $\boldsymbol\Phi_{1}^{N_c}$:
-        \begin{equation*}
-            \mathbf{p}(\boldsymbol\Phi(\mathbf{H})) = \Big[\mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{1}), \ldots, \mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{N_c})\Big].
-        \end{equation*}
-        \onslide <3-6> The UE sends a pilot symbol $s_k$.
-        \onslide <4-6> The RIS uses the index of a pilot codeword $\pi_k \in \llbracket 1,N_p \rrbracket$, i.e., $\boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$ defined by the BS.
-        \onslide <5-6> The BS computes the Received Signal Energy (RSE) where $k \in \llbracket 1,\mathrm N_p \rrbracket$:
-        \begin{equation*}
-            \mathrm Y_k = \mathbf y_k \mathbf y_k^{H}
-        \end{equation*}
-        \onslide <6> At each time step $t$, update the posteriori probability with knowledge over all received feedbacks: 
-        \begin{equation*}
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})\triangleq [\mathbf{p}(\boldsymbol{\Phi}_1| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t}), \cdots, \mathbf{p}(\boldsymbol{\Phi}_{\mathrm N_c}| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})]
-        \end{equation*}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Bayesian Classifier: Protocol}
+    %     \onslide <1-6> For a channel realization $\mathbf H$, we define $\boldsymbol\Phi(\mathbf H)$ as the class that assigns for this channel the best communication codeword $\boldsymbol\Phi \in \boldsymbol\Phi_{1}^{N_c}$:
+    %     \begin{equation*}
+    %         \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \!\ (||\bold{h}(\boldsymbol{\Phi})||_2^2)\}.
+    %         % \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \bigl(\lVert\bold{h}(\boldsymbol{\Phi}) \rVert_2^2\bigr)\}.
+    %     \end{equation*}
+    %     \onslide <2-6> We introduce a probability vector associated with the communication codebook $\boldsymbol\Phi_{1}^{N_c}$:
+    %     \begin{equation*}
+    %         \mathbf{p}(\boldsymbol\Phi(\mathbf{H})) = \Big[\mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{1}), \ldots, \mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{N_c})\Big].
+    %     \end{equation*}
+    %     \onslide <3-6> The UE sends a pilot symbol $s_k$.
+    %     \onslide <4-6> The RIS uses the index of a pilot codeword $\pi_k \in \llbracket 1,N_p \rrbracket$, i.e., $\boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$ defined by the BS.
+    %     \onslide <5-6> The BS computes the Received Signal Energy (RSE) where $k \in \llbracket 1,\mathrm N_p \rrbracket$:
+    %     \begin{equation*}
+    %         \mathrm Y_k = \mathbf y_k \mathbf y_k^{H}
+    %     \end{equation*}
+    %     \onslide <6> At each time step $t$, update the posteriori probability with knowledge over all received feedbacks: 
+    %     \begin{equation*}
+    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})\triangleq [\mathbf{p}(\boldsymbol{\Phi}_1| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t}), \cdots, \mathbf{p}(\boldsymbol{\Phi}_{\mathrm N_c}| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})]
+    %     \end{equation*}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach : Reinforcement Learning}
-        \framesubtitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Proposed approach : Reinforcement Learning}
+    %     \framesubtitle{Stochastic shortest path problem}
+    %     \centering
+    %     \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Stochastic shortest path problem}
+    %     \centering
+    %     \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Euclidean distance}
-        \begin{equation}
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
-            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
-            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
-            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
-        \end{equation}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Euclidean distance}
+    %     \begin{equation}
+    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
+    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
+    %         \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
+    %         \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
+    %     \end{equation}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Q-Learning algorithm}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Q-Learning algorithm}
+    %     \centering
+    %     \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Stochastic shortest path problem}
-        \centering
-        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Stochastic shortest path problem}
+    %     \centering
+    %     \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Blind Beamforming}
-        Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
-        \vspace{3mm}
-        \begin{itemize}
-            \item <1-> Exhaustive search over the codebook.
-            \begin{itemize}
-                \item Huge overhead 
-            \end{itemize}
-             \item <2-> Hierarchical : Need to create a specific codebook.
-             \begin{itemize}
-                \item Low overhead. 
-                \item Might not reach the optimal configuration because of its shape (binary tree). 
-            \end{itemize}
-        \end{itemize}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Blind Beamforming}
+    %     Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
+    %     \vspace{3mm}
+    %     \begin{itemize}
+    %         \item <1-> Exhaustive search over the codebook.
+    %         \begin{itemize}
+    %             \item Huge overhead 
+    %         \end{itemize}
+    %          \item <2-> Hierarchical : Need to create a specific codebook.
+    %          \begin{itemize}
+    %             \item Low overhead. 
+    %             \item Might not reach the optimal configuration because of its shape (binary tree). 
+    %         \end{itemize}
+    %     \end{itemize}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Naive Bayes Classifier}        
-        \onslide<1-2>{
-        \begin{block}{Classification}
-            Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
-            \begin{equation*}
-                \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
-            \end{equation*}
-        \end{block}
-        }
-        \onslide<2->{
-        \vspace{1cm}
-        \footnotesize Class $c_i$ is the class assigned to a UE direction for which communication codeword $\boldsymbol{\Phi}_i$ maximizes the received signal strength $\|\mathbf h(\boldsymbol{\Phi}_i)\|_2^2$.
-        }
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Naive Bayes Classifier}        
+    %     \onslide<1-2>{
+    %     \begin{block}{Classification}
+    %         Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
+    %         \begin{equation*}
+    %             \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
+    %         \end{equation*}
+    %     \end{block}
+    %     }
+    %     \onslide<2->{
+    %     \vspace{1cm}
+    %     \footnotesize Class $c_i$ is the class assigned to a UE direction for which communication codeword $\boldsymbol{\Phi}_i$ maximizes the received signal strength $\|\mathbf h(\boldsymbol{\Phi}_i)\|_2^2$.
+    %     }
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Naive Bayes Classifier}  
-        \begin{block}{Objective}
-            \onslide<1-2>{
-                Our main purpose is to find the optimal configuration $\Phi_{\text{opt}}$ while minimizing the number of required pilots $\boldsymbol\Psi \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$:
-                \begin{equation*}
-                    \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty = 1\}
-                \end{equation*}
-            }
-            \onslide<2>{
-                We introduce a fixed degree of precision $\delta\in [0;1]$ and we need to minimize $\mathrm L_{\text{p}}$ st. the probability of correct classification respects a certain precision:
-                \begin{equation*}
-                    \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}
-                \end{equation*}
-            }
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Naive Bayes Classifier}  
+    %     \begin{block}{Objective}
+    %         \onslide<1-2>{
+    %             Our main purpose is to find the optimal configuration $\Phi_{\text{opt}}$ while minimizing the number of required pilots $\boldsymbol\Psi \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$:
+    %             \begin{equation*}
+    %                 \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty = 1\}
+    %             \end{equation*}
+    %         }
+    %         \onslide<2>{
+    %             We introduce a fixed degree of precision $\delta\in [0;1]$ and we need to minimize $\mathrm L_{\text{p}}$ st. the probability of correct classification respects a certain precision:
+    %             \begin{equation*}
+    %                 \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}
+    %             \end{equation*}
+    %         }
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{State, Action, and Reward Flow}
-        \begin{columns}
+    % \begin{frame}
+    %     \frametitle{Proposed approach: Reinforcement Learning}
+    %     \framesubtitle{State, Action, and Reward Flow}
+    %     \begin{columns}
     
-            % First Column (First Diagram)
-            \column{0.6\textwidth}
-            \only<1->{ % First diagram appears first
-            \scalebox{0.75}{ % Scale down the diagram to fit the slide
-            \begin{tikzpicture}[
-                node distance=1.5cm and 2.5cm, 
-                every node/.style={draw, minimum width=2.8cm, minimum height=1cm, align=center, font=\scriptsize}, 
-                every path/.style={thick, ->, >=stealth}
-            ]
+    %         % First Column (First Diagram)
+    %         \column{0.6\textwidth}
+    %         \only<1->{ % First diagram appears first
+    %         \scalebox{0.75}{ % Scale down the diagram to fit the slide
+    %         \begin{tikzpicture}[
+    %             node distance=1.5cm and 2.5cm, 
+    %             every node/.style={draw, minimum width=2.8cm, minimum height=1cm, align=center, font=\scriptsize}, 
+    %             every path/.style={thick, ->, >=stealth}
+    %         ]
         
-                % Define Nodes
-                \node (init) [rectangle, rounded corners, fill=blue!15] {Initial State\\ $S_{\text{init}} = \mathbf{p}(\boldsymbol{\Phi}(\mathbf{H})) = [\frac{1}{N_c},\cdots,\frac{1}{N_c}]$};
+    %             % Define Nodes
+    %             \node (init) [rectangle, rounded corners, fill=blue!15] {Initial State\\ $S_{\text{init}} = \mathbf{p}(\boldsymbol{\Phi}(\mathbf{H})) = [\frac{1}{N_c},\cdots,\frac{1}{N_c}]$};
                 
-                \node (action) [rectangle, rounded corners, below=1cm of init, fill=green!20] {Choose Pilot Codeword $\boldsymbol{\Psi} \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$};
+    %             \node (action) [rectangle, rounded corners, below=1cm of init, fill=green!20] {Choose Pilot Codeword $\boldsymbol{\Psi} \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$};
         
-                \node (state_new) [rectangle, rounded corners, below=1cm of action, fill=blue!15] {New State};
+    %             \node (state_new) [rectangle, rounded corners, below=1cm of action, fill=blue!15] {New State};
         
-                \node (reward) [rectangle, rounded corners, below=1cm of state_new, fill=red!20] {Reward: -1 if not Terminal State};
+    %             \node (reward) [rectangle, rounded corners, below=1cm of state_new, fill=red!20] {Reward: -1 if not Terminal State};
         
-                \node (terminal) [rectangle, rounded corners, right=4.5cm of state_new, fill=red!20] {Terminal State \\ (Correct Codeword Found) \\ Reward = 0};
+    %             \node (terminal) [rectangle, rounded corners, right=4.5cm of state_new, fill=red!20] {Terminal State \\ (Correct Codeword Found) \\ Reward = 0};
         
-                % Draw Arrows
-                \draw[arrow] (init.south) -| (action.north);  
-                \draw[arrow] (action.south) -- (state_new.north);  
-                \draw[arrow] (state_new.south) -- (reward.north);  
+    %             % Draw Arrows
+    %             \draw[arrow] (init.south) -| (action.north);  
+    %             \draw[arrow] (action.south) -- (state_new.north);  
+    %             \draw[arrow] (state_new.south) -- (reward.north);  
         
-                % Loop back to action if not terminal
-                \draw[arrow] (reward.west) -| (-2.5,-2.04) -- (action.west); 
+    %             % Loop back to action if not terminal
+    %             \draw[arrow] (reward.west) -| (-2.5,-2.04) -- (action.west); 
         
-                % Transition to terminal state if condition met
-                \draw[arrow] (state_new.east)  -- node[midway, above =.2, rounded corners] {If \\ $\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^t,\boldsymbol{\Psi}_1^t) \|\infty >1-\delta$} 
-                    (terminal.west);
+    %             % Transition to terminal state if condition met
+    %             \draw[arrow] (state_new.east)  -- node[midway, above =.2, rounded corners] {If \\ $\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^t,\boldsymbol{\Psi}_1^t) \|\infty >1-\delta$} 
+    %                 (terminal.west);
         
-            \end{tikzpicture}
-            }
-            }
+    %         \end{tikzpicture}
+    %         }
+    %         }
             
-            % Second Column (Second Diagram)
-            \column{0.3\textwidth}
-            \only<2->{ % Second diagram appears on next step
-            \scalebox{0.65}{ % Scale down the diagram
-            \begin{tikzpicture}[
-                node distance=2cm and 3cm,
-                every node/.style={font=\small},
-                block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
-                arrow/.style={draw, thick, ->, >=stealth}
-            ]
+    %         % Second Column (Second Diagram)
+    %         \column{0.3\textwidth}
+    %         \only<2->{ % Second diagram appears on next step
+    %         \scalebox{0.65}{ % Scale down the diagram
+    %         \begin{tikzpicture}[
+    %             node distance=2cm and 3cm,
+    %             every node/.style={font=\small},
+    %             block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
+    %             arrow/.style={draw, thick, ->, >=stealth}
+    %         ]
             
-            % Nodes
-            \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
-            \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
-            \node (state_t) at (3,0.5) {State $S_t$};
-            \node (reward_t) at (3,-0.5) {Reward $R_t$};
-            \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
-            \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
+    %         % Nodes
+    %         \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
+    %         \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
+    %         \node (state_t) at (3,0.5) {State $S_t$};
+    %         \node (reward_t) at (3,-0.5) {Reward $R_t$};
+    %         \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
+    %         \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
             
-            % Arrows
-            \draw[arrow] (state_t) |- (agent);
-            \draw[arrow] (agent) -| (state_t1);
-            \draw[arrow] (reward_t1) |- (env);
-            \draw[arrow] (env) -| (reward_t);
+    %         % Arrows
+    %         \draw[arrow] (state_t) |- (agent);
+    %         \draw[arrow] (agent) -| (state_t1);
+    %         \draw[arrow] (reward_t1) |- (env);
+    %         \draw[arrow] (env) -| (reward_t);
             
-            \end{tikzpicture}
-            }
-            }
-        \end{columns}
-    \end{frame}
+    %         \end{tikzpicture}
+    %         }
+    %         }
+    %     \end{columns}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
     
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Stochastic shortest path problem}
-        \begin{block}{Policy}
-            A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
-            \begin{equation*}
-                \pi(S) = A
-            \end{equation*}
-        \end{block}
-        \pause
-        \begin{block}{Objective}
-            The goal is to reach a terminal state where the probability of correct classification respects a fixed degree of precision $\delta \in [0;1]$:
-            \begin{equation*}
-                \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
-            \end{equation*}
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Stochastic shortest path problem}
+    %     \begin{block}{Policy}
+    %         A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
+    %         \begin{equation*}
+    %             \pi(S) = A
+    %         \end{equation*}
+    %     \end{block}
+    %     \pause
+    %     \begin{block}{Objective}
+    %         The goal is to reach a terminal state where the probability of correct classification respects a fixed degree of precision $\delta \in [0;1]$:
+    %         \begin{equation*}
+    %             \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
+    %         \end{equation*}
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Q-Learning: Value Function and Policy}
-        \begin{block}{Q-function} 
-            The Q-value function represents the expected cumulative reward when taking action $A_t$ in state $S_t$:
-            \begin{equation*}
-                Q(S_t, A_t) = \mathbb{E}_{\mathbf H,\mathbf w}\left[\sum_{k=0}^{\infty} R_{t+k+1} \mid S_t = S, A_t = A\right]
-            \end{equation*}
-        \end{block} 
-        \pause
-        \begin{block}{Bellman Equation}
-            The Q-values are updated using the Bellman equation:
-            \begin{equation*}
-                Q(S_t, A_t) \leftarrow {(1-\alpha) Q(S_t, A_t) + \alpha[{R}_{t+1} + \max_{A}Q(S_{t+1}, A)]}
-            \end{equation*}
-            where $\alpha \in [0,1]$ is the learning rate.
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Q-Learning: Value Function and Policy}
+    %     \begin{block}{Q-function} 
+    %         The Q-value function represents the expected cumulative reward when taking action $A_t$ in state $S_t$:
+    %         \begin{equation*}
+    %             Q(S_t, A_t) = \mathbb{E}_{\mathbf H,\mathbf w}\left[\sum_{k=0}^{\infty} R_{t+k+1} \mid S_t = S, A_t = A\right]
+    %         \end{equation*}
+    %     \end{block} 
+    %     \pause
+    %     \begin{block}{Bellman Equation}
+    %         The Q-values are updated using the Bellman equation:
+    %         \begin{equation*}
+    %             Q(S_t, A_t) \leftarrow {(1-\alpha) Q(S_t, A_t) + \alpha[{R}_{t+1} + \max_{A}Q(S_{t+1}, A)]}
+    %         \end{equation*}
+    %         where $\alpha \in [0,1]$ is the learning rate.
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{State-of-the-art}
-        \framesubtitle{Q-Learning: Optimal policy}
-        \begin{block}{Optimal Policy}
-            The optimal policy is obtained by selecting the action that maximizes the expected reward :
-            \begin{equation*}
-                \pi^*(S) = \arg\max_{A} Q^*(S,A)
-            \end{equation*}
-        \end{block}
-        \pause
-        \begin{block}{Objective}
-            Thus, our goal is to find the optimal policy $\pi^*$ that maximizes the cumulative reward despite randomness in the channel and noise. We rewrite our objective:
-            \begin{equation*}
-                \mathrm L^{*} = \max_{\pi}
-                 \mathbb{E}_{\bold{H},\bold{w}}
-                \left[
-                    \sum_{t=0}^{\infty} R_t 
-                \right]
-            \label{eq:L_min_*}
-            \end{equation*}
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{State-of-the-art}
+    %     \framesubtitle{Q-Learning: Optimal policy}
+    %     \begin{block}{Optimal Policy}
+    %         The optimal policy is obtained by selecting the action that maximizes the expected reward :
+    %         \begin{equation*}
+    %             \pi^*(S) = \arg\max_{A} Q^*(S,A)
+    %         \end{equation*}
+    %     \end{block}
+    %     \pause
+    %     \begin{block}{Objective}
+    %         Thus, our goal is to find the optimal policy $\pi^*$ that maximizes the cumulative reward despite randomness in the channel and noise. We rewrite our objective:
+    %         \begin{equation*}
+    %             \mathrm L^{*} = \max_{\pi}
+    %              \mathbb{E}_{\bold{H},\bold{w}}
+    %             \left[
+    %                 \sum_{t=0}^{\infty} R_t 
+    %             \right]
+    %         \label{eq:L_min_*}
+    %         \end{equation*}
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{From Q-Learning to Deep Q-Learning}
-        \begin{itemize}[<+->]
-            \item The state space was discretized \cite{chene-};
-            \item Transitions were determined using Euclidean distances to predefined states;
-            \item This approach became unreliable in high dimensions;
-            \item Small variations led to misclassifications among similar codewords.
-        \end{itemize}
-        \vfill
-        \vspace{9mm}
-        {\tiny{[1]: T. Chêne, O. Bounhar, G. R.-B. Othman, and O. Damen, “Adaptive Passive
-        Beamforming in RIS-Aided Communications with Q-Learning,” in 2025 IEEE Wireless
-        Communications and Networking Conference (WCNC).
-        Milan, Italy : IEEE, 2025, pp.
-        1–6.}}  
-    \end{frame}
-    %------------------------------------------------
+    % \begin{frame}
+    %     \frametitle{Proposed approach: Reinforcement Learning}
+    %     \framesubtitle{From Q-Learning to Deep Q-Learning}
+    %     \begin{itemize}[<+->]
+    %         \item The state space was discretized \cite{chene-};
+    %         \item Transitions were determined using Euclidean distances to predefined states;
+    %         \item This approach became unreliable in high dimensions;
+    %         \item Small variations led to misclassifications among similar codewords.
+    %     \end{itemize}
+    %     \vfill
+    %     \vspace{9mm}
+    %     {\tiny{[1]: T. Chêne, O. Bounhar, G. R.-B. Othman, and O. Damen, “Adaptive Passive
+    %     Beamforming in RIS-Aided Communications with Q-Learning,” in 2025 IEEE Wireless
+    %     Communications and Networking Conference (WCNC).
+    %     Milan, Italy : IEEE, 2025, pp.
+    %     1–6.}}  
+    % \end{frame}
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{Deep Q-Neural Netwok}
-        Deep Q-Learning (DQL) uses two NN:
-        \begin{itemize}[<+->]
-            \item Evaluation network (Eval-Net) parameterized by the NN weights $\theta^{(eval)}$,
-            \item Target network (Target-Net) parameterized by NN weights $\theta^{(target)}$.
-        \end{itemize}
-        \pause
-        \begin{block}{Approximation of the Q-function}
-            The Q-function approximation can thus be expressed as:
-            \begin{equation}
-                Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
-            \end{equation}
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Proposed approach: Reinforcement Learning}
+    %     \framesubtitle{Deep Q-Neural Netwok}
+    %     Deep Q-Learning (DQL) uses two NN:
+    %     \begin{itemize}[<+->]
+    %         \item Evaluation network (Eval-Net) parameterized by the NN weights $\theta^{(eval)}$,
+    %         \item Target network (Target-Net) parameterized by NN weights $\theta^{(target)}$.
+    %     \end{itemize}
+    %     \pause
+    %     \begin{block}{Approximation of the Q-function}
+    %         The Q-function approximation can thus be expressed as:
+    %         \begin{equation}
+    %             Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
+    %         \end{equation}
+    %     \end{block}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{Deep Q-Learning Algorithm}
-        \begin{figure}
-            \includegraphics[width = 0.9\textwidth]{Tikz/trainingDQN.pdf}
-        \end{figure}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Proposed approach: Reinforcement Learning}
+    %     \framesubtitle{Deep Q-Learning Algorithm}
+    %     \begin{figure}
+    %         \includegraphics[width = 0.9\textwidth]{Tikz/trainingDQN.pdf}
+    %     \end{figure}
+    % \end{frame}
         
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Proposed approach: Reinforcement Learning}
-        \framesubtitle{Deep Q-Neural Netwok}
-        \begin{block}{Network Optimization}
-            The Q-network is trained by minimizing the mean squared error (MSE) loss, defined as:
-            \begin{equation}
-            \mathcal{L}(\theta) = \mathbb{E} \big[ \smash{(Q_{\text{target}} - Q_{\text{eval}}(S, A; \theta^{(\text{eval})}))^2} \big],
-            \label{eq: loss}
-            \end{equation}
-            with:
-            \begin{equation}
-                Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)}).
-            \end{equation}
-        \end{block}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Proposed approach: Reinforcement Learning}
+    %     \framesubtitle{Deep Q-Neural Netwok}
+    %     \begin{block}{Network Optimization}
+    %         The Q-network is trained by minimizing the mean squared error (MSE) loss, defined as:
+    %         \begin{equation}
+    %         \mathcal{L}(\theta) = \mathbb{E} \big[ \smash{(Q_{\text{target}} - Q_{\text{eval}}(S, A; \theta^{(\text{eval})}))^2} \big],
+    %         \label{eq: loss}
+    %         \end{equation}
+    %         with:
+    %         \begin{equation}
+    %             Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)}).
+    %         \end{equation}
+    %     \end{block}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Sionna - Scene view}
-        \framesubtitle{The area around the Arc de Triomphe in Paris}
-        \centering
-        \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Sionna - Scene view}
+    %     \framesubtitle{The area around the Arc de Triomphe in Paris}
+    %     \centering
+    %     \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Sionna - Scene view}
-        \framesubtitle{Simple floor-wall scenario}
+    % \begin{frame}
+    %     \frametitle{Sionna - Scene view}
+    %     \framesubtitle{Simple floor-wall scenario}
 
-        \centering
-        \begin{tikzpicture}
-            \node[anchor=south west, inner sep=0] (img) at (0,0)
-            {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
+    %     \centering
+    %     \begin{tikzpicture}
+    %         \node[anchor=south west, inner sep=0] (img) at (0,0)
+    %         {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
 
-            % Labels
-            \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
-            \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
-            \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
+    %         % Labels
+    %         \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
+    %         \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
+    %         \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
 
-            % Optional arrows
-            \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
-            \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
-            \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
-        \end{tikzpicture}
+    %         % Optional arrows
+    %         \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
+    %         \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
+    %         \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
+    %     \end{tikzpicture}
 
-        \vspace{0.25cm}
-        {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
-        \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
-    \end{frame}
+    %     \vspace{0.25cm}
+    %     {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
+    %     \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
     
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Primer on electromagnetics: RIS reradiated field}
-        \begin{columns}[T]
-            % Left column
-            \begin{column}{0.35\textwidth}
-                \centering
-                \includegraphics[width=0.95\textwidth]{Figures/RIS_fig_sionna.png}
+    % \begin{frame}
+    %     \frametitle{Sionna - Realistic channel generation and validation}
+    %     \framesubtitle{Primer on electromagnetics: RIS reradiated field}
+    %     \begin{columns}[T]
+    %         % Left column
+    %         \begin{column}{0.35\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\textwidth]{Figures/RIS_fig_sionna.png}
 
-                \vspace{0.1cm}
-                {\scriptsize Incident and reradiated field from a RIS}
-            \end{column}
+    %             \vspace{0.1cm}
+    %             {\scriptsize Incident and reradiated field from a RIS}
+    %         \end{column}
 
-                    % Right column
-            \begin{column}{0.63\textwidth}
+    %                 % Right column
+    %         \begin{column}{0.63\textwidth}
 
-                \setlength{\abovedisplayskip}{2pt}
-                \setlength{\belowdisplayskip}{2pt}
-                \setlength{\abovedisplayshortskip}{2pt}
-                \setlength{\belowdisplayshortskip}{2pt}
+    %             \setlength{\abovedisplayskip}{2pt}
+    %             \setlength{\belowdisplayskip}{2pt}
+    %             \setlength{\abovedisplayshortskip}{2pt}
+    %             \setlength{\belowdisplayshortskip}{2pt}
 
-                \vspace{-0.3cm}
+    %             \vspace{-0.3cm}
 
-                \small The reradiated field from the RIS at point $S'$ is given by:
-                \begin{equation*}
-                \small
-                \mathbf{E}_{r}(S')
-                =
-                \sum_{u=1}^{N_y}
-                \sum_{v=1}^{N_z}
-                \Gamma_{u,v}\,
-                G_{u,v}\,
-                A_{u,v}\,
-                \mathbf{p}_{u,v}
-                \end{equation*}
+    %             \small The reradiated field from the RIS at point $S'$ is given by:
+    %             \begin{equation*}
+    %             \small
+    %             \mathbf{E}_{r}(S')
+    %             =
+    %             \sum_{u=1}^{N_y}
+    %             \sum_{v=1}^{N_z}
+    %             \Gamma_{u,v}\,
+    %             G_{u,v}\,
+    %             A_{u,v}\,
+    %             \mathbf{p}_{u,v}
+    %             \end{equation*}
 
-                \vspace{-0.1cm}
-                where:
-                \begin{align*}
-                \small
-                G_{u,v}
-                &=
-                \frac{3\lambda}{16\pi}
-                \left(1+\cos\theta_i^{u,v}\right)
-                \left(1+\cos\theta_r^{u,v}\right),
-                \\[0.35em]
-                A_{u,v}
-                &=
-                \frac{
-                e^{-j k_0 \left(s_i^{u,v}+s_r^{u,v}\right)}
-                }{
-                s_i^{u,v}s_r^{u,v}
-                },
-                \\[0.35em]
-                \mathbf{p}_{u,v}
-                &=
-                E_{i,\theta}(S)\,
-                \hat{\boldsymbol{\theta}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
-                +
-                E_{i,\varphi}(S)\,
-                \hat{\boldsymbol{\varphi}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
-                \end{align*}
-                \vspace{-0.3cm}
-                \begin{columns}[T,onlytextwidth]
-                    \begin{column}{0.48\textwidth}
-                        \begin{equation*}
-                        s_i^{u,v}
-                        =
-                        \left\|
-                        \mathbf{r}_{\mathrm{RIS}}^{u,v}
-                        -
-                        \mathbf{r}_{\mathrm{Tx}}
-                        \right\|_2
-                        \end{equation*}
+    %             \vspace{-0.1cm}
+    %             where:
+    %             \begin{align*}
+    %             \small
+    %             G_{u,v}
+    %             &=
+    %             \frac{3\lambda}{16\pi}
+    %             \left(1+\cos\theta_i^{u,v}\right)
+    %             \left(1+\cos\theta_r^{u,v}\right),
+    %             \\[0.35em]
+    %             A_{u,v}
+    %             &=
+    %             \frac{
+    %             e^{-j k_0 \left(s_i^{u,v}+s_r^{u,v}\right)}
+    %             }{
+    %             s_i^{u,v}s_r^{u,v}
+    %             },
+    %             \\[0.35em]
+    %             \mathbf{p}_{u,v}
+    %             &=
+    %             E_{i,\theta}(S)\,
+    %             \hat{\boldsymbol{\theta}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
+    %             +
+    %             E_{i,\varphi}(S)\,
+    %             \hat{\boldsymbol{\varphi}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
+    %             \end{align*}
+    %             \vspace{-0.3cm}
+    %             \begin{columns}[T,onlytextwidth]
+    %                 \begin{column}{0.48\textwidth}
+    %                     \begin{equation*}
+    %                     s_i^{u,v}
+    %                     =
+    %                     \left\|
+    %                     \mathbf{r}_{\mathrm{RIS}}^{u,v}
+    %                     -
+    %                     \mathbf{r}_{\mathrm{Tx}}
+    %                     \right\|_2
+    %                     \end{equation*}
 
-                        \centering
-                        {\small Tx--RIS distance}
-                    \end{column}
+    %                     \centering
+    %                     {\small Tx--RIS distance}
+    %                 \end{column}
 
-                    \begin{column}{0.48\textwidth}
-                        \begin{equation*}
-                        s_r^{u,v}
-                        =
-                        \left\|
-                        \mathbf{r}_{\mathrm{Rx}}
-                        -
-                        \mathbf{r}_{\mathrm{RIS}}^{u,v}
-                        \right\|_2
-                        \end{equation*}
+    %                 \begin{column}{0.48\textwidth}
+    %                     \begin{equation*}
+    %                     s_r^{u,v}
+    %                     =
+    %                     \left\|
+    %                     \mathbf{r}_{\mathrm{Rx}}
+    %                     -
+    %                     \mathbf{r}_{\mathrm{RIS}}^{u,v}
+    %                     \right\|_2
+    %                     \end{equation*}
 
-                        \centering
-                        {\small RIS--Rx distance}
-                    \end{column}
+    %                     \centering
+    %                     {\small RIS--Rx distance}
+    %                 \end{column}
 
-                \end{columns}
-            \end{column}
-        \end{columns}
-    \end{frame}
+    %             \end{columns}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
-        \begin{columns}[T]
-            \begin{column}{0.52\textwidth}
-                \centering
-                \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
-            \end{column}
-            \begin{column}{0.46\textwidth}
-                \small
-                \begin{itemize}
-                    \item Cells are spaced by half a wavelength, $d=\lambda/2$.
-                    \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
-                    \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
-                \end{itemize}
-            \end{column}
-        \end{columns}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Sionna - Realistic channel generation and validation}
+    %     \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
+    %     \begin{columns}[T]
+    %         \begin{column}{0.52\textwidth}
+    %             \centering
+    %             \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
+    %         \end{column}
+    %         \begin{column}{0.46\textwidth}
+    %             \small
+    %             \begin{itemize}
+    %                 \item Cells are spaced by half a wavelength, $d=\lambda/2$.
+    %                 \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
+    %                 \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
+    %             \end{itemize}
+    %         \end{column}
+    %     \end{columns}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Why geometry strongly affects the RIS channel}
+    % \begin{frame}
+    %     \frametitle{Sionna - Realistic channel generation and validation}
+    %     \framesubtitle{Why geometry strongly affects the RIS channel}
 
-        \begin{center}
-            \Large
-            \[
-            \boxed{
-            \text{Path loss}
-            \propto
-            \frac{1}{s_i^{u,v}s_r^{u,v}}
-            }
-            \]
-        \end{center}
+    %     \begin{center}
+    %         \Large
+    %         \[
+    %         \boxed{
+    %         \text{Path loss}
+    %         \propto
+    %         \frac{1}{s_i^{u,v}s_r^{u,v}}
+    %         }
+    %         \]
+    %     \end{center}
 
-        \vspace{0.5cm}
+    %     \vspace{0.5cm}
 
-        \begin{alertblock}{Main message}
-            For RIS-assisted propagation, the attenuation is controlled by the both segments Tx--RIS and RIS--Rx, and it is proportional to the product of these two distances:
-            \[
-            d_{\mathrm{Tx}\rightarrow\mathrm{RIS}}
-            \times
-            d_{\mathrm{RIS}\rightarrow\mathrm{Rx}}.
-            \]
-        \end{alertblock}
+    %     \begin{alertblock}{Main message}
+    %         For RIS-assisted propagation, the attenuation is controlled by the both segments Tx--RIS and RIS--Rx, and it is proportional to the product of these two distances:
+    %         \[
+    %         d_{\mathrm{Tx}\rightarrow\mathrm{RIS}}
+    %         \times
+    %         d_{\mathrm{RIS}\rightarrow\mathrm{Rx}}.
+    %         \]
+    %     \end{alertblock}
 
-    \end{frame}
+    % \end{frame}
 
-    %------------------------------------------------
+    % %------------------------------------------------
 
-    \begin{frame}
-        \frametitle{Sionna - Realistic channel generation and validation}
-        \framesubtitle{Key takeaways}
-        \begin{itemize}[<+->]
-            \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
-            \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
-        \end{itemize}
-    \end{frame}
+    % \begin{frame}
+    %     \frametitle{Sionna - Realistic channel generation and validation}
+    %     \framesubtitle{Key takeaways}
+    %     \begin{itemize}[<+->]
+    %         \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
+    %         \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
+    %     \end{itemize}
+    % \end{frame}
     
-    %------------------------------------------------
+    % %------------------------------------------------
 
 \end{document} 

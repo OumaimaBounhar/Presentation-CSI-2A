@@ -20,7 +20,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{DRL}
+O.~Bounhar, T.~Ch{\^e}ne, G.~Rekaya, and O.~Damen, ``Deep reinforcement learning for blind passive beamforming in ris-assisted mimo systems,'' \emph{International Conference on Interconnected AI and NETworks (AIxNET)}, 2026.
+
 \bibitem{chene-}
-T.~Ch{\^e}ne, O.~Bounhar, G.~R.-B. Othman, and O.~Damen, ``Adaptive {{Passive Beamforming}} in {{RIS-Aided Communications}} with {{Q-Learning}},'' in \emph{2025 {{IEEE Wireless Communications}} and {{Networking Conference}} ({{WCNC}})}.\hskip 1em plus 0.5em minus 0.4em\relax Milan, Italy: IEEE, 2025, pp. 1--6.
+T.~Ch{\^e}ne, O.~Bounhar, G.~Othman, Rekaya, and O.~Damen, ``Adaptive {{Passive Beamforming}} in {{RIS-Aided Communications}} with {{Q-Learning}},'' in \emph{2025 {{IEEE Wireless Communications}} and {{Networking Conference}} ({{WCNC}})}.\hskip 1em plus 0.5em minus 0.4em\relax Milan, Italy: IEEE, 2025, pp. 1--6.
 
 \end{thebibliography}
