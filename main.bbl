@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -20,10 +21,22 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{DRL}
-O.~Bounhar, T.~Ch{\^e}ne, G.~Rekaya, and O.~Damen, ``Deep reinforcement learning for blind passive beamforming in ris-assisted mimo systems,'' \emph{International Conference on Interconnected AI and NETworks (AIxNET)}, 2026.
-
 \bibitem{chene-}
-T.~Ch{\^e}ne, O.~Bounhar, G.~Othman, Rekaya, and O.~Damen, ``Adaptive {{Passive Beamforming}} in {{RIS-Aided Communications}} with {{Q-Learning}},'' in \emph{2025 {{IEEE Wireless Communications}} and {{Networking Conference}} ({{WCNC}})}.\hskip 1em plus 0.5em minus 0.4em\relax Milan, Italy: IEEE, 2025, pp. 1--6.
+T.~Ch{\^e}ne, O.~Bounhar, G.~Rekaya, and O.~Damen, ``Adaptive {{Passive
+  Beamforming}} in {{RIS-Aided Communications}} with {{Q-Learning}},'' in
+  \emph{2025 {{IEEE Wireless Communications}} and {{Networking Conference}}
+  ({{WCNC}})}.\hskip 1em plus 0.5em minus 0.4em\relax Milan, Italy: IEEE, 2025,
+  pp. 1--6.
+
+\bibitem{DRL}
+O.~Bounhar, T.~Ch{\^e}ne, G.~Rekaya, and O.~Damen, ``Deep reinforcement
+  learning for blind passive beamforming in ris-assisted mimo systems,''
+  \emph{International Conference on Interconnected AI and NETworks (AIxNET)},
+  2026.
+
+\bibitem{SalehValenzuela}
+A.~A.~M. Saleh and R.~A. Valenzuela, ``A statistical model for indoor multipath
+  propagation,'' \emph{IEEE Journal on Selected Areas in Communications},
+  vol.~5, no.~2, pp. 128--137, 1987.
 
 \end{thebibliography}

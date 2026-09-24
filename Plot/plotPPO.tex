@@ -1,0 +1,51 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{siunitx}	% manage numbers and units
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+		\begin{axis}
+			[
+			width = 7.5cm,
+			ymin=0, ymax=1.05,
+            xmin=1, xmax=8,
+            xtick distance = 1,
+            ytick distance =0.25,
+			axis on top,
+			grid=major,
+			label style={font=\footnotesize},
+			tick label style = {font=\footnotesize},
+            legend style={at={(0.5,-0.3)},anchor=north, legend columns=3},
+			xlabel = {Number of Pilots},
+            ylabel style={align=center},
+            ylabel={Channel strength\\$\displaystyle\frac{\bigl|\bigl|\mathbf{h}(\mathbf\Phi_{\text{dec}})\bigr|\bigr|_{2}^{2}}{\max_{\mathbf{\Phi} \in \mathbf{\Phi}_{1}^{N_c}} \left(\bigl|\bigl|\mathbf{h}(\mathbf\Phi)\bigr|\bigr|_{2}^{2} \right)}$},
+            title={L = 1, epoch 1500},
+			]
+
+            %===============================================
+            % SNR = 0 dB, Size of Codebooks = [8,14]
+            %===============================================
+            \addplot[red, thick, solid]
+            table
+            [x expr=\coordindex+1, y=Exhaustive, col sep=comma, header=true
+            ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
+            \addlegendentry{Exhaustive}
+
+            \addplot[blue, thick, mark=o]
+            table
+            [x expr=\coordindex+1, y=Hierarchical, col sep=comma, header=true
+            ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
+            \addlegendentry{Hierarchical}
+
+            \addplot[purple, thick, mark=+]
+            table
+            [x expr=\coordindex+1, y={PPO}, col sep=comma, header=true
+            ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
+            \addlegendentry{Proximal Policy Optimization}
+
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

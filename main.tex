@@ -640,17 +640,6 @@ minimum height=3em, minimum width=6em]
                     \alert{\Large ``What do the 14 pilot readings\\ tend to look like\\ when the answer is $c$?''}
                 \end{center}
                 }
-                % \vspace{0.5cm}
-                % \onslide<3->{
-                % \begin{center}
-                %     $\Longrightarrow$ we are estimating $p\big(\mathrm Y_{1}^{\mathrm N_p} \mid c\big)$
-                % \end{center}
-                % }
-                % \onslide<4->{
-                % \begin{center}
-                %     \footnotesize where an observation is $\big(\mathrm Y_k, \boldsymbol{\Psi}_k\big)$ = (RSE feedback, pilot codeword tested).
-                % \end{center}
-                % }
             \end{column}
             \begin{column}{0.4\textwidth}
                 \onslide<1->{
@@ -718,7 +707,7 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Deep Q-Neural Netwok}
+        \framesubtitle{Deep Q-Neural Network}
         \begin{itemize}[<+->]
             \item Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
         \end{itemize}
@@ -739,7 +728,7 @@ minimum height=3em, minimum width=6em]
         \vspace{-0.4cm}
         \begin{figure}
             \centering
-            \includegraphics[width = 0.5\textwidth]{Plot/groupPlotSNR_5.pdf}
+            \includegraphics[width = 0.5\textwidth]{Plot/groupPlotSNR_5_DQN.pdf}
         \end{figure}
         \vspace{-0.3cm}
         {\fontsize{5.5}{5.5}\selectfont{\cite{DRL}: O. Bounhar, T. Chene, G. Rekaya, and O. Damen, “Deep Reinforcement Learning for Blind Passive Beamforming in RIS-Assisted MIMO Systems,” 2026.}}
@@ -751,9 +740,13 @@ minimum height=3em, minimum width=6em]
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Limitations of Deep Q-Learning}
         \begin{itemize}
-            \item Good for scaling siwe of codebook and SNR combared to QL
-            \item Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
-            \item cite formula of SV multipath (add details to appendix)
+            \item<1-|alert@1> Good for scaling size of codebook and SNR compared to QL
+            \item<2-|alert@2> Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
+            \item<3-|alert@3> Need to generalize with the multipath geometric Saleh-Valenzuela channel model:
+            \vspace{-0.1cm}
+            \begin{equation*}
+                \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
+            \end{equation*}
         \end{itemize}
     \end{frame}
 
@@ -761,16 +754,33 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Double Deep Q-Neural Netwok}
-        
+        \framesubtitle{Double Deep Q-Neural Network: Comparison for SNR = 0 dB, $\mathbf{N_c = 8}$, $\sigma_\alpha = 0$}
+        \begin{figure}
+            \centering
+            \includegraphics[width = \textwidth]{Plot/groupPlotSNR_DDQN.pdf}
+        \end{figure}
     \end{frame}
 
     %------------------------------------------------
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization}
-        
+        \framesubtitle{Proximal Policy Optimization: Comparison for SNR = 0 dB, $\mathbf{N_c = 8}$, $\sigma_\alpha = 0$, L = 1}
+        \begin{figure}
+            \centering
+            \includegraphics[width = 0.55\textwidth]{Plot/plotPPO.pdf}
+        \end{figure}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization: Sensitivity to gain variance $\sigma_\alpha$, L = 2}
+        \begin{figure}
+            \centering
+            \includegraphics[width = \textwidth]{Plot/groupPlotSigmaAlpha.pdf}
+        \end{figure}
     \end{frame}
 
     %------------------------------------------------
@@ -986,588 +996,760 @@ minimum height=3em, minimum width=6em]
     % Appendix
     %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Doctoral school training requirements}
-    %     \begin{block}{Transversal skills}
-    %         Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
-    %     \end{block}
-    %     \pause
-    %     \begin{block}{Scientific skills}
-    %         Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Doctoral school training requirements}
+        \begin{block}{Transversal skills}
+            Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
+        \end{block}
+        \pause
+        \begin{block}{Scientific skills}
+            Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{From Analogy to Our Problem}
-    %     \begin{itemize}[<+-|alert@+>]
-    %         \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
-    %         \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
-    %         \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
-    %         \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
-    %         \item Test result $\longrightarrow$ Received Signal Energy (RSE);
-    %         \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
-    %     \end{itemize}
-    %     \vspace{0.4cm}
-    %     \onslide<7->{
-    %     \begin{center}
-    %         \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
-    %     \end{center}
-    %     }
-    % \end{frame}
+    \begin{frame}
+        \frametitle{From Analogy to Our Problem}
+        \begin{itemize}[<+-|alert@+>]
+            \item Clinician (doctor) $\longrightarrow$ Base Station (Bayesian classifier);
+            \item Reference book (medical knowledge) $\longrightarrow$ Training dataset of channel realizations;
+            \item 8 possible diseases $\longrightarrow$ $\mathrm N_c$ candidate communication codewords (RIS configurations);
+            \item 14 cheap lab tests $\longrightarrow$ $\mathrm N_p$ pilot codewords (wide probing beams);
+            \item Test result $\longrightarrow$ Received Signal Energy (RSE);
+            \item Diagnosis $\longrightarrow$ Selected codeword $\boldsymbol{\Phi}_{\text{opt}} = \boldsymbol{\Phi}_{c^*}$, where $c^*$ is the (true) class label.
+        \end{itemize}
+        \vspace{0.4cm}
+        \onslide<7->{
+        \begin{center}
+            \alert{Goal: minimize the number of pilots $\mathrm L_p$ (pilot overhead) while reliably finding $\boldsymbol{\Phi}_{\text{opt}}$.}
+        \end{center}
+        }
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{System Model}
-    %     \framesubtitle{Codebook design}
-    %     We use a DFT codebook, and we separate the codebook into two parts: 
-    %     \begin{itemize}
-    %         \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
-    %         \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
-    %     \end{itemize}
-    %     \vspace{5mm}
-    %     \onslide <4> What is the configuration of the RIS that maximises the rate?
-    % \end{frame}
+    \begin{frame}
+        \frametitle{System Model}
+        \framesubtitle{Codebook design}
+        We use a DFT codebook, and we separate the codebook into two parts: 
+        \begin{itemize}
+            \item \onslide <2-4> $\boldsymbol{\Psi}_{1}^{\mathrm N_p} = [\boldsymbol{\Psi}_1,\ldots,\boldsymbol{\Psi}_{\mathrm N_p}]$, codebook for pilots, wide beams, where $|\boldsymbol{\Psi}_{1}^{\mathrm N_p}| = \mathrm N_p$.
+            \item \onslide <3-4> $\boldsymbol{\Phi}_{1}^{\mathrm N_c} = [\boldsymbol{\Phi}_1,\ldots,\boldsymbol{\Phi}_{\mathrm N_c}]$, codebook for communication, narrows beams, where $|\boldsymbol{\Phi}_{1}^{\mathrm N_c}| = \mathrm N_c$.
+        \end{itemize}
+        \vspace{5mm}
+        \onslide <4> What is the configuration of the RIS that maximises the rate?
+    \end{frame}
     
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Bayesian Classifier: Protocol}
-    %     \onslide <1-6> For a channel realization $\mathbf H$, we define $\boldsymbol\Phi(\mathbf H)$ as the class that assigns for this channel the best communication codeword $\boldsymbol\Phi \in \boldsymbol\Phi_{1}^{N_c}$:
-    %     \begin{equation*}
-    %         \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \!\ (||\bold{h}(\boldsymbol{\Phi})||_2^2)\}.
-    %         % \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \bigl(\lVert\bold{h}(\boldsymbol{\Phi}) \rVert_2^2\bigr)\}.
-    %     \end{equation*}
-    %     \onslide <2-6> We introduce a probability vector associated with the communication codebook $\boldsymbol\Phi_{1}^{N_c}$:
-    %     \begin{equation*}
-    %         \mathbf{p}(\boldsymbol\Phi(\mathbf{H})) = \Big[\mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{1}), \ldots, \mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{N_c})\Big].
-    %     \end{equation*}
-    %     \onslide <3-6> The UE sends a pilot symbol $s_k$.
-    %     \onslide <4-6> The RIS uses the index of a pilot codeword $\pi_k \in \llbracket 1,N_p \rrbracket$, i.e., $\boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$ defined by the BS.
-    %     \onslide <5-6> The BS computes the Received Signal Energy (RSE) where $k \in \llbracket 1,\mathrm N_p \rrbracket$:
-    %     \begin{equation*}
-    %         \mathrm Y_k = \mathbf y_k \mathbf y_k^{H}
-    %     \end{equation*}
-    %     \onslide <6> At each time step $t$, update the posteriori probability with knowledge over all received feedbacks: 
-    %     \begin{equation*}
-    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})\triangleq [\mathbf{p}(\boldsymbol{\Phi}_1| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t}), \cdots, \mathbf{p}(\boldsymbol{\Phi}_{\mathrm N_c}| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})]
-    %     \end{equation*}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Bayesian Classifier: Protocol}
+        \onslide <1-6> For a channel realization $\mathbf H$, we define $\boldsymbol\Phi(\mathbf H)$ as the class that assigns for this channel the best communication codeword $\boldsymbol\Phi \in \boldsymbol\Phi_{1}^{N_c}$:
+        \begin{equation*}
+            \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \!\ (||\bold{h}(\boldsymbol{\Phi})||_2^2)\}.
+            % \boldsymbol{\Phi}(\mathbf H) = \{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c} : \boldsymbol{\Phi} = \argmax_{\boldsymbol{\Phi} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}} \bigl(\lVert\bold{h}(\boldsymbol{\Phi}) \rVert_2^2\bigr)\}.
+        \end{equation*}
+        \onslide <2-6> We introduce a probability vector associated with the communication codebook $\boldsymbol\Phi_{1}^{N_c}$:
+        \begin{equation*}
+            \mathbf{p}(\boldsymbol\Phi(\mathbf{H})) = \Big[\mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{1}), \ldots, \mathbf{p}(\boldsymbol\Phi(\mathbf{H}) = \boldsymbol\Phi_{N_c})\Big].
+        \end{equation*}
+        \onslide <3-6> The UE sends a pilot symbol $s_k$.
+        \onslide <4-6> The RIS uses the index of a pilot codeword $\pi_k \in \llbracket 1,N_p \rrbracket$, i.e., $\boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$ defined by the BS.
+        \onslide <5-6> The BS computes the Received Signal Energy (RSE) where $k \in \llbracket 1,\mathrm N_p \rrbracket$:
+        \begin{equation*}
+            \mathrm Y_k = \mathbf y_k \mathbf y_k^{H}
+        \end{equation*}
+        \onslide <6> At each time step $t$, update the posteriori probability with knowledge over all received feedbacks: 
+        \begin{equation*}
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})\triangleq [\mathbf{p}(\boldsymbol{\Phi}_1| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t}), \cdots, \mathbf{p}(\boldsymbol{\Phi}_{\mathrm N_c}| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})]
+        \end{equation*}
+    \end{frame}
     
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach : Reinforcement Learning}
-    %     \framesubtitle{Stochastic shortest path problem}
-    %     \centering
-    %     \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Proposed approach : Reinforcement Learning}
+        \framesubtitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.4\textwidth]{Figures/Graph.pdf}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Stochastic shortest path problem}
-    %     \centering
-    %     \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.7\textwidth]{Figures/Tree_short.pdf}
+    \end{frame}
     
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Euclidean distance}
-    %     \begin{equation}
-    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
-    %         \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
-    %         \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
-    %         \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
-    %     \end{equation}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Euclidean distance}
+        \begin{equation}
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p}) \propto
+            \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) = \boldsymbol{\Phi}_k| \mathbf Y_{1}^{\mathrm L_p-1},\boldsymbol{\Psi}_{1}^{\mathrm L_p-1})  
+            \cdot\sum_{\mathbf H_{\mathrm l} / \mathbf S_{\mathrm T}(\mathbf H_{\mathrm l})[k] = 1}  
+            \frac{1}{(\mathbf X(\mathbf H_{\mathrm l})[\mathrm L_p]-\mathbf Y_{\mathrm L_p})^2}
+        \end{equation}
+    \end{frame}
     
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Q-Learning algorithm}
-    %     \centering
-    %     \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Q-Learning algorithm}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/agent_env2.pdf}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Stochastic shortest path problem}
-    %     \centering
-    %     \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Stochastic shortest path problem}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{Figures/avg_len_path_delta.pdf}
+    \end{frame}
     
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Blind Beamforming}
-    %     Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
-    %     \vspace{3mm}
-    %     \begin{itemize}
-    %         \item <1-> Exhaustive search over the codebook.
-    %         \begin{itemize}
-    %             \item Huge overhead 
-    %         \end{itemize}
-    %          \item <2-> Hierarchical : Need to create a specific codebook.
-    %          \begin{itemize}
-    %             \item Low overhead. 
-    %             \item Might not reach the optimal configuration because of its shape (binary tree). 
-    %         \end{itemize}
-    %     \end{itemize}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Blind Beamforming}
+        Search for the optimal configuration (codeword $\boldsymbol{\Phi}_{\text{opt}} \in \boldsymbol{\Phi}_{1}^{\mathrm N_c}$) of RIS over the possible configurations (communication codebook $\boldsymbol{\Phi}_{1}^{\mathrm N_c}$) :
+        \vspace{3mm}
+        \begin{itemize}
+            \item <1-> Exhaustive search over the codebook.
+            \begin{itemize}
+                \item Huge overhead 
+            \end{itemize}
+             \item <2-> Hierarchical : Need to create a specific codebook.
+             \begin{itemize}
+                \item Low overhead. 
+                \item Might not reach the optimal configuration because of its shape (binary tree). 
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Naive Bayes Classifier}        
-    %     \onslide<1-2>{
-    %     \begin{block}{Classification}
-    %         Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
-    %         \begin{equation*}
-    %             \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
-    %         \end{equation*}
-    %     \end{block}
-    %     }
-    %     \onslide<2->{
-    %     \vspace{1cm}
-    %     \footnotesize Class $c_i$ is the class assigned to a UE direction for which communication codeword $\boldsymbol{\Phi}_i$ maximizes the received signal strength $\|\mathbf h(\boldsymbol{\Phi}_i)\|_2^2$.
-    %     }
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Naive Bayes Classifier}        
+        \onslide<1-2>{
+        \begin{block}{Classification}
+            Let $\mathrm L_{p}$ be the amount of the received samples, the Bayes optimal classifier is:
+            \begin{equation*}
+                \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})
+            \end{equation*}
+        \end{block}
+        }
+        \onslide<2->{
+        \vspace{1cm}
+        \footnotesize Class $c_i$ is the class assigned to a UE direction for which communication codeword $\boldsymbol{\Phi}_i$ maximizes the received signal strength $\|\mathbf h(\boldsymbol{\Phi}_i)\|_2^2$.
+        }
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Naive Bayes Classifier}  
-    %     \begin{block}{Objective}
-    %         \onslide<1-2>{
-    %             Our main purpose is to find the optimal configuration $\Phi_{\text{opt}}$ while minimizing the number of required pilots $\boldsymbol\Psi \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$:
-    %             \begin{equation*}
-    %                 \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty = 1\}
-    %             \end{equation*}
-    %         }
-    %         \onslide<2>{
-    %             We introduce a fixed degree of precision $\delta\in [0;1]$ and we need to minimize $\mathrm L_{\text{p}}$ st. the probability of correct classification respects a certain precision:
-    %             \begin{equation*}
-    %                 \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}
-    %             \end{equation*}
-    %         }
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Naive Bayes Classifier}  
+        \begin{block}{Objective}
+            \onslide<1-2>{
+                Our main purpose is to find the optimal configuration $\Phi_{\text{opt}}$ while minimizing the number of required pilots $\boldsymbol\Psi \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$:
+                \begin{equation*}
+                    \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty = 1\}
+                \end{equation*}
+            }
+            \onslide<2>{
+                We introduce a fixed degree of precision $\delta\in [0;1]$ and we need to minimize $\mathrm L_{\text{p}}$ st. the probability of correct classification respects a certain precision:
+                \begin{equation*}
+                    \mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}
+                \end{equation*}
+            }
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach: Reinforcement Learning}
-    %     \framesubtitle{State, Action, and Reward Flow}
-    %     \begin{columns}
+    \begin{frame}
+        \frametitle{Proposed approach: Reinforcement Learning}
+        \framesubtitle{State, Action, and Reward Flow}
+        \begin{columns}
     
-    %         % First Column (First Diagram)
-    %         \column{0.6\textwidth}
-    %         \only<1->{ % First diagram appears first
-    %         \scalebox{0.75}{ % Scale down the diagram to fit the slide
-    %         \begin{tikzpicture}[
-    %             node distance=1.5cm and 2.5cm, 
-    %             every node/.style={draw, minimum width=2.8cm, minimum height=1cm, align=center, font=\scriptsize}, 
-    %             every path/.style={thick, ->, >=stealth}
-    %         ]
+            % First Column (First Diagram)
+            \column{0.6\textwidth}
+            \only<1->{ % First diagram appears first
+            \scalebox{0.75}{ % Scale down the diagram to fit the slide
+            \begin{tikzpicture}[
+                node distance=1.5cm and 2.5cm, 
+                every node/.style={draw, minimum width=2.8cm, minimum height=1cm, align=center, font=\scriptsize}, 
+                every path/.style={thick, ->, >=stealth}
+            ]
         
-    %             % Define Nodes
-    %             \node (init) [rectangle, rounded corners, fill=blue!15] {Initial State\\ $S_{\text{init}} = \mathbf{p}(\boldsymbol{\Phi}(\mathbf{H})) = [\frac{1}{N_c},\cdots,\frac{1}{N_c}]$};
+                % Define Nodes
+                \node (init) [rectangle, rounded corners, fill=blue!15] {Initial State\\ $S_{\text{init}} = \mathbf{p}(\boldsymbol{\Phi}(\mathbf{H})) = [\frac{1}{N_c},\cdots,\frac{1}{N_c}]$};
                 
-    %             \node (action) [rectangle, rounded corners, below=1cm of init, fill=green!20] {Choose Pilot Codeword $\boldsymbol{\Psi} \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$};
+                \node (action) [rectangle, rounded corners, below=1cm of init, fill=green!20] {Choose Pilot Codeword $\boldsymbol{\Psi} \in \boldsymbol{\Psi}_{1}^{\mathrm N_p}$};
         
-    %             \node (state_new) [rectangle, rounded corners, below=1cm of action, fill=blue!15] {New State};
+                \node (state_new) [rectangle, rounded corners, below=1cm of action, fill=blue!15] {New State};
         
-    %             \node (reward) [rectangle, rounded corners, below=1cm of state_new, fill=red!20] {Reward: -1 if not Terminal State};
+                \node (reward) [rectangle, rounded corners, below=1cm of state_new, fill=red!20] {Reward: -1 if not Terminal State};
         
-    %             \node (terminal) [rectangle, rounded corners, right=4.5cm of state_new, fill=red!20] {Terminal State \\ (Correct Codeword Found) \\ Reward = 0};
+                \node (terminal) [rectangle, rounded corners, right=4.5cm of state_new, fill=red!20] {Terminal State \\ (Correct Codeword Found) \\ Reward = 0};
         
-    %             % Draw Arrows
-    %             \draw[arrow] (init.south) -| (action.north);  
-    %             \draw[arrow] (action.south) -- (state_new.north);  
-    %             \draw[arrow] (state_new.south) -- (reward.north);  
+                % Draw Arrows
+                \draw[arrow] (init.south) -| (action.north);  
+                \draw[arrow] (action.south) -- (state_new.north);  
+                \draw[arrow] (state_new.south) -- (reward.north);  
         
-    %             % Loop back to action if not terminal
-    %             \draw[arrow] (reward.west) -| (-2.5,-2.04) -- (action.west); 
+                % Loop back to action if not terminal
+                \draw[arrow] (reward.west) -| (-2.5,-2.04) -- (action.west); 
         
-    %             % Transition to terminal state if condition met
-    %             \draw[arrow] (state_new.east)  -- node[midway, above =.2, rounded corners] {If \\ $\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^t,\boldsymbol{\Psi}_1^t) \|\infty >1-\delta$} 
-    %                 (terminal.west);
+                % Transition to terminal state if condition met
+                \draw[arrow] (state_new.east)  -- node[midway, above =.2, rounded corners] {If \\ $\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^t,\boldsymbol{\Psi}_1^t) \|\infty >1-\delta$} 
+                    (terminal.west);
         
-    %         \end{tikzpicture}
-    %         }
-    %         }
+            \end{tikzpicture}
+            }
+            }
             
-    %         % Second Column (Second Diagram)
-    %         \column{0.3\textwidth}
-    %         \only<2->{ % Second diagram appears on next step
-    %         \scalebox{0.65}{ % Scale down the diagram
-    %         \begin{tikzpicture}[
-    %             node distance=2cm and 3cm,
-    %             every node/.style={font=\small},
-    %             block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
-    %             arrow/.style={draw, thick, ->, >=stealth}
-    %         ]
+            % Second Column (Second Diagram)
+            \column{0.3\textwidth}
+            \only<2->{ % Second diagram appears on next step
+            \scalebox{0.65}{ % Scale down the diagram
+            \begin{tikzpicture}[
+                node distance=2cm and 3cm,
+                every node/.style={font=\small},
+                block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
+                arrow/.style={draw, thick, ->, >=stealth}
+            ]
             
-    %         % Nodes
-    %         \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
-    %         \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
-    %         \node (state_t) at (3,0.5) {State $S_t$};
-    %         \node (reward_t) at (3,-0.5) {Reward $R_t$};
-    %         \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
-    %         \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
+            % Nodes
+            \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
+            \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
+            \node (state_t) at (3,0.5) {State $S_t$};
+            \node (reward_t) at (3,-0.5) {Reward $R_t$};
+            \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
+            \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
             
-    %         % Arrows
-    %         \draw[arrow] (state_t) |- (agent);
-    %         \draw[arrow] (agent) -| (state_t1);
-    %         \draw[arrow] (reward_t1) |- (env);
-    %         \draw[arrow] (env) -| (reward_t);
+            % Arrows
+            \draw[arrow] (state_t) |- (agent);
+            \draw[arrow] (agent) -| (state_t1);
+            \draw[arrow] (reward_t1) |- (env);
+            \draw[arrow] (env) -| (reward_t);
             
-    %         \end{tikzpicture}
-    %         }
-    %         }
-    %     \end{columns}
-    % \end{frame}
+            \end{tikzpicture}
+            }
+            }
+        \end{columns}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
     
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Stochastic shortest path problem}
-    %     \begin{block}{Policy}
-    %         A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
-    %         \begin{equation*}
-    %             \pi(S) = A
-    %         \end{equation*}
-    %     \end{block}
-    %     \pause
-    %     \begin{block}{Objective}
-    %         The goal is to reach a terminal state where the probability of correct classification respects a fixed degree of precision $\delta \in [0;1]$:
-    %         \begin{equation*}
-    %             \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
-    %         \end{equation*}
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Stochastic shortest path problem}
+        \begin{block}{Policy}
+            A policy $\pi(S)$ determines which action $A$ is chosen in a given state $S$:
+            \begin{equation*}
+                \pi(S) = A
+            \end{equation*}
+        \end{block}
+        \pause
+        \begin{block}{Objective}
+            The goal is to reach a terminal state where the probability of correct classification respects a fixed degree of precision $\delta \in [0;1]$:
+            \begin{equation*}
+                \mathrm L_{\text{min}} = -\sum_{t=0}^{\infty} R_t
+            \end{equation*}
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Q-Learning: Value Function and Policy}
-    %     \begin{block}{Q-function} 
-    %         The Q-value function represents the expected cumulative reward when taking action $A_t$ in state $S_t$:
-    %         \begin{equation*}
-    %             Q(S_t, A_t) = \mathbb{E}_{\mathbf H,\mathbf w}\left[\sum_{k=0}^{\infty} R_{t+k+1} \mid S_t = S, A_t = A\right]
-    %         \end{equation*}
-    %     \end{block} 
-    %     \pause
-    %     \begin{block}{Bellman Equation}
-    %         The Q-values are updated using the Bellman equation:
-    %         \begin{equation*}
-    %             Q(S_t, A_t) \leftarrow {(1-\alpha) Q(S_t, A_t) + \alpha[{R}_{t+1} + \max_{A}Q(S_{t+1}, A)]}
-    %         \end{equation*}
-    %         where $\alpha \in [0,1]$ is the learning rate.
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Q-Learning: Value Function and Policy}
+        \begin{block}{Q-function} 
+            The Q-value function represents the expected cumulative reward when taking action $A_t$ in state $S_t$:
+            \begin{equation*}
+                Q(S_t, A_t) = \mathbb{E}_{\mathbf H,\mathbf w}\left[\sum_{k=0}^{\infty} R_{t+k+1} \mid S_t = S, A_t = A\right]
+            \end{equation*}
+        \end{block} 
+        \pause
+        \begin{block}{Bellman Equation}
+            The Q-values are updated using the Bellman equation:
+            \begin{equation*}
+                Q(S_t, A_t) \leftarrow {(1-\alpha) Q(S_t, A_t) + \alpha[{R}_{t+1} + \max_{A}Q(S_{t+1}, A)]}
+            \end{equation*}
+            where $\alpha \in [0,1]$ is the learning rate.
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{State-of-the-art}
-    %     \framesubtitle{Q-Learning: Optimal policy}
-    %     \begin{block}{Optimal Policy}
-    %         The optimal policy is obtained by selecting the action that maximizes the expected reward :
-    %         \begin{equation*}
-    %             \pi^*(S) = \arg\max_{A} Q^*(S,A)
-    %         \end{equation*}
-    %     \end{block}
-    %     \pause
-    %     \begin{block}{Objective}
-    %         Thus, our goal is to find the optimal policy $\pi^*$ that maximizes the cumulative reward despite randomness in the channel and noise. We rewrite our objective:
-    %         \begin{equation*}
-    %             \mathrm L^{*} = \max_{\pi}
-    %              \mathbb{E}_{\bold{H},\bold{w}}
-    %             \left[
-    %                 \sum_{t=0}^{\infty} R_t 
-    %             \right]
-    %         \label{eq:L_min_*}
-    %         \end{equation*}
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{State-of-the-art}
+        \framesubtitle{Q-Learning: Optimal policy}
+        \begin{block}{Optimal Policy}
+            The optimal policy is obtained by selecting the action that maximizes the expected reward :
+            \begin{equation*}
+                \pi^*(S) = \arg\max_{A} Q^*(S,A)
+            \end{equation*}
+        \end{block}
+        \pause
+        \begin{block}{Objective}
+            Thus, our goal is to find the optimal policy $\pi^*$ that maximizes the cumulative reward despite randomness in the channel and noise. We rewrite our objective:
+            \begin{equation*}
+                \mathrm L^{*} = \max_{\pi}
+                 \mathbb{E}_{\bold{H},\bold{w}}
+                \left[
+                    \sum_{t=0}^{\infty} R_t 
+                \right]
+            \label{eq:L_min_*}
+            \end{equation*}
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach: Reinforcement Learning}
-    %     \framesubtitle{From Q-Learning to Deep Q-Learning}
-    %     \begin{itemize}[<+->]
-    %         \item The state space was discretized \cite{chene-};
-    %         \item Transitions were determined using Euclidean distances to predefined states;
-    %         \item This approach became unreliable in high dimensions;
-    %         \item Small variations led to misclassifications among similar codewords.
-    %     \end{itemize}
-    %     \vfill
-    %     \vspace{9mm}
-    %     {\tiny{[1]: T. Chêne, O. Bounhar, G. R.-B. Othman, and O. Damen, “Adaptive Passive
-    %     Beamforming in RIS-Aided Communications with Q-Learning,” in 2025 IEEE Wireless
-    %     Communications and Networking Conference (WCNC).
-    %     Milan, Italy : IEEE, 2025, pp.
-    %     1–6.}}  
-    % \end{frame}
-    % %------------------------------------------------
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{From Q-Learning to Deep Q-Learning}
+        \begin{itemize}[<+->]
+            \item The state space was discretized \cite{chene-};
+            \item Transitions were determined using Euclidean distances to predefined states;
+            \item This approach became unreliable in high dimensions;
+            \item Small variations led to misclassifications among similar codewords.
+        \end{itemize}
+        \vfill
+        \vspace{9mm}
+        {\tiny{[1]: T. Chêne, O. Bounhar, G. R.-B. Othman, and O. Damen, “Adaptive Passive
+        Beamforming in RIS-Aided Communications with Q-Learning,” in 2025 IEEE Wireless
+        Communications and Networking Conference (WCNC).
+        Milan, Italy : IEEE, 2025, pp.
+        1–6.}}  
+    \end{frame}
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach: Reinforcement Learning}
-    %     \framesubtitle{Deep Q-Neural Netwok}
-    %     Deep Q-Learning (DQL) uses two NN:
-    %     \begin{itemize}[<+->]
-    %         \item Evaluation network (Eval-Net) parameterized by the NN weights $\theta^{(eval)}$,
-    %         \item Target network (Target-Net) parameterized by NN weights $\theta^{(target)}$.
-    %     \end{itemize}
-    %     \pause
-    %     \begin{block}{Approximation of the Q-function}
-    %         The Q-function approximation can thus be expressed as:
-    %         \begin{equation}
-    %             Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
-    %         \end{equation}
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Deep Q-Neural Network}
+        Deep Q-Learning (DQL) uses two NN:
+        \begin{itemize}[<+->]
+            \item Evaluation network (Eval-Net) parameterized by the NN weights $\theta^{(eval)}$,
+            \item Target network (Target-Net) parameterized by NN weights $\theta^{(target)}$.
+        \end{itemize}
+        \pause
+        \begin{block}{Approximation of the Q-function}
+            The Q-function approximation can thus be expressed as:
+            \begin{equation}
+                Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
+            \end{equation}
+        \end{block}
+    \end{frame}
 
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach: Reinforcement Learning}
-    %     \framesubtitle{Deep Q-Learning Algorithm}
-    %     \begin{figure}
-    %         \includegraphics[width = 0.9\textwidth]{Tikz/trainingDQN.pdf}
-    %     \end{figure}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Deep Q-Learning Algorithm}
+        \begin{figure}
+            \includegraphics[width = 0.9\textwidth]{Tikz/trainingDQN.pdf}
+        \end{figure}
+    \end{frame}
         
-    % %------------------------------------------------
+    %------------------------------------------------
 
-    % \begin{frame}
-    %     \frametitle{Proposed approach: Reinforcement Learning}
-    %     \framesubtitle{Deep Q-Neural Netwok}
-    %     \begin{block}{Network Optimization}
-    %         The Q-network is trained by minimizing the mean squared error (MSE) loss, defined as:
-    %         \begin{equation}
-    %         \mathcal{L}(\theta) = \mathbb{E} \big[ \smash{(Q_{\text{target}} - Q_{\text{eval}}(S, A; \theta^{(\text{eval})}))^2} \big],
-    %         \label{eq: loss}
-    %         \end{equation}
-    %         with:
-    %         \begin{equation}
-    %             Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)}).
-    %         \end{equation}
-    %     \end{block}
-    % \end{frame}
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Deep Q-Neural Network}
+        \begin{block}{Network Optimization}
+            The Q-network is trained by minimizing the mean squared error (MSE) loss, defined as:
+            \begin{equation}
+            \mathcal{L}(\theta) = \mathbb{E} \big[ \smash{(Q_{\text{target}} - Q_{\text{eval}}(S, A; \theta^{(\text{eval})}))^2} \big],
+            \label{eq: loss}
+            \end{equation}
+            with:
+            \begin{equation}
+                Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)}).
+            \end{equation}
+        \end{block}
+    \end{frame}
     
-    % %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Sionna - Scene view}
-    %     \framesubtitle{The area around the Arc de Triomphe in Paris}
-    %     \centering
-    %     \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
-    % \end{frame}
-
-    % %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Sionna - Scene view}
-    %     \framesubtitle{Simple floor-wall scenario}
-
-    %     \centering
-    %     \begin{tikzpicture}
-    %         \node[anchor=south west, inner sep=0] (img) at (0,0)
-    %         {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
-
-    %         % Labels
-    %         \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
-    %         \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
-    %         \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
-
-    %         % Optional arrows
-    %         \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
-    %         \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
-    %         \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
-    %     \end{tikzpicture}
-
-    %     \vspace{0.25cm}
-    %     {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
-    %     \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
-    % \end{frame}
+    %------------------------------------------------
     
-    % %------------------------------------------------
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Double Deep Q-Neural Network: Comparison for SNR = 10 dB, $\mathbf{N_c = 8}$}
+        \begin{figure}
+            \centering
+            \includegraphics[width = \textwidth]{Plot/groupPlotSNR_DDQN_10.pdf}
+        \end{figure}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{DQN vs. Double DQN (DDQN)}
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<1->{
+                \begin{block}{DQN}
+                    Target:
+                    \begin{equation*}
+                        Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)})
+                    \end{equation*}
+                    The same Target-Net $\theta^{(target)}$ both \textbf{selects} and \textbf{evaluates} the next action $\Rightarrow$ the $\max$ picks noisy high estimates: \alert{overestimation bias}.
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{block}{DDQN}
+                    Target:
+                    \begin{equation*}
+                        Q_{\text{target}} = R + \gamma\, Q_{\text{target}}(S', A^*; \theta^{(target)}),
+                    \end{equation*}
+                    \vspace{-0.4cm}
+                    \begin{equation*}
+                        A^* = \argmax_{\Psi} Q_{\text{eval}}(S', \Psi; \theta^{(eval)}).
+                    \end{equation*}
+                    The Eval-Net $\theta^{(eval)}$ \textbf{selects} the action, the Target-Net $\theta^{(target)}$ \textbf{evaluates} it $\Rightarrow$ reduced overestimation, more stable learning.
+                \end{block}
+                }
+            \end{column}
+        \end{columns}
+        \vspace{0.3cm}
+        \onslide<2->{
+        \begin{center}
+            Same architecture and cost: only the target computation changes.
+        \end{center}
+        }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Appendix}
+        \framesubtitle{Proximal Policy Optimization (PPO) (1/2): Actor-Critic structure}
+        \begin{columns}[T]
+            \begin{column}{0.5\textwidth}
+                \onslide<1->{
+                \begin{block}{Actor $\pi_{\theta}(\Psi \mid S)$}
+                    Learns the \textbf{policy} directly: a probability over the pilot codewords $\Psi$, given the state $S$.
+                \end{block}
+                }
+                \onslide<2->{
+                \begin{block}{Critic $V_{\phi}(S)$}
+                    Estimates the expected return from state $S$.
+                \end{block}
+                }
+                \onslide<3->{
+                \begin{block}{Advantage}
+                    \vspace{-0.3cm}
+                    \begin{equation*}
+                        \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
+                    \end{equation*}
+                    $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \centering
+                \begin{tikzpicture}[>=stealth, thick, font=\footnotesize,
+                    box/.style={rectangle, rounded corners, draw, minimum width=2.2cm, minimum height=0.8cm, align=center}]
+                    \node<1-> (actor) [box, fill=blue!10] {Actor\\$\pi_{\theta}(\Psi \mid S)$};
+                    \node<1-> (env) [box, fill=gray!15, below=1.2cm of actor] {Environment\\(RIS channel)};
+                    \node<2-> (critic) [box, fill=orange!15, below=1.2cm of env] {Critic\\$V_{\phi}(S)$};
+
+                    \draw<1-> [->] ([xshift=0.5cm]actor.south) -- node[right] {$\Psi$} ([xshift=0.5cm]env.north);
+                    \draw<1-> [->] ([xshift=-0.5cm]env.north) -- node[left] {$S$} ([xshift=-0.5cm]actor.south);
+                    \draw<2-> [->] (env.south) -- node[right] {$R,\ S'$} (critic.north);
+                    \draw<3-> [->, red] (critic.east) -- ++(0.6,0) |- node[pos=0.25, right] {$\hat{A}$} (actor.east);
+                \end{tikzpicture}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Appendix}
+        \framesubtitle{Proximal Policy Optimization (PPO) (2/2): Clipped policy update}
+        \onslide<1->{
+        \begin{block}{Clipped objective}
+            \vspace{-0.3cm}
+            \begin{equation*}
+                r(\theta) = \frac{\pi_{\theta}(\Psi \mid S)}{\pi_{\theta_{\text{old}}}(\Psi \mid S)},
+                \qquad
+                \mathcal{L}^{\text{CLIP}}(\theta) = \mathbb{E}\Big[\min\big(r(\theta)\hat{A},\ \text{clip}\big(r(\theta), 1-\epsilon_{\text{clip}}, 1+\epsilon_{\text{clip}}\big)\hat{A}\big)\Big]
+            \end{equation*}
+            The new policy cannot move too far from the old one in a single update $\Rightarrow$ \alert{stable learning}.
+        \end{block}
+        }
+        \vspace{-0.2cm}
+        \small
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{block}{Training loop}
+                    \begin{enumerate}
+                        \item Collect episodes with $\pi_{\theta_{\text{old}}}$;
+                        \item Compute the advantages $\hat{A}$;
+                        \item Update actor ($\mathcal{L}^{\text{CLIP}}$) and critic (MSE);
+                        \item $\theta_{\text{old}} \leftarrow \theta$.
+                    \end{enumerate}
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<3->{
+                \begin{block}{vs. DQN / DDQN}
+                    \begin{itemize}
+                        \item No $\max_{\Psi}$: no overestimation bias;
+                        \item No replay buffer: learns on-policy;
+                        \item Exploration comes from the stochastic policy, not $\epsilon$-greedy.
+                    \end{itemize}
+                \end{block}
+                }
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Appendix}
+        \framesubtitle{The Saleh-Valenzuela channel model}
+        \small
+        To capture sparse, multipath propagation, the channel is modeled as the sum of a few paths grouped into \textbf{clusters} (macro-scatterers), each containing several \textbf{rays} (micro-scatterers):
+        \begin{equation*}
+            h(t) = \sum_{l=0}^{L}\sum_{k=0}^{K_l} \alpha_{k,l} \, \delta\bigl(t - T_l - \tau_{k,l}\bigr)
+        \end{equation*}
+        \begin{itemize}
+            \item $T_l$: arrival time of cluster $l$; $\tau_{k,l}$: arrival time of ray $k$ relative to its cluster;
+            \item Clusters arrive as a Poisson process of rate $\Lambda$, rays within a cluster as a faster Poisson process of rate $\lambda \gg \Lambda$;
+            \item Average ray power decays exponentially with both arrival times: $\mathbb{E}[|\alpha_{k,l}|^2] \propto e^{-T_l/\Gamma} e^{-\tau_{k,l}/\gamma}$;
+            \item Each gain $\alpha_{k,l} = \beta_{k,l}e^{j\vartheta_{k,l}}$ has uniform phase and Rayleigh-distributed amplitude.
+        \end{itemize}
+        \vspace{0.1cm}
+        \footnote{[3]: Saleh Valenzuela}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Appendix}
+        \framesubtitle{The Saleh-Valenzuela channel model}
+        Enumerating all rays with a single path index $\ell$ (dropping the cluster/ray double index) and adding an \textbf{angle of departure} $\Phi^{Dep}_\ell$ and \textbf{angle of arrival} $\Phi^{Arr}_\ell$ per ray gives the geometric channel matrix used throughout this work:
+        \begin{equation*}
+            \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
+        \end{equation*}
+        with $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ the array response of a half-wavelength spaced ULA with $N$ elements.
+        \vspace{0.1cm}
+        \footnote{[3]: Saleh Valenzuela}
+    \end{frame}
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Scene view}
+        \framesubtitle{The area around the Arc de Triomphe in Paris}
+        \centering
+        \includegraphics[width = 0.5\textwidth]{Figures/scene_etoile.PNG}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Scene view}
+        \framesubtitle{Simple floor-wall scenario}
+
+        \centering
+        \begin{tikzpicture}
+            \node[anchor=south west, inner sep=0] (img) at (0,0)
+            {\includegraphics[width=0.55\textwidth]{Figures/scene_visualization_3D.png}};
+
+            % Labels
+            \node[blue!70!black, font=\bfseries\large] at (-0.45,2.35) {BS};
+            \node[red!70!black, font=\bfseries\large] at (1.1,4.8) {RIS};
+            \node[green!50!black, font=\bfseries\large] at (8.8,4.80) {UE};
+
+            % Optional arrows
+            \draw[->, blue!70!black, thick] (-0.55,2.07) -- (0.35,1.8);
+            \draw[->, red!70!black, thick] (1.35,4.6) -- (1.8,3.65);
+            \draw[->, green!50!black, thick] (9.0,4.5) -- (8.05,3.95);
+        \end{tikzpicture}
+
+        \vspace{0.25cm}
+        {\scriptsize Visualization of the simulated scenario with a BS (64 antennas), \\
+        \centering {a RIS (1D 100 elements), and a UE (a single antenna).}}
+    \end{frame}
     
-    % \begin{frame}
-    %     \frametitle{Sionna - Realistic channel generation and validation}
-    %     \framesubtitle{Primer on electromagnetics: RIS reradiated field}
-    %     \begin{columns}[T]
-    %         % Left column
-    %         \begin{column}{0.35\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\textwidth]{Figures/RIS_fig_sionna.png}
-
-    %             \vspace{0.1cm}
-    %             {\scriptsize Incident and reradiated field from a RIS}
-    %         \end{column}
-
-    %                 % Right column
-    %         \begin{column}{0.63\textwidth}
-
-    %             \setlength{\abovedisplayskip}{2pt}
-    %             \setlength{\belowdisplayskip}{2pt}
-    %             \setlength{\abovedisplayshortskip}{2pt}
-    %             \setlength{\belowdisplayshortskip}{2pt}
-
-    %             \vspace{-0.3cm}
-
-    %             \small The reradiated field from the RIS at point $S'$ is given by:
-    %             \begin{equation*}
-    %             \small
-    %             \mathbf{E}_{r}(S')
-    %             =
-    %             \sum_{u=1}^{N_y}
-    %             \sum_{v=1}^{N_z}
-    %             \Gamma_{u,v}\,
-    %             G_{u,v}\,
-    %             A_{u,v}\,
-    %             \mathbf{p}_{u,v}
-    %             \end{equation*}
-
-    %             \vspace{-0.1cm}
-    %             where:
-    %             \begin{align*}
-    %             \small
-    %             G_{u,v}
-    %             &=
-    %             \frac{3\lambda}{16\pi}
-    %             \left(1+\cos\theta_i^{u,v}\right)
-    %             \left(1+\cos\theta_r^{u,v}\right),
-    %             \\[0.35em]
-    %             A_{u,v}
-    %             &=
-    %             \frac{
-    %             e^{-j k_0 \left(s_i^{u,v}+s_r^{u,v}\right)}
-    %             }{
-    %             s_i^{u,v}s_r^{u,v}
-    %             },
-    %             \\[0.35em]
-    %             \mathbf{p}_{u,v}
-    %             &=
-    %             E_{i,\theta}(S)\,
-    %             \hat{\boldsymbol{\theta}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
-    %             +
-    %             E_{i,\varphi}(S)\,
-    %             \hat{\boldsymbol{\varphi}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
-    %             \end{align*}
-    %             \vspace{-0.3cm}
-    %             \begin{columns}[T,onlytextwidth]
-    %                 \begin{column}{0.48\textwidth}
-    %                     \begin{equation*}
-    %                     s_i^{u,v}
-    %                     =
-    %                     \left\|
-    %                     \mathbf{r}_{\mathrm{RIS}}^{u,v}
-    %                     -
-    %                     \mathbf{r}_{\mathrm{Tx}}
-    %                     \right\|_2
-    %                     \end{equation*}
-
-    %                     \centering
-    %                     {\small Tx--RIS distance}
-    %                 \end{column}
-
-    %                 \begin{column}{0.48\textwidth}
-    %                     \begin{equation*}
-    %                     s_r^{u,v}
-    %                     =
-    %                     \left\|
-    %                     \mathbf{r}_{\mathrm{Rx}}
-    %                     -
-    %                     \mathbf{r}_{\mathrm{RIS}}^{u,v}
-    %                     \right\|_2
-    %                     \end{equation*}
-
-    %                     \centering
-    %                     {\small RIS--Rx distance}
-    %                 \end{column}
-
-    %             \end{columns}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
-
-    % %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Sionna - Realistic channel generation and validation}
-    %     \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
-    %     \begin{columns}[T]
-    %         \begin{column}{0.52\textwidth}
-    %             \centering
-    %             \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
-    %         \end{column}
-    %         \begin{column}{0.46\textwidth}
-    %             \small
-    %             \begin{itemize}
-    %                 \item Cells are spaced by half a wavelength, $d=\lambda/2$.
-    %                 \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
-    %                 \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
-    %             \end{itemize}
-    %         \end{column}
-    %     \end{columns}
-    % \end{frame}
-
-    % %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Sionna - Realistic channel generation and validation}
-    %     \framesubtitle{Why geometry strongly affects the RIS channel}
-
-    %     \begin{center}
-    %         \Large
-    %         \[
-    %         \boxed{
-    %         \text{Path loss}
-    %         \propto
-    %         \frac{1}{s_i^{u,v}s_r^{u,v}}
-    %         }
-    %         \]
-    %     \end{center}
-
-    %     \vspace{0.5cm}
-
-    %     \begin{alertblock}{Main message}
-    %         For RIS-assisted propagation, the attenuation is controlled by the both segments Tx--RIS and RIS--Rx, and it is proportional to the product of these two distances:
-    %         \[
-    %         d_{\mathrm{Tx}\rightarrow\mathrm{RIS}}
-    %         \times
-    %         d_{\mathrm{RIS}\rightarrow\mathrm{Rx}}.
-    %         \]
-    %     \end{alertblock}
-
-    % \end{frame}
-
-    % %------------------------------------------------
-
-    % \begin{frame}
-    %     \frametitle{Sionna - Realistic channel generation and validation}
-    %     \framesubtitle{Key takeaways}
-    %     \begin{itemize}[<+->]
-    %         \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
-    %         \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
-    %     \end{itemize}
-    % \end{frame}
+    %------------------------------------------------
     
-    % %------------------------------------------------
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Primer on electromagnetics: RIS reradiated field}
+        \begin{columns}[T]
+            % Left column
+            \begin{column}{0.35\textwidth}
+                \centering
+                \includegraphics[width=0.95\textwidth]{Figures/RIS_fig_sionna.png}
+
+                \vspace{0.1cm}
+                {\scriptsize Incident and reradiated field from a RIS}
+            \end{column}
+
+                    % Right column
+            \begin{column}{0.63\textwidth}
+
+                \setlength{\abovedisplayskip}{2pt}
+                \setlength{\belowdisplayskip}{2pt}
+                \setlength{\abovedisplayshortskip}{2pt}
+                \setlength{\belowdisplayshortskip}{2pt}
+
+                \vspace{-0.3cm}
+
+                \small The reradiated field from the RIS at point $S'$ is given by:
+                \begin{equation*}
+                \small
+                \mathbf{E}_{r}(S')
+                =
+                \sum_{u=1}^{N_y}
+                \sum_{v=1}^{N_z}
+                \Gamma_{u,v}\,
+                G_{u,v}\,
+                A_{u,v}\,
+                \mathbf{p}_{u,v}
+                \end{equation*}
+
+                \vspace{-0.1cm}
+                where:
+                \begin{align*}
+                \small
+                G_{u,v}
+                &=
+                \frac{3\lambda}{16\pi}
+                \left(1+\cos\theta_i^{u,v}\right)
+                \left(1+\cos\theta_r^{u,v}\right),
+                \\[0.35em]
+                A_{u,v}
+                &=
+                \frac{
+                e^{-j k_0 \left(s_i^{u,v}+s_r^{u,v}\right)}
+                }{
+                s_i^{u,v}s_r^{u,v}
+                },
+                \\[0.35em]
+                \mathbf{p}_{u,v}
+                &=
+                E_{i,\theta}(S)\,
+                \hat{\boldsymbol{\theta}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
+                +
+                E_{i,\varphi}(S)\,
+                \hat{\boldsymbol{\varphi}}\!\left(\hat{\mathbf{k}}_r^{u,v}\right)
+                \end{align*}
+                \vspace{-0.3cm}
+                \begin{columns}[T,onlytextwidth]
+                    \begin{column}{0.48\textwidth}
+                        \begin{equation*}
+                        s_i^{u,v}
+                        =
+                        \left\|
+                        \mathbf{r}_{\mathrm{RIS}}^{u,v}
+                        -
+                        \mathbf{r}_{\mathrm{Tx}}
+                        \right\|_2
+                        \end{equation*}
+
+                        \centering
+                        {\small Tx--RIS distance}
+                    \end{column}
+
+                    \begin{column}{0.48\textwidth}
+                        \begin{equation*}
+                        s_r^{u,v}
+                        =
+                        \left\|
+                        \mathbf{r}_{\mathrm{Rx}}
+                        -
+                        \mathbf{r}_{\mathrm{RIS}}^{u,v}
+                        \right\|_2
+                        \end{equation*}
+
+                        \centering
+                        {\small RIS--Rx distance}
+                    \end{column}
+
+                \end{columns}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Unit-cell geometry: incidence and reradiation angles}
+        \begin{columns}[T]
+            \begin{column}{0.52\textwidth}
+                \centering
+                \includegraphics[width=0.95\textwidth]{Tikz/ris_unit_cell_array.pdf}
+            \end{column}
+            \begin{column}{0.46\textwidth}
+                \small
+                \begin{itemize}
+                    \item Cells are spaced by half a wavelength, $d=\lambda/2$.
+                    \item Each cell sees its \emph{own} local incidence angle $\theta_i$ and reradiation angle $\theta_m$ w.r.t.\ the surface normal $\hat{\mathbf{n}}$.
+                    \item The per-cell gain scales with $(1+\cos\theta_i)(1+\cos\theta_m)$, and the path loss with $1/(s_i s_m)$, the Tx--cell and cell--Rx distances.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Why geometry strongly affects the RIS channel}
+
+        \begin{center}
+            \Large
+            \[
+            \boxed{
+            \text{Path loss}
+            \propto
+            \frac{1}{s_i^{u,v}s_r^{u,v}}
+            }
+            \]
+        \end{center}
+
+        \vspace{0.5cm}
+
+        \begin{alertblock}{Main message}
+            For RIS-assisted propagation, the attenuation is controlled by the both segments Tx--RIS and RIS--Rx, and it is proportional to the product of these two distances:
+            \[
+            d_{\mathrm{Tx}\rightarrow\mathrm{RIS}}
+            \times
+            d_{\mathrm{RIS}\rightarrow\mathrm{Rx}}.
+            \]
+        \end{alertblock}
+
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna - Realistic channel generation and validation}
+        \framesubtitle{Key takeaways}
+        \begin{itemize}[<+->]
+            \item In far-field regimes, per-cell delay/angle differences are tiny $\Rightarrow$ behaves like array/beamforming gain.
+            \item In near-field regimes (large RIS, close TX/RX), delay and angular spread become physically significant $\Rightarrow$ \emph{resolvable} multipath.
+        \end{itemize}
+    \end{frame}
+    
+    %------------------------------------------------
 
 \end{document} 
