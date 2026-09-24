@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  24 SEP 2026 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  24 SEP 2026 20:50
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1275,371 +1275,333 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 215.
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 249.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 250.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/PassiveRIS.png, id=113, 871.75688pt x 697.10437pt>
-File: Figures/PassiveRIS.png Graphic file (type png)
-<use Figures/PassiveRIS.png>
-Package pdftex.def Info: Figures/PassiveRIS.png  used on input line 249.
+<Figures/passiveRIS.png, id=113, 871.75688pt x 697.10437pt>
+File: Figures/passiveRIS.png Graphic file (type png)
+<use Figures/passiveRIS.png>
+Package pdftex.def Info: Figures/passiveRIS.png  used on input line 250.
 (pdftex.def)             Requested size: 216.74202pt x 173.31833pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 249.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 250.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [4
 
  <./Figures/PassiveRIS.png>]
-File: Figures/PassiveRIS.png Graphic file (type png)
-<use Figures/PassiveRIS.png>
-Package pdftex.def Info: Figures/PassiveRIS.png  used on input line 249.
+File: Figures/passiveRIS.png Graphic file (type png)
+<use Figures/passiveRIS.png>
+Package pdftex.def Info: Figures/passiveRIS.png  used on input line 250.
 (pdftex.def)             Requested size: 216.74202pt x 173.31833pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 249.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 250.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [5
 
 ]
-File: Figures/PassiveRIS.png Graphic file (type png)
-<use Figures/PassiveRIS.png>
-Package pdftex.def Info: Figures/PassiveRIS.png  used on input line 249.
+File: Figures/passiveRIS.png Graphic file (type png)
+<use Figures/passiveRIS.png>
+Package pdftex.def Info: Figures/passiveRIS.png  used on input line 250.
 (pdftex.def)             Requested size: 216.74202pt x 173.31833pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 249.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 250.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [6
 
 ]
-File: Figures/PassiveRIS.png Graphic file (type png)
-<use Figures/PassiveRIS.png>
-Package pdftex.def Info: Figures/PassiveRIS.png  used on input line 249.
-(pdftex.def)             Requested size: 216.74202pt x 173.31833pt.
-
-
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 249.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[7
-
-]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/System_setup.png, id=141, 730.98094pt x 565.36218pt>
+<Figures/System_setup.png, id=134, 730.98094pt x 565.36218pt>
 File: Figures/System_setup.png Graphic file (type png)
 <use Figures/System_setup.png>
-Package pdftex.def Info: Figures/System_setup.png  used on input line 294.
+Package pdftex.def Info: Figures/System_setup.png  used on input line 292.
 (pdftex.def)             Requested size: 216.74202pt x 167.63443pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 294.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 292.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 294.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 292.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 294.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 292.
  (c:/texlive/2024/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 9.85492pt on input line 294.
+(Font)              scaled to size 9.85492pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 7.19995pt on input line 294.
+(Font)              scaled to size 7.19995pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 5.39996pt on input line 294.
+(Font)              scaled to size 5.39996pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 294.
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 9.85492pt on input line 294.
+(Font)              scaled to size 9.85492pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <8> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 294.
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 7.19995pt on input line 294.
+(Font)              scaled to size 7.19995pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <6> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 294.
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 5.39996pt on input line 294.
-LaTeX Font Info:    Trying to load font information for T1+fve on input line 294.
+(Font)              scaled to size 5.39996pt on input line 292.
+LaTeX Font Info:    Trying to load font information for T1+fve on input line 292.
  (c:/texlive/2024/texmf-dist/tex/latex/bera/t1fve.fd
 File: t1fve.fd 2004/09/07 scalable font definitions for T1/fve.
 )
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 294.
+(Font)              scaled to size 9.85492pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 294.
+(Font)              scaled to size 7.19995pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 5.39996pt on input line 294.
+(Font)              scaled to size 5.39996pt on input line 292.
 
 
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instead on input line 294.
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instead on input line 292.
 
 LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 294.
+(Font)              scaled to size 7.19995pt on input line 292.
 LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 5.39996pt on input line 294.
+(Font)              scaled to size 5.39996pt on input line 292.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[8
+[7
 
  <./Figures/System_setup.png>]
 File: Figures/System_setup.png Graphic file (type png)
 <use Figures/System_setup.png>
-Package pdftex.def Info: Figures/System_setup.png  used on input line 294.
+Package pdftex.def Info: Figures/System_setup.png  used on input line 292.
 (pdftex.def)             Requested size: 216.74202pt x 167.63443pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[8
+
+]
+File: Figures/System_setup.png Graphic file (type png)
+<use Figures/System_setup.png>
+Package pdftex.def Info: Figures/System_setup.png  used on input line 292.
+(pdftex.def)             Requested size: 216.74202pt x 167.63443pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [9
 
 ]
 File: Figures/System_setup.png Graphic file (type png)
 <use Figures/System_setup.png>
-Package pdftex.def Info: Figures/System_setup.png  used on input line 294.
+Package pdftex.def Info: Figures/System_setup.png  used on input line 292.
 (pdftex.def)             Requested size: 216.74202pt x 167.63443pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [10
 
 ]
-File: Figures/System_setup.png Graphic file (type png)
-<use Figures/System_setup.png>
-Package pdftex.def Info: Figures/System_setup.png  used on input line 294.
-(pdftex.def)             Requested size: 216.74202pt x 167.63443pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[11
-
-]
-<Figures/No_direct_link.png, id=173, 737.00343pt x 559.33969pt>
+<Figures/No_direct_link.png, id=167, 737.00343pt x 559.33969pt>
 File: Figures/No_direct_link.png Graphic file (type png)
 <use Figures/No_direct_link.png>
-Package pdftex.def Info: Figures/No_direct_link.png  used on input line 294.
+Package pdftex.def Info: Figures/No_direct_link.png  used on input line 292.
 (pdftex.def)             Requested size: 216.74202pt x 164.49168pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[12
+[11
 
  <./Figures/No_direct_link.png>]
 File: Figures/No_direct_link.png Graphic file (type png)
 <use Figures/No_direct_link.png>
-Package pdftex.def Info: Figures/No_direct_link.png  used on input line 294.
+Package pdftex.def Info: Figures/No_direct_link.png  used on input line 292.
 (pdftex.def)             Requested size: 216.74202pt x 164.49168pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 294.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 292.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[13
+[12
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 318.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/system_setup_no_angles_no_h_d.png, id=190, 739.26187pt x 549.55313pt>
-File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
-<use Figures/system_setup_no_angles_no_h_d.png>
-Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 318.
-(pdftex.def)             Requested size: 216.74202pt x 161.1189pt.
+<Figures/risPhaseShift.png, id=182, 711.4078pt x 522.45187pt>
+File: Figures/risPhaseShift.png Graphic file (type png)
+<use Figures/risPhaseShift.png>
+Package pdftex.def Info: Figures/risPhaseShift.png  used on input line 321.
+(pdftex.def)             Requested size: 216.74202pt x 159.17618pt.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 318.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 321.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 318.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 321.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 318.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 321.
 
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 318.
+(Font)              using `U/stmry/m/n' instead on input line 321.
 
-LaTeX Font Info:    Trying to load font information for U+dutchcal on input line 318.
-(c:/texlive/2024/texmf-dist/tex/latex/dutchcal/udutchcal.fd
-File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
-)
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.95pt on input line 318.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 8.0pt on input line 318.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 6.0pt on input line 318.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 318.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[13
+
+ <./Figures/risPhaseShift.png (PNG copy)>]
+File: Figures/risPhaseShift.png Graphic file (type png)
+<use Figures/risPhaseShift.png>
+Package pdftex.def Info: Figures/risPhaseShift.png  used on input line 321.
+(pdftex.def)             Requested size: 216.74202pt x 159.17618pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [14
 
- <./Figures/system_setup_no_angles_no_h_d.png>]
-File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
-<use Figures/system_setup_no_angles_no_h_d.png>
-Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 318.
-(pdftex.def)             Requested size: 216.74202pt x 161.1189pt.
+]
+File: Figures/risPhaseShift.png Graphic file (type png)
+<use Figures/risPhaseShift.png>
+Package pdftex.def Info: Figures/risPhaseShift.png  used on input line 321.
+(pdftex.def)             Requested size: 216.74202pt x 159.17618pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 318.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [15
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 353.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 8.09995pt on input line 353.
-LaTeX Font Info:    Calculating math sizes for size <12.5> on input line 353.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 353.
-
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 11.24992pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 7.8749pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 5.62495pt on input line 353.
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
-(Font)              size <12> substituted on input line 353.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 353.
-
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 7.8749pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 5.62495pt on input line 353.
-
-LaTeX Font Warning: Font shape `U/stmry/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 353.
-
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 11.24992pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 7.8749pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 5.62495pt on input line 353.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 12.5pt on input line 353.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 8.74995pt on input line 353.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 6.25pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 11.24992pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 7.8749pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 5.62495pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <12.5> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 11.24992pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <8.74995> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 7.8749pt on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <6.25> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 353.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 5.62495pt on input line 353.
+<Figures/system_setup_no_angles_no_h_d.png, id=207, 712.91344pt x 521.69907pt>
+File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
+<use Figures/system_setup_no_angles_no_h_d.png>
+Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 321.
+(pdftex.def)             Requested size: 216.74202pt x 158.60452pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 353.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [16
 
-]
+ <./Figures/system_setup_no_angles_no_h_d.png>]
+File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
+<use Figures/system_setup_no_angles_no_h_d.png>
+Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 321.
+(pdftex.def)             Requested size: 216.74202pt x 158.60452pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 353.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 321.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [17
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 355.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 8.09995pt on input line 355.
+LaTeX Font Info:    Calculating math sizes for size <12.5> on input line 355.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 355.
+
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 11.24992pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 7.8749pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 5.62495pt on input line 355.
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 355.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 355.
+
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 7.8749pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 5.62495pt on input line 355.
+
+LaTeX Font Warning: Font shape `U/stmry/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 355.
+
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 11.24992pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 7.8749pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 5.62495pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 11.24992pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 7.8749pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 5.62495pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <12.5> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 11.24992pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <8.74995> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 7.8749pt on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <6.25> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 355.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 5.62495pt on input line 355.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 353.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 355.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [18
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 426.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 4.49997pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 4.49997pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 8.09995pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 4.49997pt on input line 426.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 9.0pt on input line 426.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 5.0pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <9> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 8.09995pt on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <5> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 426.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 4.49997pt on input line 426.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 426.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 426.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 426.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 355.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [19
 
@@ -1647,55 +1609,84 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 426.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 426.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 355.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [20
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 428.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 4.49997pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 4.49997pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 8.09995pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 4.49997pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <9> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 8.09995pt on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <5> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 4.49997pt on input line 428.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 428.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 428.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 426.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 428.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [21
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 428.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [22
 
 ]
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 463.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 428.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [23
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [24
 
 ]
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 465.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [25
 
@@ -1703,39 +1694,51 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [26
 
 ]
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 8.99994pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 6.29996pt on input line 463.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.0pt on input line 463.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 7.0pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <10> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 8.99994pt on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <7> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 463.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 6.29996pt on input line 463.
 
-Overfull \hbox (7.01874pt too wide) in paragraph at lines 463--463
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[27
+
+]
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[28
+
+]
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 8.99994pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 6.29996pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <10> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 8.99994pt on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <7> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 465.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 6.29996pt on input line 465.
+
+Overfull \hbox (7.01874pt too wide) in paragraph at lines 465--465
  [] 
  []
 
@@ -1743,43 +1746,17 @@ Overfull \hbox (7.01874pt too wide) in paragraph at lines 463--463
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 463.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[27
-
-]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
-[] 
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[28
-
-]
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
-[] 
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 465.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [29
 
 ]
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
 [] 
  []
 
@@ -1787,12 +1764,12 @@ Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [30
 
 ]
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
 [] 
  []
 
@@ -1800,12 +1777,12 @@ Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [31
 
 ]
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
 [] 
  []
 
@@ -1813,12 +1790,12 @@ Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [32
 
 ]
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
 [] 
  []
 
@@ -1826,47 +1803,57 @@ Overfull \hbox (21.8765pt too wide) in paragraph at lines 520--520
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 520.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [33
 
 ]
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
+[] 
+ []
+
+
+
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[34
+
+]
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 522--522
+[] 
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 522.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[35
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 574.
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on input line 574.
+(Font)              scaled to size 12.9599pt on input line 576.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on input line 576.
  (c:/texlive/2024/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd)
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[34
+[36
 
 {c:/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free3.enc}]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[35
-
-]
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[36
-
-]
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [37
 
@@ -1874,7 +1861,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [38
 
@@ -1882,7 +1869,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [39
 
@@ -1890,20 +1877,15 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 574.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [40
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [41
 
@@ -1911,48 +1893,61 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 576.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [42
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 625.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+LaTeX Font Info:    Trying to load font information for U+dutchcal on input line 625.
+ (c:/texlive/2024/texmf-dist/tex/latex/dutchcal/udutchcal.fd
+File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
+)
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 10.0pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 7.0pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 5.0pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 9.0pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 6.0pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 12.5pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 8.74995pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 6.25pt on input line 625.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 625.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [43
 
 ]
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 10.95pt on input line 625.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 8.0pt on input line 625.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 623.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 625.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [44
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 663.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 663.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 663.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 12.9599pt on input line 663.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 14.4pt on input line 663.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 663.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 12.9599pt on input line 663.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 663.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 625.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [45
 
@@ -1960,22 +1955,32 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 663.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 663.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 625.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [46
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 700.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 665.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 4.94997pt on input line 700.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 665.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 665.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 12.9599pt on input line 665.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 14.4pt on input line 665.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 665.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 12.9599pt on input line 665.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 700.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 665.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [47
 
@@ -1983,319 +1988,312 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 700.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 700.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 665.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [48
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 702.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
+(Font)              scaled to size 4.94997pt on input line 702.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 700.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 702.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [49
 
 ]
+
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 717.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 702.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Tikz/dqn.pdf, id=443, 329.72585pt x 130.21147pt>
+[50
+
+]
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 702.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[51
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 719.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Tikz/dqn.pdf, id=456, 329.72585pt x 130.21147pt>
 File: Tikz/dqn.pdf Graphic file (type pdf)
 <use Tikz/dqn.pdf>
-Package pdftex.def Info: Tikz/dqn.pdf  used on input line 717.
+Package pdftex.def Info: Tikz/dqn.pdf  used on input line 719.
 (pdftex.def)             Requested size: 281.76198pt x 111.27037pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 717.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 719.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[50
+[52
 
  <./Tikz/dqn.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 735.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 748.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSNR_5_DQN.pdf, id=457, 438.36572pt x 393.06749pt>
+<Plot/groupPlotSNR_5_DQN.pdf, id=471, 435.05336pt x 393.06749pt>
 File: Plot/groupPlotSNR_5_DQN.pdf Graphic file (type pdf)
 <use Plot/groupPlotSNR_5_DQN.pdf>
-Package pdftex.def Info: Plot/groupPlotSNR_5_DQN.pdf  used on input line 735.
-(pdftex.def)             Requested size: 216.74202pt x 194.34409pt.
+Package pdftex.def Info: Plot/groupPlotSNR_5_DQN.pdf  used on input line 748.
+(pdftex.def)             Requested size: 206.33527pt x 186.4211pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 735.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[51
-
- <./Plot/groupPlotSNR_5_DQN.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[52
-
-]
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 748.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [53
 
-]
+ <./Plot/groupPlotSNR_5_DQN.pdf>]
+File: Plot/groupPlotSNR_5_DQN.pdf Graphic file (type pdf)
+<use Plot/groupPlotSNR_5_DQN.pdf>
+Package pdftex.def Info: Plot/groupPlotSNR_5_DQN.pdf  used on input line 748.
+(pdftex.def)             Requested size: 206.33527pt x 186.4211pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 748.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [54
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 762.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 763.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSNR_DDQN.pdf, id=548, 621.22488pt x 226.2031pt>
-File: Plot/groupPlotSNR_DDQN.pdf Graphic file (type pdf)
-<use Plot/groupPlotSNR_DDQN.pdf>
-Package pdftex.def Info: Plot/groupPlotSNR_DDQN.pdf  used on input line 762.
-(pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 762.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 763.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [55
 
- <./Plot/groupPlotSNR_DDQN.pdf>]
+]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 773.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 779.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/plotPPO.pdf, id=595, 300.65724pt x 226.2031pt>
+<Plot/groupPlotSNR_DDQN.pdf, id=557, 621.22488pt x 226.2031pt>
+File: Plot/groupPlotSNR_DDQN.pdf Graphic file (type pdf)
+<use Plot/groupPlotSNR_DDQN.pdf>
+Package pdftex.def Info: Plot/groupPlotSNR_DDQN.pdf  used on input line 779.
+(pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
+
+Overfull \vbox (0.90646pt too high) detected at line 779
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 779.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[56
+
+ <./Plot/groupPlotSNR_DDQN.pdf>]
+File: Plot/groupPlotSNR_DDQN.pdf Graphic file (type pdf)
+<use Plot/groupPlotSNR_DDQN.pdf>
+Package pdftex.def Info: Plot/groupPlotSNR_DDQN.pdf  used on input line 779.
+(pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
+
+Overfull \vbox (0.90646pt too high) detected at line 779
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 779.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[57
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 790.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Plot/plotPPO.pdf, id=609, 300.65724pt x 226.2031pt>
 File: Plot/plotPPO.pdf Graphic file (type pdf)
 <use Plot/plotPPO.pdf>
-Package pdftex.def Info: Plot/plotPPO.pdf  used on input line 773.
+Package pdftex.def Info: Plot/plotPPO.pdf  used on input line 790.
 (pdftex.def)             Requested size: 238.41754pt x 179.37498pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 773.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 790.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[56
+[58
 
  <./Plot/plotPPO.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 806.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSigmaAlpha.pdf, id=641, 621.22488pt x 225.24753pt>
+<Plot/groupPlotSigmaAlpha.pdf, id=655, 621.22488pt x 225.24753pt>
 File: Plot/groupPlotSigmaAlpha.pdf Graphic file (type pdf)
 <use Plot/groupPlotSigmaAlpha.pdf>
-Package pdftex.def Info: Plot/groupPlotSigmaAlpha.pdf  used on input line 784.
+Package pdftex.def Info: Plot/groupPlotSigmaAlpha.pdf  used on input line 806.
 (pdftex.def)             Requested size: 433.48404pt x 157.17381pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[57
-
- <./Plot/groupPlotSigmaAlpha.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 815.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Tikz/ris_geometry.pdf, id=690, 354.43517pt x 277.5188pt>
-File: Tikz/ris_geometry.pdf Graphic file (type pdf)
-<use Tikz/ris_geometry.pdf>
-Package pdftex.def Info: Tikz/ris_geometry.pdf  used on input line 815.
-(pdftex.def)             Requested size: 247.25684pt x 193.60547pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 815.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[58
-
- <./Tikz/ris_geometry.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 855.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Tikz/compute_paths_pipeline.pdf, id=724, 528.17627pt x 88.26175pt>
-File: Tikz/compute_paths_pipeline.pdf Graphic file (type pdf)
-<use Tikz/compute_paths_pipeline.pdf>
-Package pdftex.def Info: Tikz/compute_paths_pipeline.pdf  used on input line 855.
-(pdftex.def)             Requested size: 303.4375pt x 50.707pt.
-
-Overfull \vbox (6.65549pt too high) detected at line 855
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 855.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 806.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [59
 
- <./Tikz/compute_paths_pipeline.pdf>]
-File: Tikz/compute_paths_pipeline.pdf Graphic file (type pdf)
-<use Tikz/compute_paths_pipeline.pdf>
-Package pdftex.def Info: Tikz/compute_paths_pipeline.pdf  used on input line 855.
-(pdftex.def)             Requested size: 303.4375pt x 50.707pt.
-
-Overfull \vbox (6.65549pt too high) detected at line 855
- []
-
+ <./Plot/groupPlotSigmaAlpha.pdf>]
+File: Plot/groupPlotSigmaAlpha.pdf Graphic file (type pdf)
+<use Plot/groupPlotSigmaAlpha.pdf>
+Package pdftex.def Info: Plot/groupPlotSigmaAlpha.pdf  used on input line 806.
+(pdftex.def)             Requested size: 433.48404pt x 157.17381pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 855.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 806.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [60
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 865.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 837.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png, id=764, 441.5697pt x 312.9291pt>
+<Tikz/ris_geometry.pdf, id=710, 354.43517pt x 277.5188pt>
+File: Tikz/ris_geometry.pdf Graphic file (type pdf)
+<use Tikz/ris_geometry.pdf>
+Package pdftex.def Info: Tikz/ris_geometry.pdf  used on input line 837.
+(pdftex.def)             Requested size: 247.25684pt x 193.60547pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 837.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[61
+
+ <./Tikz/ris_geometry.pdf>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 877.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Tikz/compute_paths_pipeline.pdf, id=741, 528.17627pt x 88.26175pt>
+File: Tikz/compute_paths_pipeline.pdf Graphic file (type pdf)
+<use Tikz/compute_paths_pipeline.pdf>
+Package pdftex.def Info: Tikz/compute_paths_pipeline.pdf  used on input line 877.
+(pdftex.def)             Requested size: 303.4375pt x 50.707pt.
+
+Overfull \vbox (11.77426pt too high) detected at line 877
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 877.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[62
+
+ <./Tikz/compute_paths_pipeline.pdf>]
+File: Tikz/compute_paths_pipeline.pdf Graphic file (type pdf)
+<use Tikz/compute_paths_pipeline.pdf>
+Package pdftex.def Info: Tikz/compute_paths_pipeline.pdf  used on input line 877.
+(pdftex.def)             Requested size: 303.4375pt x 50.707pt.
+
+Overfull \vbox (11.77426pt too high) detected at line 877
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 877.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[63
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 887.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png, id=781, 441.5697pt x 312.9291pt>
 File: Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png Graphic file (type png)
 <use Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png>
-Package pdftex.def Info: Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png  used on input line 865.
+Package pdftex.def Info: Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png  used on input line 887.
 (pdftex.def)             Requested size: 225.41354pt x 159.7445pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 865.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 887.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[61
+[64
 
  <./Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 885.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 907.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/ris_scene_rt_multipath.PNG, id=774, 807.015pt x 546.54187pt>
+<Figures/ris_scene_rt_multipath.PNG, id=790, 807.015pt x 546.54187pt>
 File: Figures/ris_scene_rt_multipath.PNG Graphic file (type png)
 <use Figures/ris_scene_rt_multipath.PNG>
-Package pdftex.def Info: Figures/ris_scene_rt_multipath.PNG  used on input line 885.
+Package pdftex.def Info: Figures/ris_scene_rt_multipath.PNG  used on input line 907.
 (pdftex.def)             Requested size: 225.41354pt x 152.6554pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 885.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 907.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[62
+[65
 
  <./Figures/ris_scene_rt_multipath.PNG>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 905.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 927.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png, id=783, 367.3725pt x 264.38776pt>
+<Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png, id=799, 367.3725pt x 264.38776pt>
 File: Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png Graphic file (type png)
 <use Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png>
-Package pdftex.def Info: Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png  used on input line 905.
+Package pdftex.def Info: Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png  used on input line 927.
 (pdftex.def)             Requested size: 238.41754pt x 171.58777pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 905.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 927.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[63
+[66
 
  <./Figures/BER_NT1_NR64_ZF_M[4, 16, 64]_RIS_modetx.png>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 955.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-Underfull \hbox (badness 2142) in paragraph at lines 955--955
-|   []   |   [] 
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 955.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[64
-
-]
-Underfull \hbox (badness 2142) in paragraph at lines 955--955
-|   []   |   [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 955--955
-[]\T1/fvs/m/n/10.95 - Real-time Data ge-ne-ra-
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 955.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[65
-
-]
-Underfull \hbox (badness 2142) in paragraph at lines 955--955
-|   []   |   [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 955--955
-[]\T1/fvs/m/n/10.95 - Real-time Data ge-ne-ra-
- []
-
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on input line 955.
-(c:/texlive/2024/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
-Overfull \hbox (7.90172pt too wide) in paragraph at lines 955--955
-[][]  
- []
-
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 955.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[66
-
-{c:/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
 Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 977.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Trying to load font information for TS1+fvs on input line 977.
- (c:/texlive/2024/texmf-dist/tex/latex/bera/ts1fvs.fd
-File: ts1fvs.fd 2004/09/07 scalable font definitions for TS1/fvs.
-)
-LaTeX Font Info:    Font shape `TS1/fvs/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 977.
+
+Underfull \hbox (badness 2142) in paragraph at lines 977--977
+|   []   |   [] 
+ []
+
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
@@ -2305,6 +2303,16 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 977.
 [67
 
 ]
+Underfull \hbox (badness 2142) in paragraph at lines 977--977
+|   []   |   [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 977--977
+[]\T1/fvs/m/n/10.95 - Real-time Data ge-ne-ra-
+ []
+
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
@@ -2313,6 +2321,22 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 977.
 [68
 
 ]
+Underfull \hbox (badness 2142) in paragraph at lines 977--977
+|   []   |   [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 977--977
+[]\T1/fvs/m/n/10.95 - Real-time Data ge-ne-ra-
+ []
+
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on input line 977.
+(c:/texlive/2024/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
+Overfull \hbox (7.90172pt too wide) in paragraph at lines 977--977
+[][]  
+ []
+
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
@@ -2320,50 +2344,47 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 977.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [69
 
-]
+{c:/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 987.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1001.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
- (./main.bbl)
+LaTeX Font Info:    Trying to load font information for TS1+fvs on input line 1001.
+ (c:/texlive/2024/texmf-dist/tex/latex/bera/ts1fvs.fd
+File: ts1fvs.fd 2004/09/07 scalable font definitions for TS1/fvs.
+)
+LaTeX Font Info:    Font shape `TS1/fvs/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 1001.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 987.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1001.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [70
 
- <c:/texlive/2024/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 996.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-File: Figures/tp.pdf Graphic file (type pdf)
-<use Figures/tp.pdf>
-Package pdftex.def Info: Figures/tp.pdf  used on input line 996.
-(pdftex.def)             Requested size: 34.14232pt x 34.1433pt.
-
+]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 996.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1001.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [71
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1011.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1011.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1001.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [72
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1011.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+ (./main.bbl)
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
@@ -2371,24 +2392,33 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1011.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [73
 
-]
+ <c:/texlive/2024/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1020.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+File: Figures/tp.pdf Graphic file (type pdf)
+<use Figures/tp.pdf>
+Package pdftex.def Info: Figures/tp.pdf  used on input line 1020.
+(pdftex.def)             Requested size: 34.14232pt x 34.1433pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1020.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [74
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1035.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1035.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [75
 
@@ -2396,31 +2426,50 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1035.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [76
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1059.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
+<use Figures/system_setup_no_angles_no_h_d.png>
+Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 1059.
+(pdftex.def)             Requested size: 216.74202pt x 158.60452pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [77
 
 ]
+File: Figures/system_setup_no_angles_no_h_d.png Graphic file (type png)
+<use Figures/system_setup_no_angles_no_h_d.png>
+Package pdftex.def Info: Figures/system_setup_no_angles_no_h_d.png  used on input line 1059.
+(pdftex.def)             Requested size: 216.74202pt x 158.60452pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [78
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [79
 
@@ -2428,20 +2477,15 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1031.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [80
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [81
 
@@ -2449,7 +2493,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [82
 
@@ -2457,7 +2501,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [83
 
@@ -2465,186 +2509,161 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1045.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [84
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-Overfull \vbox (6.07121pt too high) detected at line 1071
- []
-
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1079.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [85
 
 ]
-Overfull \vbox (6.07121pt too high) detected at line 1071
- []
-
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1093.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1093.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [86
 
 ]
-Overfull \vbox (6.07121pt too high) detected at line 1071
- []
-
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1093.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [87
 
 ]
-Overfull \vbox (6.07121pt too high) detected at line 1071
- []
-
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1093.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [88
 
 ]
-Overfull \vbox (6.07121pt too high) detected at line 1071
- []
-
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1093.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [89
 
 ]
-Overfull \vbox (6.07121pt too high) detected at line 1071
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
+Overfull \vbox (6.07121pt too high) detected at line 1119
  []
 
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1071.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [90
 
 ]
+Overfull \vbox (6.07121pt too high) detected at line 1119
+ []
+
+
+
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1080.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/Graph.pdf, id=976, 206.18933pt x 204.8453pt>
+[91
+
+]
+Overfull \vbox (6.07121pt too high) detected at line 1119
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[92
+
+]
+Overfull \vbox (6.07121pt too high) detected at line 1119
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[93
+
+]
+Overfull \vbox (6.07121pt too high) detected at line 1119
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[94
+
+]
+Overfull \vbox (6.07121pt too high) detected at line 1119
+ []
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1119.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[95
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1128.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/Graph.pdf, id=1006, 206.18933pt x 204.8453pt>
 File: Figures/Graph.pdf Graphic file (type pdf)
 <use Figures/Graph.pdf>
-Package pdftex.def Info: Figures/Graph.pdf  used on input line 1080.
+Package pdftex.def Info: Figures/Graph.pdf  used on input line 1128.
 (pdftex.def)             Requested size: 173.39096pt x 172.25954pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1080.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1128.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[91
+[96
 
  <./Figures/Graph.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1088.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1136.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/Tree_short.pdf, id=1022, 351.88664pt x 206.73134pt>
+<Figures/Tree_short.pdf, id=1052, 351.88664pt x 206.73134pt>
 File: Figures/Tree_short.pdf Graphic file (type pdf)
 <use Figures/Tree_short.pdf>
-Package pdftex.def Info: Figures/Tree_short.pdf  used on input line 1088.
+Package pdftex.def Info: Figures/Tree_short.pdf  used on input line 1136.
 (pdftex.def)             Requested size: 303.4375pt x 178.27126pt.
 
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1088.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[92
-
- <./Figures/Tree_short.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1100.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1100.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[93
-
-]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1108.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/agent_env2.pdf, id=1069, 254.5219pt x 172.72028pt>
-File: Figures/agent_env2.pdf Graphic file (type pdf)
-<use Figures/agent_env2.pdf>
-Package pdftex.def Info: Figures/agent_env2.pdf  used on input line 1108.
-(pdftex.def)             Requested size: 260.09306pt x 176.51495pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1108.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[94
-
- <./Figures/agent_env2.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1116.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/avg_len_path_delta.pdf, id=1098, 252.945pt x 195.73125pt>
-File: Figures/avg_len_path_delta.pdf Graphic file (type pdf)
-<use Figures/avg_len_path_delta.pdf>
-Package pdftex.def Info: Figures/avg_len_path_delta.pdf  used on input line 1116.
-(pdftex.def)             Requested size: 260.09306pt x 201.26793pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1116.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[95
-
- <./Figures/avg_len_path_delta.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1136.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1136.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[96
-
-]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
@@ -2652,165 +2671,185 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1136.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [97
 
-]
+ <./Figures/Tree_short.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1155.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1148.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1155.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1148.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [98
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1156.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/agent_env2.pdf, id=1099, 254.5219pt x 172.72028pt>
+File: Figures/agent_env2.pdf Graphic file (type pdf)
+<use Figures/agent_env2.pdf>
+Package pdftex.def Info: Figures/agent_env2.pdf  used on input line 1156.
+(pdftex.def)             Requested size: 260.09306pt x 176.51495pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1155.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1156.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [99
 
-]
+ <./Figures/agent_env2.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1176.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1164.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/avg_len_path_delta.pdf, id=1128, 252.945pt x 195.73125pt>
+File: Figures/avg_len_path_delta.pdf Graphic file (type pdf)
+<use Figures/avg_len_path_delta.pdf>
+Package pdftex.def Info: Figures/avg_len_path_delta.pdf  used on input line 1164.
+(pdftex.def)             Requested size: 260.09306pt x 201.26793pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1176.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1164.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [100
 
-]
+ <./Figures/avg_len_path_delta.pdf>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1184.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1176.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1184.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [101
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1251.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-Overfull \hbox (0.58449pt too wide) in paragraph at lines 1251--1251
-[] 
- []
-
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1251.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1184.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [102
 
 ]
-Overfull \hbox (0.58449pt too wide) in paragraph at lines 1251--1251
-[] 
- []
-
-
-Overfull \hbox (21.8765pt too wide) in paragraph at lines 1251--1251
-[] 
- []
-
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1203.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1251.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1203.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [103
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1271.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1271.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1203.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [104
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1224.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1271.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1224.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [105
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1292.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1292.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1224.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [106
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1299.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
+Overfull \hbox (0.58449pt too wide) in paragraph at lines 1299--1299
+[] 
+ []
+
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1292.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1299.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [107
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1317.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+Overfull \hbox (0.58449pt too wide) in paragraph at lines 1299--1299
+[] 
+ []
 
 
+Overfull \hbox (21.8765pt too wide) in paragraph at lines 1299--1299
+[] 
+ []
+
+
+
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1317.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1299.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [108
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1319.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1317.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1319.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [109
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1319.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [110
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1340.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1340.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [111
 
@@ -2818,36 +2857,41 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1340.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [112
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1365.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1337.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1365.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [113
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1365.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [114
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1385.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1385.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [115
 
@@ -2855,7 +2899,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1385.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [116
 
@@ -2863,69 +2907,44 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1355.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1385.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [117
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1365.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Tikz/trainingDQN.pdf, id=1383, 494.0287pt x 152.66335pt>
-File: Tikz/trainingDQN.pdf Graphic file (type pdf)
-<use Tikz/trainingDQN.pdf>
-Package pdftex.def Info: Tikz/trainingDQN.pdf  used on input line 1365.
-(pdftex.def)             Requested size: 390.13298pt x 120.56311pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1365.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1385.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [118
-
- <./Tikz/trainingDQN.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1383.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1383.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[119
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1394.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1403.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSNR_DDQN_10.pdf, id=1424, 621.22488pt x 226.2031pt>
-File: Plot/groupPlotSNR_DDQN_10.pdf Graphic file (type pdf)
-<use Plot/groupPlotSNR_DDQN_10.pdf>
-Package pdftex.def Info: Plot/groupPlotSNR_DDQN_10.pdf  used on input line 1394.
-(pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1394.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1403.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[119
+
+]
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1403.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [120
 
- <./Plot/groupPlotSNR_DDQN_10.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1435.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
+]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1435.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1403.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [121
 
@@ -2933,61 +2952,69 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1435.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1435.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1403.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [122
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1479.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1413.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 1479.
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 1479.
-LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
-(Font)              scaled to size 10.79993pt on input line 1479.
-LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1479.
-LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <12> not available
-(Font)              Font shape `T1/fvs/b/it' tried instead on input line 1479.
-LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
-(Font)              scaled to size 10.79993pt on input line 1479.
+<Tikz/trainingDQN.pdf, id=1413, 494.0287pt x 152.66335pt>
+File: Tikz/trainingDQN.pdf Graphic file (type pdf)
+<use Tikz/trainingDQN.pdf>
+Package pdftex.def Info: Tikz/trainingDQN.pdf  used on input line 1413.
+(pdftex.def)             Requested size: 390.13298pt x 120.56311pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1479.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1413.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [123
 
-]
+ <./Tikz/trainingDQN.pdf>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1431.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1479.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1431.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [124
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1442.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Plot/groupPlotSNR_DDQN_10.pdf, id=1455, 621.22488pt x 226.2031pt>
+File: Plot/groupPlotSNR_DDQN_10.pdf Graphic file (type pdf)
+<use Plot/groupPlotSNR_DDQN_10.pdf>
+Package pdftex.def Info: Plot/groupPlotSNR_DDQN_10.pdf  used on input line 1442.
+(pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1479.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1442.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [125
 
-]
+ <./Plot/groupPlotSNR_DDQN_10.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1524.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1483.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1524.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1483.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [126
 
@@ -2995,163 +3022,225 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1524.
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1524.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1483.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [127
 
 ]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1527.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 1527.
+LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 1527.
+LaTeX Font Info:    Font shape `T1/fvs/m/it' will be
+(Font)              scaled to size 10.79993pt on input line 1527.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1527.
+LaTeX Font Info:    Font shape `T1/fvs/bx/it' in size <12> not available
+(Font)              Font shape `T1/fvs/b/it' tried instead on input line 1527.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 10.79993pt on input line 1527.
+
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1524.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1527.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [128
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1542.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1542.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1527.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [129
 
 ]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1552.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1552.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1527.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [130
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1560.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1572.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/scene_etoile.PNG, id=1541, 466.74374pt x 313.9228pt>
-File: Figures/scene_etoile.PNG Graphic file (type png)
-<use Figures/scene_etoile.PNG>
-Package pdftex.def Info: Figures/scene_etoile.PNG  used on input line 1560.
-(pdftex.def)             Requested size: 216.74202pt x 145.7762pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1560.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1572.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [131
 
- <./Figures/scene_etoile.PNG>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1587.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/scene_visualization_3D.png, id=1550, 279.6849pt x 143.0946pt>
-File: Figures/scene_visualization_3D.png Graphic file (type png)
-<use Figures/scene_visualization_3D.png>
-Package pdftex.def Info: Figures/scene_visualization_3D.png  used on input line 1587.
-(pdftex.def)             Requested size: 238.41754pt x 121.98468pt.
-
+]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1587.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1572.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [132
 
- <./Figures/scene_visualization_3D.png>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1688.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Figures/RIS_fig_sionna.png, id=1559, 247.67531pt x 255.95625pt>
-File: Figures/RIS_fig_sionna.png Graphic file (type png)
-<use Figures/RIS_fig_sionna.png>
-Package pdftex.def Info: Figures/RIS_fig_sionna.png  used on input line 1688.
-(pdftex.def)             Requested size: 144.13547pt x 148.95464pt.
-
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 1688.
-
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 1688.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1688.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1688.
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 1688.
-
-
+]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1688.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1572.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [133
 
- <./Figures/RIS_fig_sionna.PNG>]
+]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1709.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1590.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Tikz/ris_unit_cell_array.pdf, id=1570, 159.60027pt x 128.00221pt>
-File: Tikz/ris_unit_cell_array.pdf Graphic file (type pdf)
-<use Tikz/ris_unit_cell_array.pdf>
-Package pdftex.def Info: Tikz/ris_unit_cell_array.pdf  used on input line 1709.
-(pdftex.def)             Requested size: 214.14217pt x 171.75058pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1709.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1590.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [134
 
- <./Tikz/ris_unit_cell_array.pdf>]
+]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1739.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1600.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1739.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1600.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [135
 
 ]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1750.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1608.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/scene_etoile.PNG, id=1572, 466.74374pt x 313.9228pt>
+File: Figures/scene_etoile.PNG Graphic file (type png)
+<use Figures/scene_etoile.PNG>
+Package pdftex.def Info: Figures/scene_etoile.PNG  used on input line 1608.
+(pdftex.def)             Requested size: 216.74202pt x 145.7762pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1608.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[136
+
+ <./Figures/scene_etoile.PNG>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1635.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/scene_visualization_3D.png, id=1581, 279.6849pt x 143.0946pt>
+File: Figures/scene_visualization_3D.png Graphic file (type png)
+<use Figures/scene_visualization_3D.png>
+Package pdftex.def Info: Figures/scene_visualization_3D.png  used on input line 1635.
+(pdftex.def)             Requested size: 238.41754pt x 121.98468pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1635.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[137
+
+ <./Figures/scene_visualization_3D.png>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1736.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Figures/RIS_fig_sionna.png, id=1590, 247.67531pt x 255.95625pt>
+File: Figures/RIS_fig_sionna.png Graphic file (type png)
+<use Figures/RIS_fig_sionna.png>
+Package pdftex.def Info: Figures/RIS_fig_sionna.png  used on input line 1736.
+(pdftex.def)             Requested size: 144.13547pt x 148.95464pt.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 1736.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 1736.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1736.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 1736.
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 1736.
+
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1736.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[138
+
+ <./Figures/RIS_fig_sionna.PNG>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1757.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Tikz/ris_unit_cell_array.pdf, id=1600, 159.60027pt x 128.00221pt>
+File: Tikz/ris_unit_cell_array.pdf Graphic file (type pdf)
+<use Tikz/ris_unit_cell_array.pdf>
+Package pdftex.def Info: Tikz/ris_unit_cell_array.pdf  used on input line 1757.
+(pdftex.def)             Requested size: 214.14217pt x 171.75058pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1757.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[139
+
+ <./Tikz/ris_unit_cell_array.pdf>]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1787.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1750.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1787.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[136
+[140
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1798.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1798.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[141
 
 ]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1750.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 1798.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[137
+[142
 
 ]
 \tf@nav=\write6
@@ -3180,18 +3269,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9AFDEF4BDCFAAA44899E74845A617E4C;1252.
  ) 
 Here is how much of TeX's memory you used:
- 49866 strings out of 473206
- 1156461 string characters out of 5720440
- 2128460 words of memory out of 5000000
- 71867 multiletter control sequences out of 15000+600000
- 796855 words of font info for 243 fonts, out of 8000000 for 9000
+ 49886 strings out of 473206
+ 1156813 string characters out of 5720440
+ 2128566 words of memory out of 5000000
+ 71876 multiletter control sequences out of 15000+600000
+ 798219 words of font info for 244 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,23n,123p,736b,1352s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/dutchcal/DutchCalReg.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fver8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsro8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (137 pages, 1990671 bytes).
+Output written on main.pdf (142 pages, 2105921 bytes).
 PDF statistics:
- 1821 PDF objects out of 2073 (max. 8388607)
- 1364 compressed objects within 14 object streams
- 286 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1854 PDF objects out of 2073 (max. 8388607)
+ 1391 compressed objects within 14 object streams
+ 296 named destinations out of 1000 (max. 500000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 

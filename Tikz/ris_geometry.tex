@@ -7,11 +7,11 @@
   >=Stealth, thick, scale=1,
   validray/.style={-{Stealth}, green!55!black, line width=0.9pt},
   obstray/.style={-{Stealth}, red!70!black, dashed, line width=0.9pt},
-  angray/.style={-{Stealth}, orange!85!black, dotted, line width=1.1pt},
+  angray/.style={-{Stealth}, violet!80!black, dotted, line width=1.1pt},
   ghostray/.style={-{Stealth}, gray!60, line width=0.6pt},
   cellvalid/.style={fill=green!25, draw=black},
   cellobst/.style={fill=red!25, draw=black},
-  cellang/.style={fill=orange!25, draw=black},
+  cellang/.style={fill=violet!25, draw=black},
   every node/.style={font=\footnotesize}
 ]
 
@@ -21,9 +21,9 @@
 
   % RIS surface: 5 cells stacked vertically at x=0, generously spaced
   \foreach \i/\y/\style in {1/3.2/cellvalid, 2/1.6/cellobst, 3/0.0/cellvalid, 4/-1.6/cellang, 5/-3.2/cellobst} {
-    \node[\style, minimum width=0.55cm, minimum height=0.85cm] (c\i) at (0,\y) {$c_\i$};
+    \node[\style, minimum width=0.55cm, minimum height=0.85cm] (c\i) at (0,\y) {$c_\mathrm{\i}$};
   }
-  \node[align=center] at (0,4.15) {RIS: $N$ unit cells};
+  \node[align=center] at (0,4.15) {RIS: $\mathrm{N}$ unit cells};
 
   % --- Cell 1: fully valid path ---
   \draw[validray] (tx) -- (c1);
@@ -46,7 +46,7 @@
   \draw[angray] (tx) -- (c4);
   \draw[angray] (c4) -- (rx);
   \draw[->, black, line width=0.7pt] (c4) -- ++(1.1,0) node[right] {$\hat{\mathbf n}$};
-  \node[orange!85!black, align=left, anchor=north] at (-1.4,-2.2) {$\cos\theta_i\le 0$ or\\$\cos\theta_m\le 0$};
+  \node[violet!80!black, align=left, anchor=north] at (-1.4,-1.75) {$\cos\theta_\mathrm{i}\le 0$ or\\$\cos\theta_\mathrm{m}\le 0$};
 
   % --- Cell 5: obstructed cell->RX leg ---
   % Obstacle centered on, and rotated to, the c5--RX ray so it visibly blocks it.

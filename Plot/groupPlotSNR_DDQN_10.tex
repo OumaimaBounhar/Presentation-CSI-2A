@@ -58,18 +58,6 @@
             ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
             \addlegendentry{Double Deep Q-Learning}
             
-            \addplot[orange, thick, mark=x] 
-            table 
-            [x expr=\coordindex+1, y={Q-Learning}, col sep=comma, header=true
-            ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
-            \addlegendentry{Q-Learning}
-            
-            \addplot[black, thick, dashed] 
-            table 
-            [x expr=\coordindex+1, y={Random sampling}, col sep=comma, header=true
-            ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
-            \addlegendentry{Random Sampling}
-
             %===============================================
             % SNR = 0 dB, Size of Codebooks = [8,14], L = 2, epoch 3500
             %===============================================		
