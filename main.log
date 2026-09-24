@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  24 SEP 2026 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  24 SEP 2026 16:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2034,79 +2034,79 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 735.
  <./Plot/groupPlotSNR_5_DQN.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 746.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSNR_DDQN.pdf, id=529, 621.22488pt x 226.2031pt>
+
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[52
+
+]
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[53
+
+]
+
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 751.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+[54
+
+]
+File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
+<use Figures/logo-tp-ipp.pdf>
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 762.
+(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
+<Plot/groupPlotSNR_DDQN.pdf, id=548, 621.22488pt x 226.2031pt>
 File: Plot/groupPlotSNR_DDQN.pdf Graphic file (type pdf)
 <use Plot/groupPlotSNR_DDQN.pdf>
-Package pdftex.def Info: Plot/groupPlotSNR_DDQN.pdf  used on input line 746.
+Package pdftex.def Info: Plot/groupPlotSNR_DDQN.pdf  used on input line 762.
 (pdftex.def)             Requested size: 433.48404pt x 157.84059pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 746.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 762.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[52
+[55
 
  <./Plot/groupPlotSNR_DDQN.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 757.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 773.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/plotPPO.pdf, id=575, 300.65724pt x 226.2031pt>
+<Plot/plotPPO.pdf, id=595, 300.65724pt x 226.2031pt>
 File: Plot/plotPPO.pdf Graphic file (type pdf)
 <use Plot/plotPPO.pdf>
-Package pdftex.def Info: Plot/plotPPO.pdf  used on input line 757.
+Package pdftex.def Info: Plot/plotPPO.pdf  used on input line 773.
 (pdftex.def)             Requested size: 238.41754pt x 179.37498pt.
 
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 757.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 773.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[53
+[56
 
  <./Plot/plotPPO.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 768.
+Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-<Plot/groupPlotSigmaAlpha.pdf, id=620, 621.22488pt x 225.24753pt>
+<Plot/groupPlotSigmaAlpha.pdf, id=641, 621.22488pt x 225.24753pt>
 File: Plot/groupPlotSigmaAlpha.pdf Graphic file (type pdf)
 <use Plot/groupPlotSigmaAlpha.pdf>
-Package pdftex.def Info: Plot/groupPlotSigmaAlpha.pdf  used on input line 768.
+Package pdftex.def Info: Plot/groupPlotSigmaAlpha.pdf  used on input line 784.
 (pdftex.def)             Requested size: 433.48404pt x 157.17381pt.
 
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 768.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[54
-
- <./Plot/groupPlotSigmaAlpha.pdf>]
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[55
-
-]
-
-File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
-<use Figures/logo-tp-ipp.pdf>
-Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
-(pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
-[56
-
-]
 
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
@@ -2114,7 +2114,7 @@ Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 784.
 (pdftex.def)             Requested size: 28.5768pt x 44.10141pt.
 [57
 
-]
+ <./Plot/groupPlotSigmaAlpha.pdf>]
 File: Figures/logo-tp-ipp.pdf Graphic file (type pdf)
 <use Figures/logo-tp-ipp.pdf>
 Package pdftex.def Info: Figures/logo-tp-ipp.pdf  used on input line 815.
@@ -3188,7 +3188,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  128i,23n,123p,736b,1352s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/dutchcal/DutchCalReg.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fver8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/bera/fvsro8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (137 pages, 1990566 bytes).
+Output written on main.pdf (137 pages, 1990671 bytes).
 PDF statistics:
  1821 PDF objects out of 2073 (max. 8388607)
  1364 compressed objects within 14 object streams

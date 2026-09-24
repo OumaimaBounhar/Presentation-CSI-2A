@@ -738,6 +738,22 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Limitations of Deep Q-Learning}
+        \begin{itemize}
+            \item<1-|alert@1> Good for scaling size of codebook and SNR compared to QL;
+            \item<2-|alert@2> Couldn't scale for multipath $\rightarrow$ moved to DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath;
+            \item<3-|alert@3> Need to generalize with the multipath geometric Saleh-Valenzuela channel model:
+            \vspace{-0.1cm}
+            \begin{equation*}
+                \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell).
+            \end{equation*}
+        \end{itemize}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Double Deep Q-Neural Network: Comparison for SNR = 0 dB, $\mathbf{N_c = 8}$, $\sigma_\alpha = 0$}
         \begin{figure}
             \centering
@@ -765,22 +781,6 @@ minimum height=3em, minimum width=6em]
             \centering
             \includegraphics[width = \textwidth]{Plot/groupPlotSigmaAlpha.pdf}
         \end{figure}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Limitations of Deep Q-Learning}
-        \begin{itemize}
-            \item<1-|alert@1> Good for scaling size of codebook and SNR compared to QL
-            \item<2-|alert@2> Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
-            \item<3-|alert@3> Need to generalize with the multipath geometric Saleh-Valenzuela channel model:
-            \vspace{-0.1cm}
-            \begin{equation*}
-                \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
-            \end{equation*}
-        \end{itemize}
     \end{frame}
 
     %------------------------------------------------
@@ -964,15 +964,15 @@ minimum height=3em, minimum width=6em]
         \frametitle{Future Perspectives}
             \begin{itemize}
             \item  \textit{Choice of the neural network:} \begin{itemize}
-                \item Validate the performance on the generated channels with the Sionna framework, allowing the scale of our proposed approach on multipath scenarios.
+                \item Validate the performance on the generated channels with the Sionna framework, allowing the scale of our proposed approach on multipath scenarios
             \end{itemize}
             \pause
             \item \textit{Mobile user scenario:} \begin{itemize}
-                \item Handle user mobility and time-varying channels.
+                \item Handle user mobility and time-varying channels
                 \item Do a a real-world experiment with RIS prototypes
             \end{itemize}
             \pause
-            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios.
+            \item \textit{Multi-user extension:} Scale the study to multi-user scenarios
             \end{itemize}
     \end{frame}
 
@@ -1386,7 +1386,7 @@ minimum height=3em, minimum width=6em]
     
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Double Deep Q-Neural Network: Comparison for SNR = 10 dB, $\mathbf{N_c = 8}$}
+        \framesubtitle{Double Deep Q-Neural Network: Comparison for SNR = 10 dB, $\mathbf{N_c = 8}$, $\sigma_alpha = 0$}
         \begin{figure}
             \centering
             \includegraphics[width = \textwidth]{Plot/groupPlotSNR_DDQN_10.pdf}
