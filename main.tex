@@ -732,22 +732,6 @@ minimum height=3em, minimum width=6em]
         \end{figure}
         \vspace{-0.3cm}
         {\fontsize{5.5}{5.5}\selectfont{\cite{DRL}: O. Bounhar, T. Chene, G. Rekaya, and O. Damen, “Deep Reinforcement Learning for Blind Passive Beamforming in RIS-Assisted MIMO Systems,” 2026.}}
-    \end{frame}    
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Limitations of Deep Q-Learning}
-        \begin{itemize}
-            \item<1-|alert@1> Good for scaling size of codebook and SNR compared to QL
-            \item<2-|alert@2> Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
-            \item<3-|alert@3> Need to generalize with the multipath geometric Saleh-Valenzuela channel model:
-            \vspace{-0.1cm}
-            \begin{equation*}
-                \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
-            \end{equation*}
-        \end{itemize}
     \end{frame}
 
     %------------------------------------------------
@@ -781,6 +765,22 @@ minimum height=3em, minimum width=6em]
             \centering
             \includegraphics[width = \textwidth]{Plot/groupPlotSigmaAlpha.pdf}
         \end{figure}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Limitations of Deep Q-Learning}
+        \begin{itemize}
+            \item<1-|alert@1> Good for scaling size of codebook and SNR compared to QL
+            \item<2-|alert@2> Couldn't scale for multipath -> move DDQN and PPO, they behaved better than DQN for single path but still not generalizing to multipath
+            \item<3-|alert@3> Need to generalize with the multipath geometric Saleh-Valenzuela channel model:
+            \vspace{-0.1cm}
+            \begin{equation*}
+                \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
+            \end{equation*}
+        \end{itemize}
     \end{frame}
 
     %------------------------------------------------
@@ -963,8 +963,11 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Future Perspectives}
             \begin{itemize}
+            \item  \textit{Choice the of the neural network:} \begin{itemize}
+                \item Validate the performance on the generated channels with the Sionna framework, allowing the scale of our proposed approach on multipath scenarios.
+            \end{itemize}
+            \pause
             \item \textit{Mobile user scenario:} \begin{itemize}
-                \item Validate the performance of our proposed approach on the generated channels with the Sionna framework.
                 \item Handle user mobility and time-varying channels.
                 \item Do a a real-world experiment with RIS prototypes
             \end{itemize}
@@ -1434,8 +1437,8 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Appendix}
-        \framesubtitle{Proximal Policy Optimization (PPO) (1/2): Actor-Critic structure}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization (PPO): Actor-Critic structure}
         \begin{columns}[T]
             \begin{column}{0.5\textwidth}
                 \onslide<1->{
@@ -1478,8 +1481,8 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Appendix}
-        \framesubtitle{Proximal Policy Optimization (PPO) (2/2): Clipped policy update}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization (PPO): Clipped policy update}
         \onslide<1->{
         \begin{block}{Clipped objective}
             \vspace{-0.3cm}
@@ -1523,7 +1526,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Appendix}
+        \frametitle{State-of-the-art}
         \framesubtitle{The Saleh-Valenzuela channel model}
         \small
         To capture sparse, multipath propagation, the channel is modeled as the sum of a few paths grouped into \textbf{clusters} (macro-scatterers), each containing several \textbf{rays} (micro-scatterers):
@@ -1536,20 +1539,16 @@ minimum height=3em, minimum width=6em]
             \item Average ray power decays exponentially with both arrival times: $\mathbb{E}[|\alpha_{k,l}|^2] \propto e^{-T_l/\Gamma} e^{-\tau_{k,l}/\gamma}$;
             \item Each gain $\alpha_{k,l} = \beta_{k,l}e^{j\vartheta_{k,l}}$ has uniform phase and Rayleigh-distributed amplitude.
         \end{itemize}
-        \vspace{0.1cm}
-        \footnote{[3]: Saleh Valenzuela}
     \end{frame}
 
     \begin{frame}
-        \frametitle{Appendix}
+        \frametitle{State-of-the-art}
         \framesubtitle{The Saleh-Valenzuela channel model}
         Enumerating all rays with a single path index $\ell$ (dropping the cluster/ray double index) and adding an \textbf{angle of departure} $\Phi^{Dep}_\ell$ and \textbf{angle of arrival} $\Phi^{Arr}_\ell$ per ray gives the geometric channel matrix used throughout this work:
         \begin{equation*}
             \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
         \end{equation*}
         with $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ the array response of a half-wavelength spaced ULA with $N$ elements.
-        \vspace{0.1cm}
-        \footnote{[3]: Saleh Valenzuela}
     \end{frame}
     %------------------------------------------------
 
