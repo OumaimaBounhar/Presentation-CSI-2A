@@ -259,36 +259,61 @@ minimum height=3em, minimum width=6em]
         \frametitle{System Model}
         \begin{columns}[T] % T aligns the top of both columns
             \begin{column}{0.5\textwidth}
-                \includegraphics<1-4>[width =\textwidth]{Figures/System_setup.png}
-                \includegraphics<5-6>[width =\textwidth]{Figures/No_direct_link.png}
+                \includegraphics<1>[width =\textwidth]{Figures/AoA_AOD.png}
+                \includegraphics<2>[width =\textwidth]{Figures/system_setup_UE.png}
+                \includegraphics<3>[width =\textwidth]{Figures/system_setup_BS.png}
+                \includegraphics<4>[width =\textwidth]{Figures/system_setup_ris_elements.png}
+                \includegraphics<5>[width =\textwidth]{Figures/No_direct_link.png}
+                \includegraphics<6-7>[width =\textwidth]{Figures/AoA_AOD.png}
             \end{column}    
-            \onslide <1-6>
+            \onslide <2-7>
             \begin{column}{0.49\textwidth}
                 \vspace{-0.4cm}
                 % \begin{itemize} <+-> % By default dispalys items one after the other.
                 % \begin{itemize} <+> % By default dispalys items one after the other by removes all the otheR ones.
-                \begin{itemize} [<+-|alert@+>] % By default dispalys items one after the other.
+                \begin{itemize} % By default dispalys items one after the other.
                 % \begin{itemize}
-                    \item $\mathrm N_{\text{UE}} = 1$;
-                    \item $\mathrm N_{\text{BS}} = 64$;
-                    \item $\mathrm N_{\text{RIS}} = 100$;
-                    \item The direct link is blocked.
+                    \item<2-|alert@2> $\mathrm N_{\text{UE}} = 1$;
+                    \item<3-|alert@3> $\mathrm N_{\text{BS}} = 64$;
+                    \item<4-|alert@4> $\mathrm N_{\text{RIS}} = 100$;
+                    \item<5-|alert@5> The direct link is blocked.
                 \end{itemize}
-                \onslide <5-6> We consider half-wave spaced Uniform Linear Arrays (ULAs):
+                \onslide <6-7> We consider the Saleh-Valenzuela channel model:
                 \vspace{-6mm} \\
                 \begin{equation*}
-                    \begin{split}   
-                        \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\Phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\Phi_{2}) \\
-                        \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\Phi_{4}) 
-                    \end{split}
+                    \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\phi^{Dep}_\ell).
                 \end{equation*}
-                \onslide <6> where the steering vector is: 
+                \onslide <7> where the steering vector is: 
                 \vspace{-3mm}
                 \begin{equation*}
-                    \mathbf{a}_{\mathrm N}(\Phi) = [1,e^{j\pi \sin (\Phi)},\ldots, e^{j\pi (\mathrm N-1) \sin (\Phi)}]^T
+                    \mathbf{a}_{\mathrm N}(\phi) = [1,e^{j\pi \sin (\phi)},\ldots, e^{j\pi (\mathrm N-1) \sin (\phi)}]^T
                 \end{equation*}
+                and the attenuation $\alpha_\ell\sim \mathcal{CN}(1,\sigma_{\alpha}^2)$.
             \end{column}
     \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}[t]
+        \frametitle{System Model}
+        \vspace{0.5cm}
+        We now consider the following simplification:
+        \begin{itemize}
+            \item<2-|alert@2> a single path $\mathrm{L} = 1$ is considered for both channel links:
+            \item<3-|alert@3> angles $\phi^{Dep}$ and $\phi^{Arr} \sim \mathcal{U}(-\pi/2,\pi/2)$
+            \item<4-|alert@4> the attenuation $\alpha \sim \mathcal{CN}(1,1) \rightarrow \alpha = 1$
+        \end{itemize}
+        \vspace{0.5cm}
+        \onslide <5-> The resuling channel links UE-RIS and RIS-BS are:
+        \begin{equation*}
+            \begin{split}
+                \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\phi_{2}) \\
+                \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\phi_{4})
+            \end{split}
+        \end{equation*}
+        \vspace{-3mm}
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
     \end{frame}
 
     %------------------------------------------------
@@ -298,7 +323,7 @@ minimum height=3em, minimum width=6em]
         \begin{columns}[T]
             \begin{column}{0.5\textwidth}
                 \only<1-3>{\includegraphics[width =\textwidth]{Figures/risPhaseShift.png}}
-                \only<4-5>{\includegraphics[width =\textwidth]{Figures/system_setup_no_angles_no_h_d.png}}
+                \only<4-5>{\includegraphics[width =\textwidth]{Figures/reflection_matrix.png}}
             \end{column}
             \begin{column}{0.49\textwidth}
                 \begin{itemize}
@@ -319,6 +344,7 @@ minimum height=3em, minimum width=6em]
             \end{column}
         \end{columns}
     \end{frame}
+
     %------------------------------------------------
 
     \section{State-of-the-art}
@@ -698,7 +724,7 @@ minimum height=3em, minimum width=6em]
             \end{equation*}
         \end{alertblock}
         \vspace{-0.1cm}
-        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” 2025.}}
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
     \end{frame}
 
     %------------------------------------------------
@@ -709,13 +735,34 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Deep Q-Neural Network (DQN)}
-        \begin{itemize}[<+->]
-            \item Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
-        \end{itemize}
+        \framesubtitle{From Q-Learning to Deep Q-Learning}
+        Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
         \begin{figure}
-            \includegraphics[width = 0.65\textwidth]{Tikz/dqn.pdf}
+            \centering
+            \begin{tikzpicture}[
+                scale=0.7, every node/.style={transform shape},
+                node distance = 0.85cm and 1.3cm,
+                box/.style = {rectangle, draw, thick, rounded corners, minimum width=2.4cm, minimum height=1cm, align=center},
+                every node/.style = {font=\footnotesize}
+            ]
+                \node[box, fill=blue!10] (state) {State $S$ \\ Action $A$};
+                \node[box, fill=orange!15, right=of state, xshift=1cm] (eval) {\textbf{Eval-Net} \\ $\theta^{(eval)}$};
+                \node[box, fill=orange!15, below=1.3cm of eval] (target) {\textbf{Target-Net} \\ $\theta^{(target)}$};
+                \node[box, fill=green!10, right=1.6cm of eval, yshift=-0.65cm] (loss) {Loss $\mathcal{L}(\theta)$};
+
+                \draw[->, thick] (state) -- (eval) node[midway, above, font=\tiny] {$S, A$};
+                \draw[->, thick] (state.south) -- ++(0,-0.3) -| (target.west) node[near start, below, font=\tiny] {$S', A'$};
+                \draw[->, thick] (eval) -- (loss) node[midway, above, sloped, font=\tiny] {$Q_{\text{eval}}(S,A;\theta^{(eval)})$};
+                \draw[->, thick] (target) -- (loss) node[midway, below, sloped, font=\tiny] {$Q_{\text{target}}(S',A';\theta^{(target)})$};
+                \draw[->, thick, dashed, red] (eval) to[bend right=45] node[right, font=\tiny] {copy every $N$ steps} (target);
+            \end{tikzpicture}
         \end{figure}
+        \begin{block}{Approximation of the Q-function}
+            The Q-function approximation can thus be expressed as:
+            \begin{equation}
+                Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
+            \end{equation}
+        \end{block}
     \end{frame}
 
     %------------------------------------------------
@@ -744,7 +791,7 @@ minimum height=3em, minimum width=6em]
             \end{column}
         \end{columns}
         \vspace{0.3cm}
-        {\fontsize{5.5}{5.5}\selectfont{\cite{DRL}: O. Bounhar, T. Chene, G. Rekaya, and O. Damen, “Deep Reinforcement Learning for Blind Passive Beamforming in RIS-Assisted MIMO Systems,” 2026.}}
+        {\fontsize{5.5}{5.5}\selectfont{\cite{DRL}: O. Bounhar, T. Chene, G. Rekaya, and O. Damen, “Deep Reinforcement Learning for Blind Passive Beamforming in RIS-Assisted MIMO Systems,” AIxNET 2026.}}
     \end{frame}
 
     %------------------------------------------------
@@ -752,14 +799,63 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Limitations of Deep Q-Learning (DQN)}
+        We consider first considered the following simplification:
+        \begin{equation*}
+            \begin{split}   
+                \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\Phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\Phi_{2}) \\
+                \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\Phi_{4}) 
+            \end{split}
+        \end{equation*}
+        where $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ is the array response of a half-wavelength spaced ULA with $N$ elements.
         % \centering
-        We need to generalize with the multipath geometric Saleh-Valenzuela channel model:
+        We now need to generalize with the multipath geometric Saleh-Valenzuela channel model:
         \vspace{-0.1cm}
         \begin{equation*}
             \centering
             \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell).
         \end{equation*}
-        where $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ is the array response of a half-wavelength spaced ULA with $N$ elements.
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{DQN vs. Double DQN (DDQN)}
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<1->{
+                \begin{block}{DQN}
+                    Target:
+                    \begin{equation*}
+                        Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)})
+                    \end{equation*}
+                    Possible \alert{overestimation bias}: the $\max$ picks noisy high estimates
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{block}{DDQN}
+                    Target:
+                    \begin{equation*}
+                        Q_{\text{target}} = R + \gamma\, Q_{\text{target}}(S', A^*; \theta^{(target)}),
+                    \end{equation*}
+                    \vspace{-0.4cm}
+                    \begin{equation*}
+                        A^* = \argmax_{\Psi} Q_{\text{eval}}(S', \Psi; \theta^{(eval)}).
+                    \end{equation*}
+                    \alert{reduced overestimation, more stable learning}
+                \end{block}
+                }
+            \end{column}
+        \end{columns}
+        \vspace{0.3cm}
+        \onslide<2->{
+        \begin{center}
+            Same architecture and cost: only the target computation changes.
+        \end{center}
+        }
     \end{frame}
 
     %------------------------------------------------
@@ -776,6 +872,95 @@ minimum height=3em, minimum width=6em]
             \footnotesize Couldn't scale when varying the number of paths $L$.
         \end{block}
         }
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization (PPO): Actor-Critic structure}
+        \begin{columns}[T]
+            \begin{column}{0.5\textwidth}
+                \onslide<1->{
+                \begin{block}{Actor $\pi_{\theta}(\Psi \mid S)$}
+                    Learns the \textbf{policy} directly: a probability over the pilot codewords $\Psi$, given the state $S$.
+                \end{block}
+                }
+                \onslide<2->{
+                \begin{block}{Critic $V_{\phi}(S)$}
+                    Estimates the expected return from state $S$.
+                \end{block}
+                }
+                \onslide<3->{
+                \begin{block}{Advantage}
+                    \vspace{-0.3cm}
+                    \begin{equation*}
+                        \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
+                    \end{equation*}
+                    $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \centering
+                \begin{tikzpicture}[>=stealth, thick, font=\footnotesize,
+                    box/.style={rectangle, rounded corners, draw, minimum width=2.2cm, minimum height=0.8cm, align=center}]
+                    \node<1-> (actor) [box, fill=blue!10] {Actor\\$\pi_{\theta}(\Psi \mid S)$};
+                    \node<1-> (env) [box, fill=gray!15, below=1.2cm of actor] {Environment\\(RIS channel)};
+                    \node<2-> (critic) [box, fill=orange!15, below=1.2cm of env] {Critic\\$V_{\phi}(S)$};
+
+                    \draw<1-> [->] ([xshift=0.5cm]actor.south) -- node[right] {$\Psi$} ([xshift=0.5cm]env.north);
+                    \draw<1-> [->] ([xshift=-0.5cm]env.north) -- node[left] {$S$} ([xshift=-0.5cm]actor.south);
+                    \draw<2-> [->] (env.south) -- node[right] {$R,\ S'$} (critic.north);
+                    \draw<3-> [->, red] (critic.east) -- ++(0.6,0) |- node[pos=0.25, right] {$\hat{A}$} (actor.east);
+                \end{tikzpicture}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization (PPO): Clipped policy update}
+        \onslide<1->{
+        \begin{block}{Clipped objective}
+            \vspace{-0.3cm}
+            \begin{equation*}
+                r(\theta) = \frac{\pi_{\theta}(\Psi \mid S)}{\pi_{\theta_{\text{old}}}(\Psi \mid S)},
+                \qquad
+                \mathcal{L}^{\text{CLIP}}(\theta) = \mathbb{E}\Big[\min\big(r(\theta)\hat{A},\ \text{clip}\big(r(\theta), 1-\epsilon_{\text{clip}}, 1+\epsilon_{\text{clip}}\big)\hat{A}\big)\Big]
+            \end{equation*}
+            The new policy cannot move too far from the old one in a single update $\Rightarrow$ \alert{stable learning}.
+        \end{block}
+        }
+        \vspace{-0.2cm}
+        \small
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \onslide<2->{
+                \begin{block}{Training loop}
+                    \begin{enumerate}
+                        \item Collect episodes with $\pi_{\theta_{\text{old}}}$;
+                        \item Compute the advantages $\hat{A}$;
+                        \item Update actor ($\mathcal{L}^{\text{CLIP}}$) and critic (MSE);
+                        \item $\theta_{\text{old}} \leftarrow \theta$.
+                    \end{enumerate}
+                \end{block}
+                }
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \onslide<3->{
+                \begin{block}{vs. DQN / DDQN}
+                    \begin{itemize}
+                        \item No $\max_{\Psi}$: no overestimation bias;
+                        \item No replay buffer: learns on-policy;
+                        \item Exploration comes from the stochastic policy, not $\epsilon$-greedy.
+                    \end{itemize}
+                \end{block}
+                }
+            \end{column}
+        \end{columns}
     \end{frame}
 
     %------------------------------------------------
@@ -874,16 +1059,6 @@ minimum height=3em, minimum width=6em]
                 }
             \end{column}
         \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Sionna: Realistic channel generation and validation}
-        \framesubtitle{BER validation: Sionna's Flat Fading vs.\ theoretical Rayleigh without Sionna}
-        \begin{center}
-            \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
-        \end{center}
     \end{frame}
 
     %------------------------------------------------
@@ -999,6 +1174,19 @@ minimum height=3em, minimum width=6em]
                 \end{itemize}
             \end{itemize}
     \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Doctoral school training requirements}
+        \begin{block}{Transversal skills}
+            Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
+        \end{block}
+        \pause
+        \begin{block}{Scientific skills}
+            Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
+        \end{block}
+    \end{frame}
 
     %------------------------------------------------
     % Bibliography
@@ -1021,19 +1209,6 @@ minimum height=3em, minimum width=6em]
 
     %------------------------------------------------
     % Appendix
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Doctoral school training requirements}
-        \begin{block}{Transversal skills}
-            Completed courses in project management, research ethics, \LaTeX{} writing tools, and PhD female mentoring, totaling \textbf{90h} (requirement: 60h).
-        \end{block}
-        \pause
-        \begin{block}{Scientific skills}
-            Participated in doctoral school events, an international summer school, and research seminars, totaling \textbf{43h} (requirement: 40h).
-        \end{block}
-    \end{frame}
-
     %------------------------------------------------
     
     \begin{frame}
@@ -1381,8 +1556,22 @@ minimum height=3em, minimum width=6em]
         Beamforming in RIS-Aided Communications with Q-Learning,” in 2025 IEEE Wireless
         Communications and Networking Conference (WCNC).
         Milan, Italy : IEEE, 2025, pp.
-        1–6.}}  
+        1–6.}}
     \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Deep Q-Neural Network (DQN)}
+        \begin{itemize}[<+->]
+            \item Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
+        \end{itemize}
+        \begin{figure}
+            \includegraphics[width = 0.65\textwidth]{Tikz/dqn.pdf}
+        \end{figure}
+    \end{frame}
+
     %------------------------------------------------
 
     \begin{frame}
@@ -1444,136 +1633,6 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{DQN vs. Double DQN (DDQN)}
-        \begin{columns}[T]
-            \begin{column}{0.48\textwidth}
-                \onslide<1->{
-                \begin{block}{DQN}
-                    Target:
-                    \begin{equation*}
-                        Q_{\text{target}} = R + \gamma \max_{\Psi} Q_{\text{target}}(S', \Psi; \theta^{(target)})
-                    \end{equation*}
-                    The same Target-Net $\theta^{(target)}$ both \textbf{selects} and \textbf{evaluates} the next action $\Rightarrow$ the $\max$ picks noisy high estimates: \alert{overestimation bias}.
-                \end{block}
-                }
-            \end{column}
-            \begin{column}{0.48\textwidth}
-                \onslide<2->{
-                \begin{block}{DDQN}
-                    Target:
-                    \begin{equation*}
-                        Q_{\text{target}} = R + \gamma\, Q_{\text{target}}(S', A^*; \theta^{(target)}),
-                    \end{equation*}
-                    \vspace{-0.4cm}
-                    \begin{equation*}
-                        A^* = \argmax_{\Psi} Q_{\text{eval}}(S', \Psi; \theta^{(eval)}).
-                    \end{equation*}
-                    The Eval-Net $\theta^{(eval)}$ \textbf{selects} the action, the Target-Net $\theta^{(target)}$ \textbf{evaluates} it $\Rightarrow$ reduced overestimation, more stable learning.
-                \end{block}
-                }
-            \end{column}
-        \end{columns}
-        \vspace{0.3cm}
-        \onslide<2->{
-        \begin{center}
-            Same architecture and cost: only the target computation changes.
-        \end{center}
-        }
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization (PPO): Actor-Critic structure}
-        \begin{columns}[T]
-            \begin{column}{0.5\textwidth}
-                \onslide<1->{
-                \begin{block}{Actor $\pi_{\theta}(\Psi \mid S)$}
-                    Learns the \textbf{policy} directly: a probability over the pilot codewords $\Psi$, given the state $S$.
-                \end{block}
-                }
-                \onslide<2->{
-                \begin{block}{Critic $V_{\phi}(S)$}
-                    Estimates the expected return from state $S$.
-                \end{block}
-                }
-                \onslide<3->{
-                \begin{block}{Advantage}
-                    \vspace{-0.3cm}
-                    \begin{equation*}
-                        \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
-                    \end{equation*}
-                    $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
-                \end{block}
-                }
-            \end{column}
-            \begin{column}{0.48\textwidth}
-                \centering
-                \begin{tikzpicture}[>=stealth, thick, font=\footnotesize,
-                    box/.style={rectangle, rounded corners, draw, minimum width=2.2cm, minimum height=0.8cm, align=center}]
-                    \node<1-> (actor) [box, fill=blue!10] {Actor\\$\pi_{\theta}(\Psi \mid S)$};
-                    \node<1-> (env) [box, fill=gray!15, below=1.2cm of actor] {Environment\\(RIS channel)};
-                    \node<2-> (critic) [box, fill=orange!15, below=1.2cm of env] {Critic\\$V_{\phi}(S)$};
-
-                    \draw<1-> [->] ([xshift=0.5cm]actor.south) -- node[right] {$\Psi$} ([xshift=0.5cm]env.north);
-                    \draw<1-> [->] ([xshift=-0.5cm]env.north) -- node[left] {$S$} ([xshift=-0.5cm]actor.south);
-                    \draw<2-> [->] (env.south) -- node[right] {$R,\ S'$} (critic.north);
-                    \draw<3-> [->, red] (critic.east) -- ++(0.6,0) |- node[pos=0.25, right] {$\hat{A}$} (actor.east);
-                \end{tikzpicture}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization (PPO): Clipped policy update}
-        \onslide<1->{
-        \begin{block}{Clipped objective}
-            \vspace{-0.3cm}
-            \begin{equation*}
-                r(\theta) = \frac{\pi_{\theta}(\Psi \mid S)}{\pi_{\theta_{\text{old}}}(\Psi \mid S)},
-                \qquad
-                \mathcal{L}^{\text{CLIP}}(\theta) = \mathbb{E}\Big[\min\big(r(\theta)\hat{A},\ \text{clip}\big(r(\theta), 1-\epsilon_{\text{clip}}, 1+\epsilon_{\text{clip}}\big)\hat{A}\big)\Big]
-            \end{equation*}
-            The new policy cannot move too far from the old one in a single update $\Rightarrow$ \alert{stable learning}.
-        \end{block}
-        }
-        \vspace{-0.2cm}
-        \small
-        \begin{columns}[T]
-            \begin{column}{0.48\textwidth}
-                \onslide<2->{
-                \begin{block}{Training loop}
-                    \begin{enumerate}
-                        \item Collect episodes with $\pi_{\theta_{\text{old}}}$;
-                        \item Compute the advantages $\hat{A}$;
-                        \item Update actor ($\mathcal{L}^{\text{CLIP}}$) and critic (MSE);
-                        \item $\theta_{\text{old}} \leftarrow \theta$.
-                    \end{enumerate}
-                \end{block}
-                }
-            \end{column}
-            \begin{column}{0.48\textwidth}
-                \onslide<3->{
-                \begin{block}{vs. DQN / DDQN}
-                    \begin{itemize}
-                        \item No $\max_{\Psi}$: no overestimation bias;
-                        \item No replay buffer: learns on-policy;
-                        \item Exploration comes from the stochastic policy, not $\epsilon$-greedy.
-                    \end{itemize}
-                \end{block}
-                }
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
         \frametitle{State-of-the-art}
         \framesubtitle{The Saleh-Valenzuela channel model}
         \small
@@ -1598,6 +1657,16 @@ minimum height=3em, minimum width=6em]
         \end{equation*}
         with $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ the array response of a half-wavelength spaced ULA with $N$ elements.
     \end{frame}
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Sionna: Realistic channel generation and validation}
+        \framesubtitle{BER validation: Sionna's Flat Fading vs.\ theoretical Rayleigh without Sionna}
+        \begin{center}
+            \includegraphics[width=0.52\textwidth]{Figures/Plot_BER_N_T_1_N_R_64_with_ZF.png}
+        \end{center}
+    \end{frame}
+
     %------------------------------------------------
 
     \begin{frame}
