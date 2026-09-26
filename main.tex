@@ -450,12 +450,14 @@ minimum height=3em, minimum width=6em]
         \end{center}
         \footnotesize
         \onslide<1-3>{{\color{red!70!black}Red}: successive pilot search levels over the pilot codebook $\boldsymbol{\Psi}_{1}^{N_p}$.} \\
-        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\rightarrow$ communication codebook $\boldsymbol{\Phi}_{1}^{N_c} \subset  \boldsymbol{\Psi}_{1}^{N_p}$.}
+        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\rightarrow$ communication codebook $\boldsymbol{\Phi}_{1}^{N_c} \subset  \boldsymbol{\Psi}_{1}^{N_p}$.} \\
+        \vspace{2mm}
+        {\fontsize{5.5}{6.5}\selectfont{Z. Xiao, T. He, P. Xia, and X.-G. Xia, "Hierarchical Codebook Design for Beamforming Training in Millimeter-Wave Communication," IEEE Transactions on Wireless Communications, vol. 15, no. 5, pp. 3380-3392, (May 2016)}}
     \end{frame}
 
     %------------------------------------------------
 
-    \begin{frame}
+    \begin{frame}[t]
         \frametitle{State-of-the-art}
         \framesubtitle{Bayesian Classifier: Protocol}
         \begin{center}
@@ -488,6 +490,8 @@ minimum height=3em, minimum width=6em]
         \end{tikzpicture}
         }
         \end{center}
+        \vfill
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
     \end{frame}
 
     %------------------------------------------------
@@ -737,26 +741,30 @@ minimum height=3em, minimum width=6em]
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{From Q-Learning to Deep Q-Learning}
         Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
-        \begin{figure}
-            \centering
-            \begin{tikzpicture}[
-                scale=0.7, every node/.style={transform shape},
-                node distance = 0.85cm and 1.3cm,
-                box/.style = {rectangle, draw, thick, rounded corners, minimum width=2.4cm, minimum height=1cm, align=center},
-                every node/.style = {font=\footnotesize}
-            ]
-                \node[box, fill=blue!10] (state) {State $S$ \\ Action $A$};
-                \node[box, fill=orange!15, right=of state, xshift=1cm] (eval) {\textbf{Eval-Net} \\ $\theta^{(eval)}$};
-                \node[box, fill=orange!15, below=1.3cm of eval] (target) {\textbf{Target-Net} \\ $\theta^{(target)}$};
-                \node[box, fill=green!10, right=1.6cm of eval, yshift=-0.65cm] (loss) {Loss $\mathcal{L}(\theta)$};
+        \pause
+        \begin{center}
+        \scalebox{0.72}{
+        \begin{tikzpicture}[
+            node distance=2.2cm and 2.4cm,
+            every node/.style={font=\normalsize},
+            block/.style={rectangle, rounded corners, draw, thick, minimum width=5cm, minimum height=2cm, align=center},
+            arrow/.style={draw, thick, ->, >=stealth},
+            lbl/.style={font=\small, align=center, fill=white, inner sep=2pt}
+        ]
+            \node[block, fill=blue!15, minimum width=2.2cm, minimum height=1.4cm] (state) {State $S$ \\ Action $A$};
+            \node[block, fill=orange!20, minimum width=2.2cm, minimum height=1.4cm, right=of state] (eval) {\textbf{Eval-Net} \\ $\theta^{(eval)}$};
+            \node[block, fill=orange!20, minimum width=2.2cm, minimum height=1.4cm, below=1.1cm of eval] (target) {\textbf{Target-Net} \\ $\theta^{(target)}$};
+            \node[block, fill=green!20, minimum width=2.2cm, minimum height=1.4cm, right=of eval] (loss) {Loss $\mathcal{L}(\theta)$};
 
-                \draw[->, thick] (state) -- (eval) node[midway, above, font=\tiny] {$S, A$};
-                \draw[->, thick] (state.south) -- ++(0,-0.3) -| (target.west) node[near start, below, font=\tiny] {$S', A'$};
-                \draw[->, thick] (eval) -- (loss) node[midway, above, sloped, font=\tiny] {$Q_{\text{eval}}(S,A;\theta^{(eval)})$};
-                \draw[->, thick] (target) -- (loss) node[midway, below, sloped, font=\tiny] {$Q_{\text{target}}(S',A';\theta^{(target)})$};
-                \draw[->, thick, dashed, red] (eval) to[bend right=45] node[right, font=\tiny] {copy every $N$ steps} (target);
-            \end{tikzpicture}
-        \end{figure}
+            \draw[arrow] (state) -- node[lbl, above] {$S, A$} (eval);
+            \draw[arrow] (state.south) -- node[lbl, pos=0.5, left] {$S', A'$} (state.south |- target.west) -- (target.west);
+            \draw[arrow] (eval) -- node[lbl, above] {$Q_{\text{eval}}(\cdot)$} (loss);
+            \draw[arrow] (target.east) -- node[lbl, pos=0.5, above] {$Q_{\text{target}}(\cdot)$} (target.east -| loss.south) -- (loss.south);
+            \draw[arrow, dashed, red] (eval) to[bend right=45] node[lbl, right] {copy every $N$ steps} (target);
+        \end{tikzpicture}
+        }
+        \end{center}
+        \pause
         \begin{block}{Approximation of the Q-function}
             The Q-function approximation can thus be expressed as:
             \begin{equation}
@@ -799,15 +807,16 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Limitations of Deep Q-Learning (DQN)}
-        We consider first considered the following simplification:
+        We first considered the following simplification:
         \begin{equation*}
             \begin{split}   
                 \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\Phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\Phi_{2}) \\
-                \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\Phi_{4}) 
+                \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\Phi_{4})
             \end{split}
         \end{equation*}
-        where $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ is the array response of a half-wavelength spaced ULA with $N$ elements.
+        where $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ is the array response of a half-wavelength spaced ULA with $\mathrm N$ elements. \\
         % \centering
+        \pause
         We now need to generalize with the multipath geometric Saleh-Valenzuela channel model:
         \vspace{-0.1cm}
         \begin{equation*}
