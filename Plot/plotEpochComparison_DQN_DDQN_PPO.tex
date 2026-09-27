@@ -1,0 +1,73 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{siunitx}	% manage numbers and units
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% Okabe-Ito colorblind-safe palette
+\definecolor{cbExhaustive}{HTML}{000000}
+\definecolor{cbHierarchical}{HTML}{0072B2}
+\definecolor{cbDQN}{HTML}{009E73}
+\definecolor{cbDDQN}{HTML}{CC79A7}
+\definecolor{cbPPO}{HTML}{D55E00}
+
+\begin{document}
+	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+		\begin{axis}
+			[
+			width = 8.5cm,
+			ymin=0, ymax=1.05,
+            xmin=1, xmax=8,
+            xtick distance = 1,
+            ytick distance =0.25,
+			axis on top,
+			grid=major,
+			label style={font=\footnotesize},
+			tick label style = {font=\footnotesize},
+            legend style={at={(0.5,-0.3)},anchor=north, legend columns=5},
+			xlabel = {Number of Pilots},
+            ylabel style={align=center},
+            ylabel={Channel strength\\$\displaystyle\frac{\bigl|\bigl|\mathbf{h}(\mathbf\Phi_{\text{dec}})\bigr|\bigr|_{2}^{2}}{\max_{\mathbf{\Phi} \in \mathbf{\Phi}_{1}^{N_c}} \left(\bigl|\bigl|\mathbf{h}(\mathbf\Phi)\bigr|\bigr|_{2}^{2} \right)}$},
+            title={L = 1, SNR = 0 dB, $\sigma_\alpha = 0$, $N_c$ = 8},
+			]
+
+            %===============================================
+            % L = 1, SNR = 0 dB, sigma_alpha = 0, Nc = 8
+            % Comparing epochs needed to converge: DQN vs DDQN vs PPO
+            % Exhaustive/Hierarchical baselines are essentially identical
+            % across experiments, so shown once (from ex_83)
+            %===============================================
+            \addplot[cbExhaustive, thick, solid]
+            table
+            [x=Pilot, y=Exhaustive, col sep=comma, header=true
+            ] {../Data/ex_83_probability_epoch_1000_snr_0.dat};
+            \addlegendentry{Exhaustive}
+
+            \addplot[cbHierarchical, thick, mark=o]
+            table
+            [x=Pilot, y=Hierarchical, col sep=comma, header=true
+            ] {../Data/ex_83_probability_epoch_1000_snr_0.dat};
+            \addlegendentry{Hierarchical}
+
+            \addplot[cbDQN, thick, mark=square*]
+            table
+            [x=Pilot, y={Deep Q-Learning}, col sep=comma, header=true
+            ] {../Data/ex_39_probability_epoch_4500_snr_0.dat};
+            \addlegendentry{DQN (4500 epochs)}
+
+            \addplot[cbDDQN, thick, mark=triangle*]
+            table
+            [x=Pilot, y={Deep Q-Learning}, col sep=comma, header=true
+            ] {../Data/ex_83_probability_epoch_1000_snr_0.dat};
+            \addlegendentry{DDQN (1000 epochs)}
+
+            \addplot[cbPPO, thick, mark=diamond*]
+            table
+            [x=Pilot, y={PPO}, col sep=comma, header=true
+            ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
+            \addlegendentry{PPO (1500 epochs)}
+
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

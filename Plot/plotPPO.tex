@@ -5,6 +5,12 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 
+% Okabe-Ito colorblind-safe palette
+\definecolor{cbExhaustive}{HTML}{000000}
+\definecolor{cbHierarchical}{HTML}{0072B2}
+\definecolor{cbRL}{HTML}{CC79A7}
+\definecolor{cbQLearning}{HTML}{E69F00}
+
 \begin{document}
 	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
 		\begin{axis}
@@ -28,19 +34,19 @@
             %===============================================
             % SNR = 0 dB, Size of Codebooks = [8,14]
             %===============================================
-            \addplot[red, thick, solid]
+            \addplot[cbExhaustive, thick, solid]
             table
             [x expr=\coordindex+1, y=Exhaustive, col sep=comma, header=true
             ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
             \addlegendentry{Exhaustive}
 
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table
             [x expr=\coordindex+1, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};
             \addlegendentry{Hierarchical}
 
-            \addplot[purple, thick, mark=+]
+            \addplot[cbRL, thick, mark=+]
             table
             [x expr=\coordindex+1, y={PPO}, col sep=comma, header=true
             ] {../Data/ex_92_probability_epoch_1500_snr_0.dat};

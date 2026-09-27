@@ -6,6 +6,12 @@
 \pgfplotsset{compat=newest}
 \usetikzlibrary[pgfplots.groupplots]
 
+% Okabe-Ito colorblind-safe palette
+\definecolor{cbExhaustive}{HTML}{000000}
+\definecolor{cbHierarchical}{HTML}{0072B2}
+\definecolor{cbRL}{HTML}{CC79A7}
+\definecolor{cbQLearning}{HTML}{E69F00}
+
 \begin{document}
 	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
 		\begin{groupplot}
@@ -40,25 +46,25 @@
                 grid=major,title={$\sigma_\alpha = 0.5$}
             ]
 
-            \addplot[red, thick, solid]
+            \addplot[cbExhaustive, thick, solid]
             table
             [x=Pilot, y=Exhaustive, col sep=comma, header=true
             ] {../Data/ex_110_probability_epoch_93000_snr_20_ppo.dat};
             \addlegendentry{Exhaustive}
 
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table
             [x=Pilot, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_110_probability_epoch_93000_snr_20_ppo.dat};
             \addlegendentry{Hierarchical}
 
-            \addplot[purple, thick, mark=+]
+            \addplot[cbRL, thick, mark=+]
             table
             [x=Pilot, y={PPO}, col sep=comma, header=true
             ] {../Data/ex_110_probability_epoch_93000_snr_20_ppo.dat};
             \addlegendentry{Proximal Policy Optimization}
 
-            \addplot[orange, thick, mark=x]
+            \addplot[cbQLearning, thick, mark=x]
             table
             [x=Pilot, y={Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_110_probability_epoch_93000_snr_20_ql.dat};
@@ -71,25 +77,25 @@
                 grid=major,title={$\sigma_\alpha = 1$}
             ]
 
-            \addplot[red, thick,solid]
+            \addplot[cbExhaustive, thick,solid]
             table
             [x=Pilot, y=Exhaustive, col sep=comma, header=true
             ] {../Data/ex_111_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Exhaustive}
 
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table
             [x=Pilot, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_111_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Hierarchical}
 
-            \addplot[purple, thick, mark=+]
+            \addplot[cbRL, thick, mark=+]
             table
             [x=Pilot, y={PPO}, col sep=comma, header=true
             ] {../Data/ex_111_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Proximal Policy Optimization}
 
-            \addplot[orange, thick, mark=x]
+            \addplot[cbQLearning, thick, mark=x]
             table
             [x=Pilot, y={Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_111_probability_epoch_1500_snr_0_ql.dat};
@@ -102,25 +108,25 @@
                 grid=major,title={$\sigma_\alpha = 2$}
             ]
 
-            \addplot[red, thick, solid]
+            \addplot[cbExhaustive, thick, solid]
             table
             [x=Pilot, y=Exhaustive, col sep=comma, header=true
             ]{../Data/ex_112_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Exhaustive}
 
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table
             [x=Pilot, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_112_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Hierarchical}
 
-            \addplot[purple, thick, mark=+]
+            \addplot[cbRL, thick, mark=+]
             table
             [x=Pilot, y={PPO}, col sep=comma, header=true
             ] {../Data/ex_112_probability_epoch_1500_snr_0_ppo.dat};
             % \addlegendentry{Proximal Policy Optimization}
 
-            \addplot[orange, thick, mark=x]
+            \addplot[cbQLearning, thick, mark=x]
             table
             [x=Pilot, y={Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_112_probability_epoch_1500_snr_0_ql.dat};

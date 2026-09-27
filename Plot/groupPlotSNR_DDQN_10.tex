@@ -6,6 +6,12 @@
 \pgfplotsset{compat=newest}
 \usetikzlibrary[pgfplots.groupplots]
 
+% Okabe-Ito colorblind-safe palette
+\definecolor{cbExhaustive}{HTML}{000000}
+\definecolor{cbHierarchical}{HTML}{0072B2}
+\definecolor{cbRL}{HTML}{CC79A7}
+\definecolor{cbQLearning}{HTML}{E69F00}
+
 \begin{document}
 	\begin{tikzpicture}[every node/.style={font=\footnotesize}]
 		\begin{groupplot}
@@ -40,19 +46,19 @@
                 grid=major,title={L = 1, epoch 1000}
             ]
             
-            \addplot[red, thick, solid] 
+            \addplot[cbExhaustive, thick, solid] 
             table 
             [x expr=\coordindex+1, y=Exhaustive, col sep=comma, header=true
             ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
             \addlegendentry{Exhaustive}
             
-            \addplot[blue, thick, mark=o] 
+            \addplot[cbHierarchical, thick, mark=o] 
             table
             [x expr=\coordindex+1, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
             \addlegendentry{Hierarchical}
             
-            \addplot[purple, thick, mark=+] 
+            \addplot[cbRL, thick, mark=+] 
             table 
             [x expr=\coordindex+1, y={Deep Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_83_probability_epoch_1000_snr_10.dat};
@@ -65,19 +71,19 @@
                 grid=major,title={L = 2, epoch 3500}
             ]
             
-            \addplot[red, thick,solid] 
+            \addplot[cbExhaustive, thick,solid] 
             table 
             [x expr=\coordindex+1, y=Exhaustive, col sep=comma, header=true
             ] {../Data/ex_87_probability_epoch_3500_snr_10.dat};
             % \addlegendentry{Exhaustive}
             
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table 
             [x expr=\coordindex+1, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_87_probability_epoch_3500_snr_10.dat};
             % \addlegendentry{Hierarchical}
                         
-            \addplot[purple, thick, mark=+] 
+            \addplot[cbRL, thick, mark=+] 
             table 
             [x expr=\coordindex+1, y={Double Deep Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_87_probability_epoch_3500_snr_10.dat};
@@ -91,19 +97,19 @@
                 grid=major,title={L = 3, epoch 8000}
             ]
             
-            \addplot[red, thick, solid]
+            \addplot[cbExhaustive, thick, solid]
             table 
             [x expr=\coordindex+1, y=Exhaustive, col sep=comma, header=true
             ]{../Data/ex_88_probability_epoch_8000_snr_10.dat};
             % \addlegendentry{Exhaustive}
             
-            \addplot[blue, thick, mark=o]
+            \addplot[cbHierarchical, thick, mark=o]
             table 
             [x expr=\coordindex+1, y=Hierarchical, col sep=comma, header=true
             ] {../Data/ex_88_probability_epoch_8000_snr_10.dat};
             % \addlegendentry{Hierarchical}
                         
-            \addplot[purple, thick, mark=+] 
+            \addplot[cbRL, thick, mark=+] 
             table 
             [x expr=\coordindex+1, y={Double Deep Q-Learning}, col sep=comma, header=true
             ] {../Data/ex_88_probability_epoch_8000_snr_10.dat};

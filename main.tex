@@ -990,10 +990,10 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization (PPO): Comparison for SNR = 0 dB, $\mathbf{N_c = 8}$, $\sigma_\alpha = 0$, L = 1}
+        \framesubtitle{Proximal Policy Optimization (PPO): Comparison with DQN and DDQN}
         \begin{figure}
             \centering
-            \includegraphics[width = 0.55\textwidth]{Plot/plotPPO.pdf}
+            \includegraphics[width = 0.7\textwidth]{Plot/plotEpochComparison_DQN_DDQN_PPO.pdf}
         \end{figure}
     \end{frame}
 
@@ -1183,18 +1183,15 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Future Perspectives}
             \begin{itemize}
-            \item  \textit{Choice of the neural network:} \begin{itemize}
-                \item Validate the performance on the generated channels with the Sionna framework, allowing the scale of our proposed approach on multipath scenarios
-                \item Collaborate for a real-world experiment with RIS prototypes
+            \item  \textit{Validation of multipath:} \begin{itemize}
+                \item Validate the performance on synthetic and the generated channels with the Sionna framework, allowing the scale of our proposed approach on multipath scenarios
             \end{itemize}
             \pause
-            \item \textit{User mobility scenario:} \begin{itemize}
+            \item \textit{Extensions:} \begin{itemize}
                 \item Handle user mobility and time-varying channels (sionna generated channels)
+                \item If possible, collaborate for a real-world experiment with RIS prototypes
+                \item Scale the study to multi-user scenarios
             \end{itemize}
-            \pause
-            \item \textit{Multi-user extension:} \begin{itemize}
-                  \item Scale the study to multi-user scenarios
-                \end{itemize}
             \end{itemize}
     \end{frame}
     
@@ -1650,6 +1647,17 @@ minimum height=3em, minimum width=6em]
         \begin{figure}
             \centering
             \includegraphics[width = \textwidth]{Plot/groupPlotSNR_DDQN_10.pdf}
+        \end{figure}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \framesubtitle{Proximal Policy Optimization (PPO): Comparison for SNR = 0 dB, $\mathbf{N_c = 8}$, $\sigma_\alpha = 0$, L = 1}
+        \begin{figure}
+            \centering
+            \includegraphics[width = 0.55\textwidth]{Plot/plotPPO.pdf}
         \end{figure}
     \end{frame}
 
