@@ -300,19 +300,23 @@ minimum height=3em, minimum width=6em]
         \vspace{0.5cm}
         We now consider the following simplification:
         \begin{itemize}
-            \item<2-|alert@2> a single path $\mathrm{L} = 1$ is considered for both channel links:
-            \item<3-|alert@3> angles $\phi^{Dep}$ and $\phi^{Arr} \sim \mathcal{U}(-\pi/2,\pi/2)$
-            \item<4-|alert@4> the attenuation $\alpha \sim \mathcal{CN}(1,1) \rightarrow \alpha = 1$
+            \item<2-|alert@2> a single path $\mathrm{L} = 1$ is considered for both channel links
+            \item<3-|alert@3> the attenuation $\alpha \sim \mathcal{CN}(1,1) \rightarrow \alpha = 1$
         \end{itemize}
         \vspace{0.5cm}
-        \onslide <5-> The resuling channel links UE-RIS and RIS-BS are:
+        \onslide <4-> With angles $\phi^{Dep}$ and $\phi^{Arr} \sim \mathcal{U}(-\pi/2,\pi/2)$, the resulting channel links UE-RIS and RIS-BS are:
         \begin{equation*}
             \begin{split}
                 \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\phi_{2}) \\
                 \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\phi_{4})
             \end{split}
         \end{equation*}
+        where the steering vector is: 
         \vspace{-3mm}
+        \begin{equation*}
+            \mathbf{a}_{\mathrm N}(\phi) = [1,e^{j\pi \sin (\phi)},\ldots, e^{j\pi (\mathrm N-1) \sin (\phi)}]^T
+        \end{equation*}
+        \vspace{-0.5mm}
         {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
     \end{frame}
 
@@ -347,12 +351,12 @@ minimum height=3em, minimum width=6em]
 
     %------------------------------------------------
 
-    \section{State-of-the-art}
+    \section{Prior work: Baseline}
 
     %------------------------------------------------  
     
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Channel State Information (CSI) \& Blind Beamforming}
         \begin{definition}[Rate]
             \onslide <1-3> We want to get a higher coverage, which leads to maximizing the rate:
@@ -383,7 +387,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Hierarchical codebook: What Does Each Class Represent?}
         \begin{center}
         \begin{tikzpicture}[scale=0.88]
@@ -458,7 +462,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}[t]
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Bayesian Classifier: Protocol}
         \begin{center}
         % Fixed scale (matching the full 6-node diagram scaled to \textwidth)
@@ -497,7 +501,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Reinforcement Learning: State, Action, and Reward Flow}
         \begin{columns}
     
@@ -554,7 +558,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------    
 
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{A Motivating Analogy}
         \begin{center}
         \begin{tikzpicture}[scale=0.82, transform shape, every node/.style={align=center, font=\small}]
@@ -608,7 +612,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Building the Dataset: How is a sample constructed?}
         \begin{columns}[T]
             \begin{column}{0.56\textwidth}
@@ -657,7 +661,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{The Likelihood Model}
         \begin{columns}[c]
             \begin{column}{0.58\textwidth}
@@ -697,7 +701,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
     
     \begin{frame}
-        \frametitle{State-of-the-art}
+        \frametitle{Prior work: Baseline}
         \framesubtitle{Stochastic shortest path problem: Policy, Objective \& Q-Learning}
         \begin{columns}[t]
             \begin{column}{0.48\textwidth}
@@ -805,24 +809,34 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
+        \frametitle{Proposed approach: Deep Reinforcement Learning}delet
         \framesubtitle{Limitations of Deep Q-Learning (DQN)}
         We first considered the following simplification:
         \begin{equation*}
-            \begin{split}   
+            \begin{split}
                 \bold{H}_{\text{BS}} &=  \mathbf{a}_{\mathrm N}(\Phi_{1}) \mathbf{a}_{\mathrm M}^{H}(\Phi_{2}) \\
                 \bold{h}_{\text{UE}} &=  \mathbf{a}_{1}(\Phi_{3}) \mathbf{a}_{\mathrm N}^{H}(\Phi_{4})
             \end{split}
         \end{equation*}
         where $\mathbf{a}_N(\Phi) = \frac{1}{\sqrt N}\left[1, e^{j\pi \sin\Phi}, \ldots, e^{j\pi (N-1)\sin\Phi}\right]^T$ is the array response of a half-wavelength spaced ULA with $\mathrm N$ elements. \\
-        % \centering
-        \pause
+        \onslide<2->{
+        \begin{center}
+        \begin{tikzpicture}
+            \node [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (x) {\ding{55}};
+            \node [right=0.3cm of x] [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (y) {\ding{55}};
+            \node [right=0.3cm of y] [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (z) {\ding{55}};
+            \node [right=0.3cm of z] {\cite{chene-}: 3 rejections.};
+        \end{tikzpicture}
+        \end{center}
+        }
+        \onslide<3->{
         We now need to generalize with the multipath geometric Saleh-Valenzuela channel model:
         \vspace{-0.1cm}
         \begin{equation*}
             \centering
             \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell).
         \end{equation*}
+        }
         {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
     \end{frame}
 
