@@ -241,9 +241,9 @@ minimum height=3em, minimum width=6em]
             \begin{column}{0.49\textwidth}
                 \vspace{0.4cm}
                 \begin{itemize}
-                    \item<1-|alert@1> 5G \& 6G rely on millimeter waves (mmWaves) for higher coverage;
-                    \item<2-|alert@2> mmWaves suffer from fading environments;
-                    \item<3-|alert@3> RIS is a promising solution with low power consumption.
+                    \item<1-|alert@1> 5G \& 6G rely on millimeter waves (mmWaves) for higher coverage
+                    \item<2-|alert@2> mmWaves suffer from fading environments
+                    \item<3-|alert@3> RIS is a promising solution with low power consumption
                 \end{itemize}
             \end{column}
         \end{columns}
@@ -273,10 +273,10 @@ minimum height=3em, minimum width=6em]
                 % \begin{itemize} <+> % By default dispalys items one after the other by removes all the otheR ones.
                 \begin{itemize} % By default dispalys items one after the other.
                 % \begin{itemize}
-                    \item<2-|alert@2> $\mathrm N_{\text{UE}} = 1$;
-                    \item<3-|alert@3> $\mathrm N_{\text{BS}} = 64$;
-                    \item<4-|alert@4> $\mathrm N_{\text{RIS}} = 100$;
-                    \item<5-|alert@5> The direct link is blocked.
+                    \item<2-|alert@2> $\mathrm N_{\text{UE}} = 1$
+                    \item<3-|alert@3> $\mathrm N_{\text{BS}} = 64$
+                    \item<4-|alert@4> $\mathrm N_{\text{RIS}} = 100$
+                    \item<5-|alert@5> The direct link is blocked
                 \end{itemize}
                 \onslide <6-7> We consider the Saleh-Valenzuela channel model:
                 \vspace{-6mm} \\
@@ -373,12 +373,12 @@ minimum height=3em, minimum width=6em]
         \begin{columns}
             \onslide <2-3> \begin{column}{0.45\textwidth}
                 \begin{block}{CSI}
-                    Channel estimation is challenging.
+                    Channel estimation is challenging
                 \end{block}
             \end{column}
             \begin{column}{0.45\textwidth}
                 \onslide <3> \begin{block}{No CSI}
-                    "Blind" method.
+                    "Blind" method
                 \end{block}
             \end{column}
         \end{columns}
@@ -453,106 +453,10 @@ minimum height=3em, minimum width=6em]
         \end{tikzpicture}
         \end{center}
         \footnotesize
-        \onslide<1-3>{{\color{red!70!black}Red}: successive pilot search levels over the pilot codebook $\boldsymbol{\Psi}_{1}^{N_p}$.} \\
-        \onslide<3->{{\color{blue!70!black}Blue}: final $\mathrm N_c = 8$ narrow DFT communication beams $\rightarrow$ communication codebook $\boldsymbol{\Phi}_{1}^{N_c} \subset  \boldsymbol{\Psi}_{1}^{N_p}$.} \\
+        \onslide<3->{{\color{red!70!black}Red} $\&$ {\color{blue!70!black}Blue}: successive pilot search levels over the pilot codebook $\boldsymbol{\Psi}_{1}^{N_p}$.} \\
+        \onslide<3->{{\color{blue!70!black}Blue} \textbf{only}: final $\mathrm N_c = 8$ narrow DFT communication beams $\rightarrow$ communication codebook $\boldsymbol{\Phi}_{1}^{N_c} \subset  \boldsymbol{\Psi}_{1}^{N_p}$.} \\
         \vspace{2mm}
         {\fontsize{5.5}{6.5}\selectfont{Z. Xiao, T. He, P. Xia, and X.-G. Xia, "Hierarchical Codebook Design for Beamforming Training in Millimeter-Wave Communication," IEEE Transactions on Wireless Communications, vol. 15, no. 5, pp. 3380-3392, (May 2016)}}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}[t]
-        \frametitle{Prior work: Baseline}
-        \framesubtitle{Bayesian Classifier: Protocol}
-        \begin{center}
-        % Fixed scale (matching the full 6-node diagram scaled to \textwidth)
-        % instead of \resizebox, so early overlays with fewer nodes aren't
-        % blown up to fill \textwidth on their own.
-        \scalebox{0.72}{
-        \begin{tikzpicture}[
-            node distance=2.2cm and 2.4cm,
-            every node/.style={font=\normalsize},
-            block/.style={rectangle, rounded corners, draw, thick, minimum width=5cm, minimum height=2cm, align=center},
-            arrow/.style={draw, thick, ->, >=stealth},
-            lbl/.style={font=\small, align=center, fill=white, inner sep=2pt}
-        ]
-            % Row 1: left to right
-            \node<1->[block, fill=blue!15, minimum width=1.8cm, minimum height=1.4cm]   (prior)   {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$};
-            \node<2->[block, fill=green!20, minimum width=1.6cm, minimum height=1.4cm, right=of prior]  (send)    {$s_k\in \mathbb{C}$, $\norm{s}^2 = 1$};
-            \node<3->[block, fill=green!20, right=of send]   (ris)     {$\pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$};
-
-            % Row 2: right to left
-            \node<4->[block, fill=yellow!25, below=of ris]    (measure) {$\mathrm Y_k = \mathbf y_k \mathbf y_k^{H}$};
-            \node<5->[block, fill=blue!15,   left=of measure] (update)  {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})$};
-            \node<6->[block, fill=red!20,    left=of update]  (final)   {$\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t}) \|\infty >1-\delta$ \\ $\Rightarrow \boldsymbol{\Phi}_{\text{opt}} = \argmax_{\boldsymbol{\Phi}} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$};
-            \draw<2->[arrow] (prior) -- node[lbl, above] {send pilot} (send);
-            \draw<3->[arrow] (send) -- node[lbl, above] {RIS applies} (ris);
-            \draw<4->[arrow] (ris) -- node[lbl, right] {BS receives} (measure);
-            \draw<5->[arrow] (measure) -- node[lbl, above] {update belief} (update);
-            \draw<6->[arrow] (update) -- node[lbl, above] {check $\delta$} (final);
-            \draw<6->[arrow] (final.north) -- ++(0,0.9) -| node[lbl, pos=0.25, above] {not confident} (send.south);
-        \end{tikzpicture}
-        }
-        \end{center}
-        \vfill
-        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Prior work: Baseline}
-        \framesubtitle{Reinforcement Learning: State, Action, and Reward Flow}
-        \begin{columns}
-    
-            % First Column (First Diagram)
-            \column{0.6\textwidth}
-            \only<1->{ % First diagram appears first
-            \begin{itemize}
-                \item<2-|alert@2> Initial state $\mathbf{S}_{\text{init}} = \rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$
-                \item<3-|alert@3> Action $\mathbf{a}_{t} \rightarrow \pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$
-                \item<4-|alert@4> Intermediate State $\mathbf{S}_{\text{t}}\rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t})$
-                \item<5-|alert@5> Reward $\mathbf{R}_{\text{t}} \rightarrow  -1$ until reaching $\mathbf{S}_{\text{terminal}}$ where confidence level is $1 - \delta$
-            \end{itemize}
-            }
-            \vspace{1cm}
-            \only<6->{
-            \begin{block}{Objective}
-                $\boldsymbol{\Phi}_{\text{opt}} = \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$
-                \\
-                $\mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}$
-            \end{block}
-            }
-            
-            % Second Column (Second Diagram)
-            \column{0.3\textwidth}
-            \only<1->{ % Second diagram appears on next step
-            \scalebox{0.65}{ % Scale down the diagram
-            \begin{tikzpicture}[
-                node distance=2cm and 3cm,
-                every node/.style={font=\small},
-                block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
-                arrow/.style={draw, thick, ->, >=stealth}
-            ]
-            
-            % Nodes
-            \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
-            \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
-            \node (state_t) at (3,0.5) {State $S_t$};
-            \node (reward_t) at (3,-0.5) {Reward $R_t$};
-            \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
-            \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
-            
-            % Arrows
-            \draw[arrow] (state_t) |- (agent);
-            \draw[arrow] (agent) -| (state_t1);
-            \draw[arrow] (reward_t1) |- (env);
-            \draw[arrow] (env) -| (reward_t);
-            
-            \end{tikzpicture}
-            }
-            }
-        \end{columns}
     \end{frame}
 
     %------------------------------------------------    
@@ -699,6 +603,102 @@ minimum height=3em, minimum width=6em]
     \end{frame}
 
     %------------------------------------------------
+
+    \begin{frame}[t]
+        \frametitle{Prior work: Baseline}
+        \framesubtitle{Bayesian Classifier: Protocol}
+        \begin{center}
+        % Fixed scale (matching the full 6-node diagram scaled to \textwidth)
+        % instead of \resizebox, so early overlays with fewer nodes aren't
+        % blown up to fill \textwidth on their own.
+        \scalebox{0.72}{
+        \begin{tikzpicture}[
+            node distance=2.2cm and 2.4cm,
+            every node/.style={font=\normalsize},
+            block/.style={rectangle, rounded corners, draw, thick, minimum width=5cm, minimum height=2cm, align=center},
+            arrow/.style={draw, thick, ->, >=stealth},
+            lbl/.style={font=\small, align=center, fill=white, inner sep=2pt}
+        ]
+            % Row 1: left to right
+            \node<1->[block, fill=blue!15, minimum width=1.8cm, minimum height=1.4cm]   (prior)   {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$};
+            \node<2->[block, fill=green!20, minimum width=1.6cm, minimum height=1.4cm, right=of prior]  (send)    {$s_k\in \mathbb{C}$, $\norm{s}^2 = 1$};
+            \node<3->[block, fill=green!20, right=of send]   (ris)     {$\pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$};
+
+            % Row 2: right to left
+            \node<4->[block, fill=yellow!25, below=of ris]    (measure) {$\mathrm Y_k = \mathbf y_k \mathbf y_k^{H}$};
+            \node<5->[block, fill=blue!15,   left=of measure] (update)  {$\mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm t},\boldsymbol{\Psi}_{1}^{\mathrm t})$};
+            \node<6->[block, fill=red!20,    left=of update]  (final)   {$\| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t}) \|\infty >1-\delta$ \\ $\Rightarrow \boldsymbol{\Phi}_{\text{opt}} = \argmax_{\boldsymbol{\Phi}} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$};
+            \draw<2->[arrow] (prior) -- node[lbl, above] {send pilot} (send);
+            \draw<3->[arrow] (send) -- node[lbl, above] {RIS applies} (ris);
+            \draw<4->[arrow] (ris) -- node[lbl, right] {BS receives} (measure);
+            \draw<5->[arrow] (measure) -- node[lbl, above] {update belief} (update);
+            \draw<6->[arrow] (update) -- node[lbl, above] {check $\delta$} (final);
+            \draw<6->[arrow] (final.north) -- ++(0,0.9) -| node[lbl, pos=0.25, above] {not confident} (send.south);
+        \end{tikzpicture}
+        }
+        \end{center}
+        \vfill
+        {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \frametitle{Prior work: Baseline}
+        \framesubtitle{Reinforcement Learning: State, Action, and Reward Flow}
+        \begin{columns}
+    
+            % First Column (First Diagram)
+            \column{0.6\textwidth}
+            \only<1->{ % First diagram appears first
+            \begin{itemize}
+                \item<2-|alert@2> Initial state $\mathbf{S}_{\text{init}} = \rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)) = \big[\frac{1}{N_c},\ldots,\frac{1}{N_c}\big]$
+                \item<3-|alert@3> Action $\mathbf{a}_{t} \rightarrow \pi_k \in \llbracket 1,N_p \rrbracket, i.e., \boldsymbol\Psi_{\pi_k} \in \boldsymbol{\Psi}_{1}^{N_p}$
+                \item<4-|alert@4> Intermediate State $\mathbf{S}_{\text{t}}\rightarrow \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm t},\boldsymbol{\Psi}_1^{\mathrm t})$
+                \item<5-|alert@5> Reward $\mathbf{R}_{\text{t}} \rightarrow  -1$ until reaching $\mathbf{S}_{\text{terminal}}$ where confidence level is $1 - \delta$
+            \end{itemize}
+            }
+            \vspace{1cm}
+            \only<6->{
+            \begin{block}{Objective}
+                $\boldsymbol{\Phi}_{\text{opt}} = \argmax_{c \in \llbracket 1,\mathrm N_c \rrbracket} \!\ \mathbf{p}(\boldsymbol{\Phi}(\mathbf H)| \mathrm Y_{1}^{\mathrm L_p},\boldsymbol{\Psi}_{1}^{\mathrm L_p})$
+                \\
+                $\mathrm L_{\text{min}} = \min \{\mathrm L_p : \| \mathbf{p}(\boldsymbol{\Phi}(\mathbf H) | \mathrm Y_1^{\mathrm L_p},\boldsymbol{\Psi}_1^{\mathrm L_p}) \|\infty >1-\delta\}$
+            \end{block}
+            }
+            
+            % Second Column (Second Diagram)
+            \column{0.3\textwidth}
+            \only<1->{ % Second diagram appears on next step
+            \scalebox{0.65}{ % Scale down the diagram
+            \begin{tikzpicture}[
+                node distance=2cm and 3cm,
+                every node/.style={font=\small},
+                block/.style={rectangle, draw, minimum width=2.5cm, minimum height=1.2cm, align=center},
+                arrow/.style={draw, thick, ->, >=stealth}
+            ]
+            
+            % Nodes
+            \node [fill=yellow!30] (agent) at (0,2) [block] {Agent};
+            \node [fill=yellow!30] (env) at (0,-2) [block] {Environment};
+            \node (state_t) at (3,0.5) {State $S_t$};
+            \node (reward_t) at (3,-0.5) {Reward $R_t$};
+            \node (state_t1) at (-3,0.5) {State $S_{t+1}$};
+            \node (reward_t1) at (-3,-0.5) {Reward $R_{t+1}$};
+            
+            % Arrows
+            \draw[arrow] (state_t) |- (agent);
+            \draw[arrow] (agent) -| (state_t1);
+            \draw[arrow] (reward_t1) |- (env);
+            \draw[arrow] (env) -| (reward_t);
+            
+            \end{tikzpicture}
+            }
+            }
+        \end{columns}
+    \end{frame}
+
+    %------------------------------------------------
     
     \begin{frame}
         \frametitle{Prior work: Baseline}
@@ -726,7 +726,7 @@ minimum height=3em, minimum width=6em]
             \footnotesize
             Learn $Q$-function $Q(S,A)$ from experienced transitions $(S,A,R,S')$, then act greedily:
             \begin{equation*}
-                \underbrace{Q(S,A) \leftarrow Q(S,A) + \alpha\big[R + \gamma \max_{A'} Q(S',A') - Q(S,A)\big]}_{\text{update}}
+                \underbrace{Q(S,A) \leftarrow Q(S,A) + \alpha\big[R + \gamma \max_{A'} Q(S',A') - Q(S,A)\big]}_{\text{update according to Bellman equation}}
                 \quad
                 \underbrace{\pi^*(S) = \arg\max_{A} Q^*(S,A)}_{\text{greedy policy}}
             \end{equation*}
@@ -744,7 +744,7 @@ minimum height=3em, minimum width=6em]
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{From Q-Learning to Deep Q-Learning}
-        Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces.
+        Replacing the Q-table with a neural network (NN) that generalizes over continuous state spaces:
         \pause
         \begin{center}
         \scalebox{0.72}{
@@ -771,9 +771,9 @@ minimum height=3em, minimum width=6em]
         \pause
         \begin{block}{Approximation of the Q-function}
             The Q-function approximation can thus be expressed as:
-            \begin{equation}
-                Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right],
-            \end{equation}
+            \begin{equation*}
+                Q_{\text{eval}}(S, A; \theta^{(eval)}) \approx \mathbb{E}\left[R + \gamma \max_{A'} Q_{\text{target}}(S', A'; \theta^{(target)})\right]
+            \end{equation*}
         \end{block}
     \end{frame}
 
@@ -809,7 +809,7 @@ minimum height=3em, minimum width=6em]
     %------------------------------------------------
 
     \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}delet
+        \frametitle{Proposed approach: Deep Reinforcement Learning}
         \framesubtitle{Limitations of Deep Q-Learning (DQN)}
         We first considered the following simplification:
         \begin{equation*}
@@ -825,7 +825,7 @@ minimum height=3em, minimum width=6em]
             \node [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (x) {\ding{55}};
             \node [right=0.3cm of x] [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (y) {\ding{55}};
             \node [right=0.3cm of y] [draw, thick, circle, red!70!black, minimum size=0.55cm, font=\small\bfseries] (z) {\ding{55}};
-            \node [right=0.3cm of z] {\cite{chene-}: 3 rejections.};
+            \node [right=0.3cm of z] {\cite{chene-}: 3 rejections};
         \end{tikzpicture}
         \end{center}
         }
@@ -834,7 +834,7 @@ minimum height=3em, minimum width=6em]
         \vspace{-0.1cm}
         \begin{equation*}
             \centering
-            \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell).
+            \mathbf{H} = \sqrt{\frac{N_t N_r}{L}} \sum_{\ell=1}^{L} \alpha_\ell \, \mathbf{a}_{N_r}(\Phi^{Arr}_\ell) \, \mathbf{a}_{N_t}^H(\Phi^{Dep}_\ell)
         \end{equation*}
         }
         {\fontsize{5.5}{6.5}\selectfont{\cite{chene-}: T. Chene, O. Bounhar, G. Rekaya, and O. Damen, “Adaptive Passive Beamforming in RIS-Aided Communications with Q-Learning,” WCNC 2025.}}
@@ -862,11 +862,11 @@ minimum height=3em, minimum width=6em]
                 \begin{block}{DDQN}
                     Target:
                     \begin{equation*}
-                        Q_{\text{target}} = R + \gamma\, Q_{\text{target}}(S', A^*; \theta^{(target)}),
+                        Q_{\text{target}} = R + \gamma\, Q_{\text{target}}(S', A^*; \theta^{(target)})
                     \end{equation*}
                     \vspace{-0.4cm}
                     \begin{equation*}
-                        A^* = \argmax_{\Psi} Q_{\text{eval}}(S', \Psi; \theta^{(eval)}).
+                        A^* = \argmax_{\Psi} Q_{\text{eval}}(S', \Psi; \theta^{(eval)})
                     \end{equation*}
                     \alert{reduced overestimation, more stable learning}
                 \end{block}
@@ -876,7 +876,7 @@ minimum height=3em, minimum width=6em]
         \vspace{0.3cm}
         \onslide<2->{
         \begin{center}
-            Same architecture and cost: only the target computation changes.
+            Same architecture and cost: only the target computation changes
         \end{center}
         }
     \end{frame}
@@ -901,89 +901,61 @@ minimum height=3em, minimum width=6em]
 
     \begin{frame}
         \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization (PPO): Actor-Critic structure}
+        \framesubtitle{Proximal Policy Optimization (PPO)}
+        \vspace{-0.15cm}
+        \small
         \begin{columns}[T]
-            \begin{column}{0.5\textwidth}
+            \begin{column}{0.52\textwidth}
                 \onslide<1->{
                 \begin{block}{Actor $\pi_{\theta}(\Psi \mid S)$}
-                    Learns the \textbf{policy} directly: a probability over the pilot codewords $\Psi$, given the state $S$.
+                    \small Learns the \textbf{policy} directly
                 \end{block}
                 }
+                \vspace{-0.1cm}
                 \onslide<2->{
                 \begin{block}{Critic $V_{\phi}(S)$}
-                    Estimates the expected return from state $S$.
+                    \small Estimates the expected return from state $S$
                 \end{block}
                 }
+                \vspace{-0.1cm}
                 \onslide<3->{
                 \begin{block}{Advantage}
-                    \vspace{-0.3cm}
+                    \vspace{-0.2cm}
                     \begin{equation*}
-                        \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
+                        \small \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
                     \end{equation*}
-                    $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
+                    \vspace{-0.15cm}
+                    \small $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
                 \end{block}
                 }
             \end{column}
-            \begin{column}{0.48\textwidth}
+            \begin{column}{0.46\textwidth}
                 \centering
+                \vspace{0.1cm}
                 \begin{tikzpicture}[>=stealth, thick, font=\footnotesize,
-                    box/.style={rectangle, rounded corners, draw, minimum width=2.2cm, minimum height=0.8cm, align=center}]
+                    box/.style={rectangle, rounded corners, draw, minimum width=2.3cm, minimum height=0.75cm, align=center}]
                     \node<1-> (actor) [box, fill=blue!10] {Actor\\$\pi_{\theta}(\Psi \mid S)$};
-                    \node<1-> (env) [box, fill=gray!15, below=1.2cm of actor] {Environment\\(RIS channel)};
-                    \node<2-> (critic) [box, fill=orange!15, below=1.2cm of env] {Critic\\$V_{\phi}(S)$};
+                    \node<1-> (env) [box, fill=gray!15, below=1.05cm of actor] {Environment\\(RIS channel)};
+                    \node<2-> (critic) [box, fill=orange!15, below=1.05cm of env] {Critic\\$V_{\phi}(S)$};
 
                     \draw<1-> [->] ([xshift=0.5cm]actor.south) -- node[right] {$\Psi$} ([xshift=0.5cm]env.north);
                     \draw<1-> [->] ([xshift=-0.5cm]env.north) -- node[left] {$S$} ([xshift=-0.5cm]actor.south);
                     \draw<2-> [->] (env.south) -- node[right] {$R,\ S'$} (critic.north);
-                    \draw<3-> [->, red] (critic.east) -- ++(0.6,0) |- node[pos=0.25, right] {$\hat{A}$} (actor.east);
+                    \draw<3-> [->, red] (critic.east) -- ++(0.7,0) |- node[pos=0.25, right] {$\hat{A}$} (actor.east);
                 \end{tikzpicture}
             \end{column}
         \end{columns}
-    \end{frame}
-
-    %------------------------------------------------
-
-    \begin{frame}
-        \frametitle{Proposed approach: Deep Reinforcement Learning}
-        \framesubtitle{Proximal Policy Optimization (PPO): Clipped policy update}
-        \onslide<1->{
+        \vspace{0.01cm}
+        \onslide<4->{
         \begin{block}{Clipped objective}
-            \vspace{-0.3cm}
-            \begin{equation*}
-                r(\theta) = \frac{\pi_{\theta}(\Psi \mid S)}{\pi_{\theta_{\text{old}}}(\Psi \mid S)},
+            \vspace{0.1cm}
+            \resizebox{0.82\textwidth}{!}{$
+                r(\theta) = \dfrac{\pi_{\theta}(\Psi \mid S)}{\pi_{\theta_{\text{old}}}(\Psi \mid S)},
                 \qquad
                 \mathcal{L}^{\text{CLIP}}(\theta) = \mathbb{E}\Big[\min\big(r(\theta)\hat{A},\ \text{clip}\big(r(\theta), 1-\epsilon_{\text{clip}}, 1+\epsilon_{\text{clip}}\big)\hat{A}\big)\Big]
-            \end{equation*}
-            The new policy cannot move too far from the old one in a single update $\Rightarrow$ \alert{stable learning}.
+            $}
         \end{block}
         }
-        \vspace{-0.2cm}
-        \small
-        \begin{columns}[T]
-            \begin{column}{0.48\textwidth}
-                \onslide<2->{
-                \begin{block}{Training loop}
-                    \begin{enumerate}
-                        \item Collect episodes with $\pi_{\theta_{\text{old}}}$;
-                        \item Compute the advantages $\hat{A}$;
-                        \item Update actor ($\mathcal{L}^{\text{CLIP}}$) and critic (MSE);
-                        \item $\theta_{\text{old}} \leftarrow \theta$.
-                    \end{enumerate}
-                \end{block}
-                }
-            \end{column}
-            \begin{column}{0.48\textwidth}
-                \onslide<3->{
-                \begin{block}{vs. DQN / DDQN}
-                    \begin{itemize}
-                        \item No $\max_{\Psi}$: no overestimation bias;
-                        \item No replay buffer: learns on-policy;
-                        \item Exploration comes from the stochastic policy, not $\epsilon$-greedy.
-                    \end{itemize}
-                \end{block}
-                }
-            \end{column}
-        \end{columns}
     \end{frame}
 
     %------------------------------------------------
@@ -1008,7 +980,7 @@ minimum height=3em, minimum width=6em]
         \end{figure}
         \onslide<2->{
         \begin{block}{\footnotesize Note}
-            \footnotesize Couldn't scale when varying the gain variance $\sigma_\alpha$.
+            \footnotesize Couldn't scale when varying the gain variance $\sigma_\alpha$
         \end{block}
         }
     \end{frame}
@@ -1037,8 +1009,8 @@ minimum height=3em, minimum width=6em]
                 \vspace{0.2cm}
                 Using the angles from the previous slide, a candidate survives only if:
                 \begin{itemize}
-                    \item both legs are unobstructed;
-                    \item $\cos\theta_\mathrm{i}>0$ and $\cos\theta_\mathrm{m}>0$.
+                    \item both legs are unobstructed
+                    \item $\cos\theta_\mathrm{i}>0$ and $\cos\theta_\mathrm{m}>0$
                 \end{itemize}
             \end{column}
         \end{columns}
@@ -1095,10 +1067,11 @@ minimum height=3em, minimum width=6em]
                 \includegraphics[width=\textwidth]{Figures/ris_scene_rt_multipath.PNG}
             \end{column}
             \begin{column}{0.45\textwidth}
-                \small Each traced path is a single-bounce candidate TX $\to c_n \to$ RX through one RIS unit cell $c_n$, obtained by ray tracing (Sionna RT) over the scene. A path is kept only if it satisfies:
+                \vspace{0.5cm}
+                \small
                 \begin{itemize}
-                    \item \textbf{line-of-sight} on both legs (TX--$c_n$ and $c_n$--RX unobstructed);
-                    \item \textbf{positive illumination/re-radiation}: $\cos\theta_i>0$ and $\cos\theta_m>0$.
+                    \item A single reflection/diffraction is allowed per link: $TX \to c_n$ and $c_n \to RX$ to avoid exponential growth of the number of paths with the number of unit cells
+                    \item The resulting channel is a geometric multipath channel
                 \end{itemize}
             \end{column}
         \end{columns}
@@ -1117,8 +1090,8 @@ minimum height=3em, minimum width=6em]
             \begin{column}{0.43\textwidth}
                 \footnotesize
                 \begin{itemize}
-                    \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap, as before.
-                    \item \emph{Sionna + RIS} confirms the RIS's multipath is correctly captured, requiring higher SNR for the same BER, across every QAM order.
+                    \item Baselines: theoretical \emph{Rayleigh Without Sionna} and \emph{Flat Fading With Sionna} overlap
+                    \item \emph{Sionna + RIS} confirms the RIS's multipath is correctly captured
                 \end{itemize}
             \end{column}
         \end{columns}
@@ -1774,8 +1747,8 @@ minimum height=3em, minimum width=6em]
 
                 \vspace{-0.1cm}
                 where:
-                \begin{align*}
                 \small
+                \begin{align*}
                 G_{u,v}
                 &=
                 \frac{3\lambda}{16\pi}
@@ -1898,5 +1871,45 @@ minimum height=3em, minimum width=6em]
     \end{frame}
     
     %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=1.015\textwidth]{Figures/canva/sionna_default_settings.png}
+    \end{frame}
+    
+    %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=1.015\textwidth]{Figures/canva/different_scene_configurations.png}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=1.015\textwidth]{Figures/canva/impact_power_tx.png}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Figures/canva/adopted_strategy_sionna.png}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=1.015\textwidth]{Figures/canva/ppo_explained_1.png}
+    \end{frame}
+
+    %------------------------------------------------
+
+    \begin{frame}
+        \centering
+        \includegraphics[width=1.015\textwidth]{Figures/canva/ppo_explained_2.png}
+    \end{frame}
 
 \end{document} 
