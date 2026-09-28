@@ -288,7 +288,7 @@ minimum height=3em, minimum width=6em]
                 \begin{equation*}
                     \mathbf{a}_{\mathrm N}(\phi) = [1,e^{j\pi \sin (\phi)},\ldots, e^{j\pi (\mathrm N-1) \sin (\phi)}]^T
                 \end{equation*}
-                and the attenuation $\alpha_\ell\sim \mathcal{CN}(1,\sigma_{\alpha}^2)$.
+                and the attenuation $\alpha_\ell\sim \mathcal{CN}(\mu_\alpha,\sigma_{\alpha}^2)$.
             \end{column}
     \end{columns}
     \end{frame}
@@ -571,7 +571,7 @@ minimum height=3em, minimum width=6em]
             \begin{column}{0.58\textwidth}
                 \onslide<1->{
                 \begin{center}
-                    \large This collection \emph{is} the likelihood model.
+                    \large This collection \emph{is} the likelihood model
                 \end{center}
                 }
                 \vspace{0.5cm}
@@ -920,12 +920,13 @@ minimum height=3em, minimum width=6em]
                 \vspace{-0.1cm}
                 \onslide<3->{
                 \begin{block}{Advantage}
+                    \small
                     \vspace{-0.2cm}
                     \begin{equation*}
-                        \small \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
+                        \hat{A} = R + \gamma V_{\phi}(S') - V_{\phi}(S)
                     \end{equation*}
                     \vspace{-0.15cm}
-                    \small $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
+                    $\hat{A} > 0$: $\Psi$ did \textbf{better} than expected.
                 \end{block}
                 }
             \end{column}
@@ -1734,7 +1735,6 @@ minimum height=3em, minimum width=6em]
 
                 \small The reradiated field from the RIS at point $S'$ is given by:
                 \begin{equation*}
-                \small
                 \mathbf{E}_{r}(S')
                 =
                 \sum_{u=1}^{N_y}
