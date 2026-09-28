@@ -40,6 +40,8 @@ minimum height=3em, minimum width=6em]
 \tikzstyle{output} = [coordinate]
 \tikzstyle{arrow}=[draw, -latex]
 
+\usepackage{booktabs}
+
 \usepackage{pifont} % For symbols, icônes...
 \usepackage{xcolor}
 \usepackage{fontawesome5} % For doctor/book/vial icons in the analogy slides
@@ -1913,5 +1915,217 @@ minimum height=3em, minimum width=6em]
         \centering
         \includegraphics[width=1.015\textwidth]{Figures/canva/ppo_explained_2.png}
     \end{frame}
+
+    % % ============================================================
+    % % Required in preamble:
+    % %   \usepackage{amsmath,amssymb,booktabs,tikz}
+    % %   \usetikzlibrary{decorations.pathreplacing}
+    % % ============================================================
+
+    % % ------------------------------------------------------------
+    % % 1. Cost of pilots
+    % % ------------------------------------------------------------
+    % \begin{frame}{The Cost of Pilots in Channel Estimation}
+    % \begin{itemize}
+    %     \item Pilot symbols carry \alert{no data}: every pilot is a lost data symbol
+    %     \item Channel constant over a coherence block of $\tau_c$ symbols, $\tau_p$ spent on pilots:
+    % \end{itemize}
+    % \vspace{0.3em}
+    % \begin{equation*}
+    %     R_{\text{eff}} = \left(1 - \frac{\tau_p}{\tau_c}\right) R
+    % \end{equation*}
+    % \vspace{0.3em}
+    % \begin{itemize}
+    %     \item Pilot cost is \alert{relative to coherence time}
+    %     \begin{itemize}
+    %         \item Cheap: static user, sub-6\,GHz
+    %         \item Expensive: mobile user, mmWave
+    %     \end{itemize}
+    %     \item Additional costs:
+    %     \begin{itemize}
+    %         \item Transmit energy (critical for uplink training at the UE)
+    %         \item Latency before the first data symbol
+    %         \item RIS: reconfiguration switching time added at \emph{every} pilot step
+    %     \end{itemize}
+    % \end{itemize}
+    % \end{frame}
+
+    % % ------------------------------------------------------------
+    % % 2. Coherence block
+    % % ------------------------------------------------------------
+    % \begin{frame}{The Coherence Block}
+    % \small
+    % \textbf{Definition:} time--frequency region where the channel is (approximately) constant
+    % $\Rightarrow$ one estimate is valid for the whole block.
+    % \vspace{0.3em}
+    % \begin{columns}[T]
+    %     \begin{column}{0.55\textwidth}
+    %     \textbf{Time: coherence time} (mobility)
+    %     \begin{align*}
+    %         f_d &= \frac{v\, f_c}{c} \quad \text{(max.\ Doppler shift)}\\
+    %         T_c &\approx \frac{9}{16\pi f_d} \approx \frac{0.423}{f_d}
+    %     \end{align*}
+    %     \vspace{-0.8em}
+    %     {\scriptsize (time correlation $\geq 0.5$, Clarke model)}
+
+    %     \vspace{0.4em}
+    %     \textbf{Frequency: coherence bandwidth} (multipath)
+    %     \begin{equation*}
+    %         B_c \approx \frac{1}{5\,\sigma_\tau}
+    %     \end{equation*}
+    %     \vspace{-0.8em}
+    %     {\scriptsize ($\sigma_\tau$: RMS delay spread, freq.\ correlation $\geq 0.5$)}
+    %     \end{column}
+    %     \begin{column}{0.42\textwidth}
+    %     \begin{center}
+    %     \begin{tikzpicture}[scale=0.55]
+    %         \foreach \i in {0,...,7} \foreach \j in {0,...,5}
+    %         \draw[gray!50] (\i,\j) rectangle ++(1,1);
+    %         \fill[blue!25, opacity=0.8] (1,1) rectangle (5,4);
+    %         \draw[blue, thick] (1,1) rectangle (5,4);
+    %         \node[font=\scriptsize] at (3,2.5) {$\tau_c$};
+    %         \draw[decorate, decoration={brace, mirror}, thick] (1,0.9) -- (5,0.9)
+    %         node[midway, below, font=\scriptsize] {$T_c$};
+    %         \draw[decorate, decoration={brace}, thick] (0.9,1) -- (0.9,4)
+    %         node[midway, left, font=\scriptsize] {$B_c$};
+    %         \draw[->] (0,-0.9) -- (8.5,-0.9) node[right, font=\scriptsize] {$t$};
+    %         \draw[->] (-0.9,0) -- (-0.9,6.5) node[above, font=\scriptsize] {$f$};
+    %     \end{tikzpicture}
+    %     \end{center}
+    %     \end{column}
+    % \end{columns}
+    % \vspace{0.3em}
+    % \textbf{Size in channel uses:}
+    % \begin{equation*}
+    %     \tau_c = T_c\, B_c
+    %     \quad\overset{\text{OFDM}}{=}\quad
+    %     \underbrace{\frac{T_c}{T_{\text{sym}}}}_{N_T \text{ symbols}}
+    %     \times
+    %     \underbrace{\frac{B_c}{\Delta f}}_{N_F \text{ subcarriers}},
+    %     \qquad
+    %     T_{\text{sym}} = \frac{1 + \alpha_{\text{CP}}}{\Delta f}
+    % \end{equation*}
+    % \end{frame}
+
+    % % ------------------------------------------------------------
+    % % 3. RIS: pilots scale with N
+    % % ------------------------------------------------------------
+    % \begin{frame}{RIS-Assisted Systems: Pilots Scale with $N$}
+    % \small
+    % \textbf{Cascaded channel on subcarrier $k$ at time $t$:}
+    % \begin{equation*}
+    %     \mathbf{h}_k(t) = \mathbf{h}_{d,k} + \mathbf{G}_k\,\mathrm{diag}\big(\boldsymbol{\theta}(t)\big)\,\mathbf{h}_{r,k},
+    %     \qquad
+    %     \boldsymbol{\theta}(t) = \big[e^{j\phi_1(t)}, \dots, e^{j\phi_N(t)}\big]^T
+    % \end{equation*}
+    % \begin{itemize}
+    %     \item $\boldsymbol{\theta}(t)$ varies \alert{across elements} (beam shaping, multi-beam reradiation)
+    %     \item but \alert{not across subcarriers}: no index $k$ on $\boldsymbol{\theta}$
+    %     \item[$\Rightarrow$] $N+1$ linearly independent patterns needed, spread \emph{in time}
+    % \end{itemize}
+    % \vspace{0.3em}
+    % \begin{center}
+    % \begin{tabular}{@{}ll@{}}
+    %     \toprule
+    %     Setting & Minimum pilot symbols $\tau_p$ \\
+    %     \midrule
+    %     Single user, LS & $N + 1$ \\
+    %     $K$ users, naive & $K(N+1)$ \\
+    %     $K$ users, common BS--RIS channel & $N + \max\!\left(K-1, \left\lceil \frac{(K-1)N}{M} \right\rceil\right)$ \\
+    %     \bottomrule
+    % \end{tabular}
+    % \end{center}
+    % \vspace{0.3em}
+    % {\scriptsize Multi-user: users send orthogonal pilots while the RIS cycles through the same patterns
+    % $\Rightarrow$ trained in parallel; multi-beam profiles do not reduce the $N$ unknowns per user.}
+    % \end{frame}
+
+    % % ------------------------------------------------------------
+    % % 4. Order of magnitude
+    % % ------------------------------------------------------------
+    % \begin{frame}{Order of Magnitude at 28\,GHz}
+    % \small
+    % \begin{columns}[T]
+    %     \begin{column}{0.5\textwidth}
+    %     \textbf{Time dimension} ($v = 30$\,km/h, $\Delta f = 120$\,kHz)
+    %     \begin{align*}
+    %         f_d &= \tfrac{8.33 \times 28\cdot 10^9}{3\cdot 10^8} \approx 778\ \text{Hz}\\
+    %         T_c &\approx \tfrac{0.423}{778} \approx 0.54\ \text{ms}\\
+    %         T_{\text{sym}} &\approx \tfrac{1.07}{120\cdot 10^3} \approx 8.9\ \mu\text{s}\\
+    %         N_T &= \tfrac{T_c}{T_{\text{sym}}} \approx \alert{61\ \text{symbols}}
+    %     \end{align*}
+    %     \end{column}
+    %     \begin{column}{0.48\textwidth}
+    %     \textbf{Frequency dimension} ($\sigma_\tau = 50$\,ns)
+    %     \begin{align*}
+    %         B_c &\approx \tfrac{1}{5 \times 50\cdot 10^{-9}} = 4\ \text{MHz}\\
+    %         N_F &= \tfrac{B_c}{\Delta f} \approx 33\ \text{subcarriers}
+    %     \end{align*}
+    %     \vspace{-0.5em}
+    %     \begin{alertblock}{RIS constraint}
+    %         $\boldsymbol{\theta}(t)$ shared by all subcarriers\\
+    %         $\Rightarrow$ only $N_T$ usable for training
+    %     \end{alertblock}
+    %     \end{column}
+    % \end{columns}
+    % \vspace{0.5em}
+    % \textbf{Requirement:} RIS $16\times 16$, $N = 256$ $\Rightarrow$ $\tau_p \geq N+1 = 257$ symbols
+    % $\approx \alert{4.2\,N_T}$
+    % \vspace{0.5em}
+    % \begin{center}
+    % \begin{tikzpicture}[x=0.036cm, y=0.8cm]
+    %     \fill[blue!30] (0,0.6) rectangle (61,1.0);
+    %     \node[anchor=west, font=\scriptsize] at (63,0.8) {Coherence time $N_T \approx 61$};
+    %     \fill[red!40] (0,0) rectangle (257,0.4);
+    %     \node[anchor=east, font=\scriptsize] at (255,0.2) {Pilots $\tau_p = 257$};
+    %     \draw[dashed, thick] (61,-0.15) -- (61,1.15);
+    %     \node[font=\scriptsize, below] at (61,-0.15) {channel changes};
+    %     \draw[->] (0,-0.6) -- (270,-0.6) node[right, font=\scriptsize] {OFDM symbols};
+    % \end{tikzpicture}
+    % \end{center}
+    % \end{frame}
+
+    % % ------------------------------------------------------------
+    % % 5. Reducing the overhead
+    % % ------------------------------------------------------------
+    % \begin{frame}{Reducing the Training Overhead}
+    % \begin{center}
+    % \begin{tabular}{@{}lll@{}}
+    %     \toprule
+    %     Approach & Pilot cost & Trade-off \\
+    %     \midrule
+    %     Full LS estimation & $\mathcal{O}(N)$ & Infeasible for large $N$ \\
+    %     Compressive sensing (sparsity, $L$ paths) & $\mathcal{O}(L \log N)$ & Relies on sparse model \\
+    %     Element grouping & $\mathcal{O}(N/G)$ & Loss of beamforming gain \\
+    %     Hierarchical beam training & $\mathcal{O}(\log N)$ & Codebook resolution \\
+    %     \alert{Blind / feedback-driven} & \alert{No channel estimate} & Convergence time \\
+    %     \bottomrule
+    % \end{tabular}
+    % \end{center}
+    % \end{frame}
+
+    % % ------------------------------------------------------------
+    % % 6. Positioning
+    % % ------------------------------------------------------------
+    % \begin{frame}{Positioning: Blind Beamforming with DQN}
+    % \begin{itemize}
+    %     \item \textbf{Idea:} skip channel estimation entirely
+    %     \begin{itemize}
+    %         \item Agent observes only received power / SNR feedback
+    %         \item Learns RIS configurations directly
+    %     \end{itemize}
+    %     \item \textbf{Baseline to beat:} $N + 1$ pilot symbols per coherence block
+    %     \item \textbf{Fair comparison metric:}
+    %     \begin{itemize}
+    %         \item Number of RIS configurations probed until convergence
+    %         \item vs.\ pilot symbols needed by estimation-based schemes
+    %     \end{itemize}
+    % \end{itemize}
+    % \vspace{0.5em}
+    % \begin{block}{Takeaway}
+    %     For large RIS at mmWave, pilot overhead grows as $\mathcal{O}(N)$ while coherence time shrinks,
+    %     which motivates estimation-free (blind) optimization.
+    % \end{block}
+    % \end{frame}
 
 \end{document} 
