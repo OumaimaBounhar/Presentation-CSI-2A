@@ -488,7 +488,7 @@ minimum height=3em, minimum width=6em]
             % --- 14 cheap tests, single row, box sized to hold exactly that row ---
             \node<3-> (tests) [draw, thick, rounded corners, fill=green!5,
                 minimum width=5.8cm, minimum height=0.9cm] at (3.2,-0.65) {};
-            \node<3-> [above=0.05cm of tests, font=\bfseries] {14 Cheap Lab Tests};
+            \node<3-> [above=0.05cm of tests, font=\bfseries] {14 Lab Tests};
             \foreach \i in {1,...,14}{
                 \pgfmathsetmacro{\vx}{3.2-2.6+(\i-1)*0.4}
                 \node<3-> [font=\normalsize, green!50!black] at (\vx,-0.65) {\faVial};
@@ -496,7 +496,7 @@ minimum height=3em, minimum width=6em]
 
             % --- doctor administers tests ---
             \draw<4-> [->, thick] (doctor) to[bend left=15] (tests.south west);
-            \node<4-> [below=0.05cm of tests, font=\footnotesize] {sequentially run, one at a time};
+            \node<4-> [below=0.05cm of tests, font=\footnotesize] {sequentially run, one at a time, \\ from the cheapest to the most expensive};
 
             % --- doctor consults the reference book with accumulated results ---
             \draw<5-> [->, thick, red!70!black] (tests.north west) to[bend left=25] (book.south east);
